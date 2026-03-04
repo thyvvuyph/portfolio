@@ -53,49 +53,14 @@ document.querySelector('#app').innerHTML = `
 
   <section id="gallery" class="py-24 px-8 max-w-6xl mx-auto">
     <h2 class="text-xs tracking-widest text-gray-500 mb-8">GALLERY</h2>
+    <p class="text-gray-600 mb-8">Portfolio images coming soon. Please visit <a href="https://www.haleydesign.com.au" class="underline hover:text-black">www.haleydesign.com.au</a> to view my work.</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-01.svg" alt="Portfolio 1" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-02.svg" alt="Portfolio 2" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-03.svg" alt="Portfolio 3" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-04.svg" alt="Portfolio 4" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-05.svg" alt="Portfolio 5" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-06.svg" alt="Portfolio 6" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-07.svg" alt="Portfolio 7" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-08.svg" alt="Portfolio 8" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-09.svg" alt="Portfolio 9" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-10.svg" alt="Portfolio 10" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-11.svg" alt="Portfolio 11" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-12.svg" alt="Portfolio 12" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-13.svg" alt="Portfolio 13" class="w-full h-full object-cover">
-      </div>
-      <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-        <img src="/Port1-14.svg" alt="Portfolio 14" class="w-full h-full object-cover">
-      </div>
+      <div class="aspect-square bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Portfolio 1</div>
+      <div class="aspect-square bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Portfolio 2</div>
+      <div class="aspect-square bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Portfolio 3</div>
+      <div class="aspect-square bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Portfolio 4</div>
+      <div class="aspect-square bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Portfolio 5</div>
+      <div class="aspect-square bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Portfolio 6</div>
     </div>
   </section>
 
