@@ -3,9 +3,9 @@
     <div class="flex-1"></div>
     <div class="flex gap-12">
       <a href="#home" class="text-sm font-medium hover:text-violet-600 transition">${t.nav.home}</a>
-      <a href="#about" class="text-sm font-medium hover:text-violet-600 transition">${t.nav.about}</a>
       <a href="#works" class="text-sm font-medium hover:text-violet-600 transition">${t.nav.works}</a>
       <a href="#gallery" class="text-sm font-medium hover:text-violet-600 transition">${t.nav.gallery}</a>
+      <a href="#about" class="text-sm font-medium hover:text-violet-600 transition">${t.nav.about}</a>
       <a href="#contact" class="text-sm font-medium hover:text-violet-600 transition">${t.nav.contact}</a>
     </div>
     <div class="flex-1 flex justify-end">
