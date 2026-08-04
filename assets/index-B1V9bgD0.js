@@ -74,7 +74,6 @@
         <h5 class="text-sm mb-4 tracking-wider text-violet-300">${t.footer.contactTitle}</h5>
         <a href="mailto:pthvy20@gmail.com" class="block text-violet-400 text-sm mb-2 hover:text-yellow-400 transition">pthvy20@gmail.com</a>
         <p class="text-violet-400 text-sm mb-2">0708 575 775</p>
-        <a href="https://www.haleydesign.com.au" class="block text-violet-400 text-sm mb-2 hover:text-yellow-400 transition">www.haleydesign.com.au</a>
       </div>
     </div>
     <p class="text-center text-violet-400 text-sm pt-8 border-t border-violet-800">2026 | ${t.footer.name}</p>
