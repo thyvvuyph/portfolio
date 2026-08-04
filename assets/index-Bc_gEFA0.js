@@ -50,8 +50,8 @@
     </div>
   </section>
 
-  <section id="contact" class="py-32 px-8 text-center text-white" style="background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f59e0b 100%);">
-    <h2 class="text-5xl font-bold mb-12">${e.contact.title}</h2>
+  <section id="contact" class="py-16 px-8 text-center text-white" style="background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f59e0b 100%);">
+    <h2 class="text-5xl font-bold mb-8">${e.contact.title}</h2>
     <a href="mailto:pthvy20@gmail.com" class="inline-block px-10 py-4 bg-white text-violet-700 rounded-full font-semibold hover:scale-105 transition shadow-lg">${e.contact.cta}</a>
     <p class="mt-8 text-white/80">0708 575 775 • pthvy@gmail.com</p>
   </section>
