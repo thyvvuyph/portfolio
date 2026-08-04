@@ -46,7 +46,6 @@
 
   <section id="gallery" class="py-24 px-8 max-w-6xl mx-auto">
     <h2 class="text-xs tracking-widest text-violet-500 mb-8">${t.gallery.title}</h2>
-    <p class="text-gray-600 mb-8">${t.gallery.text} <a href="https://www.haleydesign.com.au" class="underline text-violet-600 hover:text-pink-500 transition">${t.gallery.link}</a> ${t.gallery.linkText}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="aspect-square rounded-2xl flex items-center justify-center text-white font-semibold text-lg" style="background: linear-gradient(135deg, #7c3aed, #ec4899);">Portfolio 1</div>
       <div class="aspect-square rounded-2xl flex items-center justify-center text-white font-semibold text-lg" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);">Portfolio 2</div>
