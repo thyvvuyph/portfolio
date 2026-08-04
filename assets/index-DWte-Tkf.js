@@ -2,10 +2,10 @@
   <nav class="fixed top-0 w-full flex justify-between items-center px-8 py-6 z-50 border-b border-violet-800" style="background: #1e1b4b;">
     <div class="flex-1"></div>
     <div class="flex gap-12">
-      <a href="#home" class="text-sm font-medium text-violet-700 transition" onmouseover="this.style.color='#eab308'" onmouseout="this.style.color=''">${e.nav.home}</a>
-      <a href="#works" class="text-sm font-medium text-violet-700 transition" onmouseover="this.style.color='#eab308'" onmouseout="this.style.color=''">${e.nav.works}</a>
-      <a href="#gallery" class="text-sm font-medium text-violet-700 transition" onmouseover="this.style.color='#eab308'" onmouseout="this.style.color=''">${e.nav.gallery}</a>
-      <a href="#contact" class="text-sm font-medium text-violet-700 transition" onmouseover="this.style.color='#eab308'" onmouseout="this.style.color=''">${e.nav.contact}</a>
+      <a href="#home" class="text-sm font-medium transition" style="color: #a78bfa;" onmouseover="this.style.color='#eab308'" onmouseout="this.style.color='#a78bfa'">${e.nav.home}</a>
+      <a href="#works" class="text-sm font-medium transition" style="color: #a78bfa;" onmouseover="this.style.color='#eab308'" onmouseout="this.style.color='#a78bfa'">${e.nav.works}</a>
+      <a href="#gallery" class="text-sm font-medium transition" style="color: #a78bfa;" onmouseover="this.style.color='#eab308'" onmouseout="this.style.color='#a78bfa'">${e.nav.gallery}</a>
+      <a href="#contact" class="text-sm font-medium transition" style="color: #a78bfa;" onmouseover="this.style.color='#eab308'" onmouseout="this.style.color='#a78bfa'">${e.nav.contact}</a>
     </div>
     <div class="flex-1 flex justify-end">
       <button onclick="toggleLang()" class="text-sm font-medium px-3 py-1 rounded-full border border-violet-400 text-violet-700 hover:bg-violet-700 hover:text-white transition">${s==="en"?"VI":"EN"}</button>
