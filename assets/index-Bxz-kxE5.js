@@ -15,12 +15,12 @@
   <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-8 pt-32" style="background: linear-gradient(135deg, #fdf4ff 0%, #ede9fe 50%, #fef9c3 100%);">
     <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-tight" style="background: linear-gradient(90deg, #7c3aed, #ec4899, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">${t.hero.title}</h1>
     <p class="max-w-2xl text-lg text-gray-600 mb-12">${t.hero.intro}</p>
-    <a href="#contact" class="px-10 py-4 rounded-full font-semibold hover:scale-105 transition text-white" style="background: linear-gradient(90deg, #7c3aed, #ec4899);">${t.hero.cta}</a>
 
-    <h3 class="text-xs tracking-widest text-violet-400 mt-20 mb-8">${t.about.doing}</h3>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl mb-16">
+    <h3 class="text-xs tracking-widest text-violet-400 mt-4 mb-8">${t.about.doing}</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl mb-12">
       ${t.about.skills.map(e=>`<div class="p-6 border border-violet-200 rounded-lg bg-white/60 hover:bg-white transition flex items-center justify-center shadow-sm"><h4 class="text-sm font-semibold text-violet-700 text-center">${e}</h4></div>`).join("")}
     </div>
+    <a href="#contact" class="px-10 py-4 rounded-full font-semibold hover:scale-105 transition text-white mb-16" style="background: linear-gradient(90deg, #7c3aed, #ec4899);">${t.hero.cta}</a>
   </section>
 
 
