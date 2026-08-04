@@ -20,7 +20,7 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl mb-12">
       ${e.about.skills.map(t=>`<div class="p-6 border border-violet-200 rounded-lg bg-white/60 hover:bg-white transition flex items-center justify-center shadow-sm"><h4 class="text-sm font-semibold text-violet-700 text-center">${t}</h4></div>`).join("")}
     </div>
-    <a href="#contact" class="px-10 py-4 rounded-full font-semibold hover:scale-105 transition text-white mb-16" style="background: linear-gradient(90deg, #7c3aed, #ec4899);">${e.hero.cta}</a>
+    <a href="#contact" class="px-10 py-4 rounded-full font-semibold hover:scale-105 transition text-white mb-16" style="background: #ec4899;">${e.hero.cta}</a>
   </section>
 
 
