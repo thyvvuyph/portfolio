@@ -14,7 +14,7 @@
 
   <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-8 pt-32" style="background: linear-gradient(135deg, #fdf4ff 0%, #ede9fe 50%, #fef9c3 100%);">
     <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-tight" style="background: linear-gradient(90deg, #7c3aed, #ec4899, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">${t.hero.title}</h1>
-    <p class="max-w-2xl text-lg text-gray-600 mb-12">${t.hero.intro}</p>
+    <p class="max-w-2xl text-lg text-gray-600 mb-4">${t.hero.intro}</p>
 
     <h3 class="text-xs tracking-widest text-violet-400 mt-4 mb-8">${t.about.doing}</h3>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl mb-12">
