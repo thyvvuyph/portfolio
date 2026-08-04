@@ -25,18 +25,18 @@
 
 
 
-  <section id="works" class="py-24 px-8 max-w-6xl mx-auto">
-    <h2 class="text-xs tracking-widest text-violet-500 mb-8">${t.works.title}</h2>
+  <section id="works" class="py-24 px-8 max-w-6xl mx-auto text-white rounded-3xl my-8" style="background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f59e0b 100%);">
+    <h2 class="text-xs tracking-widest text-white/70 mb-8">${t.works.title}</h2>
     <div class="flex items-center gap-6">
-      <button onclick="moveProject(-1)" class="w-12 h-12 border-2 border-violet-400 text-violet-600 rounded-full hover:bg-violet-600 hover:text-white transition">←</button>
-      <div id="project-container" class="flex-1 p-12 border-2 border-violet-200 rounded-2xl min-h-[400px] bg-gradient-to-br from-violet-50 to-pink-50">
-        <span class="text-violet-400 text-sm">01/04</span>
-        <h4 class="text-xs tracking-widest text-violet-400 mt-8">${t.works.project}</h4>
-        <h3 class="text-3xl font-bold my-4">${t.works.projects[0].title}</h3>
-        <h4 class="text-xs tracking-widest text-violet-400 mt-8">${t.works.type}</h4>
-        <p class="text-gray-600 mt-2">${t.works.projects[0].type}</p>
+      <button onclick="moveProject(-1)" class="w-12 h-12 border-2 border-white/50 text-white rounded-full hover:bg-white hover:text-violet-700 transition">←</button>
+      <div id="project-container" class="flex-1 p-12 border-2 border-white/30 rounded-2xl min-h-[400px] bg-white/10">
+        <span class="text-white/60 text-sm">01/04</span>
+        <h4 class="text-xs tracking-widest text-white/60 mt-8">${t.works.project}</h4>
+        <h3 class="text-3xl font-bold my-4 text-white">${t.works.projects[0].title}</h3>
+        <h4 class="text-xs tracking-widest text-white/60 mt-8">${t.works.type}</h4>
+        <p class="text-white/80 mt-2">${t.works.projects[0].type}</p>
       </div>
-      <button onclick="moveProject(1)" class="w-12 h-12 border-2 border-violet-400 text-violet-600 rounded-full hover:bg-violet-600 hover:text-white transition">→</button>
+      <button onclick="moveProject(1)" class="w-12 h-12 border-2 border-white/50 text-white rounded-full hover:bg-white hover:text-violet-700 transition">→</button>
     </div>
   </section>
 
@@ -82,9 +82,9 @@
     <p class="text-center text-violet-400 text-sm pt-8 border-t border-violet-800">2026 | ${t.footer.name}</p>
   </footer>
 `,document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(n){n.preventDefault(),document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"})})})}d();let r=0;window.toggleLang=()=>{s=s==="en"?"vi":"en",r=0,d()};window.moveProject=t=>{const e=c[s];r=(r+t+e.works.projects.length)%e.works.projects.length;const n=e.works.projects[r];document.getElementById("project-container").innerHTML=`
-    <span class="text-violet-400 text-sm">0${r+1}/04</span>
-    <h4 class="text-xs tracking-widest text-violet-400 mt-8">${e.works.project}</h4>
-    <h3 class="text-3xl font-bold my-4">${n.title}</h3>
-    <h4 class="text-xs tracking-widest text-violet-400 mt-8">${e.works.type}</h4>
-    <p class="text-gray-600 mt-2">${n.type}</p>
+    <span class="text-white/60 text-sm">0${r+1}/04</span>
+    <h4 class="text-xs tracking-widest text-white/60 mt-8">${e.works.project}</h4>
+    <h3 class="text-3xl font-bold my-4 text-white">${n.title}</h3>
+    <h4 class="text-xs tracking-widest text-white/60 mt-8">${e.works.type}</h4>
+    <p class="text-white/80 mt-2">${n.type}</p>
   `};
