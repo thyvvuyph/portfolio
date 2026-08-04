@@ -50,7 +50,7 @@
     </div>
   </section>
 
-  <section id="contact" class="py-8 px-8 text-center" style="background: #ffffff; box-shadow: 0 -4px 16px rgba(124,58,237,0.10), 0 4px 16px rgba(124,58,237,0.10);">
+  <section id="contact" class="pt-6 pb-8 px-8 text-center" style="background: #ffffff; box-shadow: 0 -4px 16px rgba(30,27,75,0.15), 0 4px 16px rgba(30,27,75,0.15);">
     <h2 class="text-5xl font-bold mb-8" style="background: linear-gradient(90deg, #7c3aed, #ec4899, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">${e.contact.title}</h2>
     <a href="mailto:pthvy20@gmail.com" class="inline-block px-10 py-4 text-white rounded-full font-semibold hover:scale-105 transition shadow-lg" style="background: #ec4899;">${e.contact.cta}</a>
     <p class="mt-8" style="color: #be185d;">pthvy@gmail.com • +84 708 575 775</p>
