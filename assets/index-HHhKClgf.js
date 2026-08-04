@@ -33,7 +33,6 @@
           <span class="text-white/50 text-xs">0${n+1}</span>
           <h3 class="text-xl font-bold text-white leading-snug">${e.title}</h3>
           ${e.company?`<p class="text-white/90 text-sm font-medium">${e.company}</p>`:""}
-          <p class="text-white/70 text-sm mt-auto">${e.type}</p>
         </div>
       `).join("")}
     </div>
