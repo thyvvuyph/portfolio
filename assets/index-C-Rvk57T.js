@@ -59,8 +59,8 @@
   <footer class="text-white py-16 px-8" style="background: #1e1b4b;">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-8">
       <div>
-        <h4 class="font-semibold mb-4 text-yellow-400">${e.footer.name}</h4>
-        <p class="text-violet-300 text-sm">${e.footer.role}</p>
+        <h4 class="font-semibold mb-4 text-white">${e.footer.name}</h4>
+        <p class="text-white text-sm">${e.footer.role}</p>
       </div>
       <div>
         <h5 class="text-sm mb-4 tracking-wider text-violet-300">${e.footer.nav}</h5>
