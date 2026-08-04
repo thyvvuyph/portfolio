@@ -25,7 +25,7 @@
 
 
 
-  <section id="works" class="py-24 px-8 max-w-6xl mx-auto text-white rounded-3xl my-8" style="background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f59e0b 100%);">
+  <section id="works" class="py-12 px-8 max-w-6xl mx-auto text-white rounded-3xl my-4" style="background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f59e0b 100%);">
     <h2 class="text-xs tracking-widest text-white/70 mb-8">${t.works.title}</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       ${t.works.projects.map((e,n)=>`
