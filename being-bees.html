@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Being Bees Honey — Haley Pham</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;800&family=Inter:wght@400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #020617; }
+    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 0.75rem; }
+    ::-webkit-scrollbar-thumb:hover { background: #60A5FA; }
+    html { scroll-behavior: smooth; }
+    .glass-panel {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "charcoal-surface": "#020617",
+            "deep-slate": "#1E293B",
+            "electric-blue": "#60A5FA",
+            "refined-coral": "#FB7185",
+            "on-surface": "#dae2fd",
+            "on-surface-variant": "#c2c6d6",
+            "muted-text": "#94A3B8",
+            "surface-container": "#171f33",
+            "primary": "#adc6ff",
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#020617] text-[#dae2fd] antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/10 flex items-center h-16 px-[20px] md:px-[32px]">
+    <a href="/" class="flex items-center gap-2 text-[#60A5FA] hover:text-white transition-colors duration-300">
+      <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]">Back</span>
+    </a>
+  </header>
+
+  <main class="pt-24 pb-24 px-[20px] md:px-[32px] max-w-[1280px] mx-auto">
+
+    <!-- Hero -->
+    <div class="mb-16">
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-[#60A5FA]">01/08 — WEBSITE DESIGN</span>
+      <h1 class="font-[Hanken_Grotesk] text-[48px] md:text-[72px] font-[800] leading-tight tracking-[-0.04em] mt-4 mb-6">Being Bees Honey</h1>
+      <p class="font-[Inter] text-[18px] leading-[28px] text-[#c2c6d6] max-w-2xl">
+        A full website design for Being Bees Honey — a local honey brand. The project covers branding, UI/UX design, and web development with a focus on warmth, nature, and trust.
+      </p>
+    </div>
+
+    <!-- Tags -->
+    <div class="flex flex-wrap gap-3 mb-16">
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full">Website Design</span>
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full">UI/UX</span>
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full">Branding</span>
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full">Shopify</span>
+    </div>
+
+    <!-- Mockup Hero Image -->
+    <div class="w-full rounded-lg overflow-hidden mb-8">
+      <img src="/bb-mockup.png" alt="Being Bees Honey mockup" class="w-full object-cover"/>
+    </div>
+
+    <!-- Bear + Web side by side -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="rounded-lg overflow-hidden bg-[#1E293B]">
+        <img src="/bb-bear.png" alt="Being Bees Honey bear mascot" class="w-full object-cover"/>
+      </div>
+      <div class="rounded-lg overflow-hidden bg-[#1E293B]">
+        <img src="/bb-web.png" alt="Being Bees Honey website" class="w-full object-cover"/>
+      </div>
+    </div>
+
+    <!-- Logo -->
+    <div class="rounded-lg overflow-hidden bg-[#1E293B] mb-16">
+      <img src="/bb-logo.jpg" alt="Being Bees Honey logo" class="w-full object-cover"/>
+    </div>
+
+    <!-- Back to portfolio -->
+    <div class="border-t border-white/10 pt-12 flex justify-between items-center">
+      <a href="/" class="flex items-center gap-2 text-[#60A5FA] font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-white transition-colors duration-300">
+        <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+        Back to Portfolio
+      </a>
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-[#94A3B8]">01 / 08</span>
+    </div>
+
+  </main>
+
+</body>
+</html>
