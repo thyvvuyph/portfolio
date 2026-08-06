@@ -1,14 +1,375 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <script type="module" crossorigin src="/portfolio/assets/index-BThrWAyw.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-BYftCZyp.css">
-  </head>
-  <body class="bg-white text-black">
-    <div id="app"></div>
-  </body>
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Haley Pham | Communication Design Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;800&family=Inter:wght@400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+  </style>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#0b1326",
+            "on-primary": "#002e6a",
+            "inverse-surface": "#dae2fd",
+            "background": "#0b1326",
+            "surface-container": "#171f33",
+            "on-error-container": "#ffdad6",
+            "soft-mint": "#34D399",
+            "primary-fixed-dim": "#adc6ff",
+            "on-surface-variant": "#c2c6d6",
+            "error": "#ffb4ab",
+            "surface-container-lowest": "#060e20",
+            "surface-tint": "#adc6ff",
+            "tertiary-fixed-dim": "#ffb3b0",
+            "surface-bright": "#31394d",
+            "tertiary": "#ffb3b0",
+            "on-background": "#dae2fd",
+            "primary-container": "#4d8eff",
+            "electric-blue": "#60A5FA",
+            "secondary-fixed-dim": "#4edea3",
+            "surface-dim": "#0b1326",
+            "deep-slate": "#1E293B",
+            "on-secondary": "#003824",
+            "surface-variant": "#2d3449",
+            "surface-container-low": "#131b2e",
+            "primary": "#adc6ff",
+            "muted-text": "#94A3B8",
+            "on-tertiary": "#670211",
+            "refined-coral": "#FB7185",
+            "charcoal-surface": "#020617",
+            "error-container": "#93000a",
+            "secondary-fixed": "#6ffbbe",
+            "tertiary-fixed": "#ffdad8",
+            "on-surface": "#dae2fd",
+            "surface-container-high": "#222a3d",
+            "inverse-primary": "#005ac2",
+            "outline": "#8c909f",
+            "secondary": "#4edea3",
+            "secondary-container": "#00a572",
+            "inverse-on-surface": "#283044",
+            "primary-fixed": "#d8e2ff",
+            "on-primary-container": "#00285d",
+            "tertiary-container": "#ea6767",
+            "outline-variant": "#424754",
+            "surface-container-highest": "#2d3449"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "margin-mobile": "20px",
+            "gutter": "32px",
+            "unit": "8px",
+            "section-gap": "128px",
+            "container-max": "1280px"
+          },
+          fontFamily: {
+            "display-lg": ["Hanken Grotesk"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Hanken Grotesk"],
+            "headline-md": ["Hanken Grotesk"],
+            "label-caps": ["JetBrains Mono"],
+            "headline-sm": ["Hanken Grotesk"],
+            "caption": ["Inter"]
+          },
+          fontSize: {
+            "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-lg-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-caps": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+            "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+            "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #020617; }
+    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 0.75rem; }
+    ::-webkit-scrollbar-thumb:hover { background: #60A5FA; }
+    html { scroll-behavior: smooth; }
+    .glass-panel {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .neon-glow { box-shadow: 0 0 20px rgba(96,165,250,0.2); }
+    .coral-glow { box-shadow: 0 0 20px rgba(251,113,133,0.2); }
+  </style>
+</head>
+<body class="bg-charcoal-surface text-on-surface font-body-md antialiased selection:bg-electric-blue selection:text-charcoal-surface">
+
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-charcoal-surface/80 backdrop-blur-md border-b border-white/10 flex justify-between items-center h-16 px-[20px] md:px-[32px]">
+  <a class="flex items-center gap-2 scale-95 active:scale-90 transition-transform" href="#">
+    <span class="material-symbols-outlined text-electric-blue text-[24px]">design_services</span>
+    <span class="text-[24px] leading-[32px] font-[600] font-[Hanken_Grotesk] tracking-tighter text-on-surface hover:text-primary transition-all duration-300">Haley Pham</span>
+  </a>
+  <nav class="hidden md:flex gap-6">
+    <a class="text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-primary transition-all duration-300" href="#home">Home</a>
+    <a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
+    <a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#gallery">Gallery</a>
+  </nav>
+  <button id="menu-toggle" class="md:hidden text-on-surface-variant hover:text-on-surface transition-colors">
+    <span class="material-symbols-outlined text-[24px]">menu</span>
+  </button>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden fixed top-16 left-0 w-full z-40 bg-charcoal-surface/95 backdrop-blur-md border-b border-white/10 flex-col px-[20px] py-6 gap-4">
+  <a class="text-electric-blue font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#home">Home</a>
+  <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
+  <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#gallery">Gallery</a>
+</div>
+
+<main class="pt-24 pb-[128px]">
+
+  <!-- Hero Section -->
+  <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto min-h-[80vh] flex flex-col justify-center py-16" id="home">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-8 flex flex-col gap-6">
+        <h1 class="font-[Hanken_Grotesk] text-[48px] leading-[52px] md:text-[72px] md:leading-[80px] font-[800] tracking-[-0.04em]">
+          <span class="text-on-surface">Haley</span><br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-refined-coral">Pham</span>
+        </h1>
+        <p class="font-[Inter] text-[18px] leading-[28px] text-on-surface-variant max-w-2xl">
+          Hi, I'm Haley Pham. I graduated Bachelor of Communication Design at RMIT University. My aspiration is to live creatively and build up my experience as a graphic designer. I would love to use and practice my skills in developing and creating graphics and illustrations for websites.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a class="bg-electric-blue text-charcoal-surface font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-[0.125rem] hover:bg-white transition-colors duration-300 flex items-center gap-2 neon-glow" href="#contact">
+            <span>Contact Me</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </a>
+          <a class="border border-white/10 text-electric-blue font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-[0.125rem] hover:bg-white/5 transition-colors duration-300 flex items-center gap-2" href="#work">
+            <span>View Projects</span>
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-4 relative hidden lg:block">
+        <div class="absolute inset-0 bg-gradient-to-tr from-electric-blue/20 to-refined-coral/20 blur-3xl rounded-full"></div>
+        <div class="relative w-full aspect-square rounded-full border border-white/10 glass-panel flex items-center justify-center overflow-hidden">
+          <img class="object-cover w-full h-full opacity-70 mix-blend-screen" alt="Abstract 3D geometric shapes in electric blue and coral" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1q8jLTjeztkyB-X_IDnasNlqsgyHQ8LLslUx5ncqmRwvThNrhvnXK-BPfGw63x0lBL68iZB-rNdtWu_4Hzk3-oTkQ2V2n_3fJbAax7DKFzAflgcYPQBs4J3N9E7NWVWEjMt8rV-LYLjvoivhAvnDVU-14T3lDyJM6PRjW6_fRcLJeDWu--sHJKel0QEBEr8DyCfjvHZ0LIpInrIYq7JinPBNpKJpECOtTifDtGvK--ZDFw5FJ3SM_"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto py-[128px]">
+    <div class="flex flex-col gap-2 mb-12">
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral">WHAT I'M DOING</span>
+      <h2 class="font-[Hanken_Grotesk] text-[36px] leading-[44px] font-[600] tracking-[-0.02em] text-on-surface">Areas of Focus</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div class="bg-deep-slate border border-white/10 rounded-[0.125rem] p-6 flex flex-col items-center justify-center gap-4 hover:border-electric-blue hover:-translate-y-1 transition-all duration-300 group glass-panel">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-electric-blue transition-colors">campaign</span>
+        <h3 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-center">MARKETING</h3>
+      </div>
+      <div class="bg-deep-slate border border-white/10 rounded-[0.125rem] p-6 flex flex-col items-center justify-center gap-4 hover:border-electric-blue hover:-translate-y-1 transition-all duration-300 group glass-panel">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-electric-blue transition-colors">branding_watermark</span>
+        <h3 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-center">BRANDING</h3>
+      </div>
+      <div class="bg-deep-slate border border-white/10 rounded-[0.125rem] p-6 flex flex-col items-center justify-center gap-4 hover:border-electric-blue hover:-translate-y-1 transition-all duration-300 group glass-panel">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-electric-blue transition-colors">web</span>
+        <h3 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-center">WEBSITE</h3>
+      </div>
+      <div class="bg-deep-slate border border-white/10 rounded-[0.125rem] p-6 flex flex-col items-center justify-center gap-4 hover:border-electric-blue hover:-translate-y-1 transition-all duration-300 group glass-panel">
+        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-electric-blue transition-colors">perm_media</span>
+        <h3 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-center">MEDIA</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selected Projects Section -->
+  <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto py-[128px]" id="work">
+    <div class="flex flex-col gap-2 mb-12">
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-electric-blue">SELECTED PROJECT</span>
+      <h2 class="font-[Hanken_Grotesk] text-[36px] leading-[44px] font-[600] tracking-[-0.02em] text-on-surface">Recent Work</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+      <!-- Project 1 -->
+      <div class="md:col-span-8 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+        <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+          <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Website design for Being Bees Honey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEhsoUVYqlErZvbS7UeVwbTDYaEd5Rk0FdhpY4mNWxjl2D_-w35mhQUJ8jhMkhSHcOuyK-rQO6GR7M0AlEhMvKDWalU6N_YDL03XRkUwbMxWS6mMODnnPZUjAf5MgRITjpom55ECHb9tGOQ30FzSWgjGFTcQkzTT1Yvm5Zv1XP3KfzPTtZRp7KfbuiKbvZm7Ztqo0Fk-bXZKjCdiBxEtOGFbB3vpQIHHCTfT1x_mtiQHlvaU1ErMfD"/>
+        </div>
+        <div class="relative z-10">
+          <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">01/08</div>
+          <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Website Design</h3>
+          <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">Being Bees Honey</p>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal-surface to-transparent z-0"></div>
+        <div class="absolute inset-0 opacity-10 group-hover:opacity-30 transition-opacity duration-500">
+          <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Event Key Visual for Graduation 2026" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo05wnkPw0XrUgeVkqPvI7RF7SzuAxX-8WaMifqD1VLA8nNM_bQLO4PiCQs7v78kV1Ih1mKK9W0qSpMpGaDQfePvYKyInfGrOyYkwS7gPZ7nBKYE0TMRPw8bN0wUW_HD-lCEjNdZ-h-_1FQQmdrnmhmO9wNLP06TN_WKThaMCF64AEfGDVy3WqH71dHBEdFSDd8WBSEli-NE3zCBqOWrnRbNdqVaVxUFz-qK5E7Iftg7vY0LS8iSMc"/>
+        </div>
+        <div class="relative z-10">
+          <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">02/08</div>
+          <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Event Key Visual</h3>
+          <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">Graduation 2026</p>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-refined-coral transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+        <div class="absolute inset-0 opacity-10 group-hover:opacity-30 transition-opacity duration-500">
+          <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Campaign Visual for MISS" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-9NuDK8k-u-ph6VVqCTDgNk8D5-VnTJ2zzaDtUiSKr1ag44vS5qoJHzicWrTYa82wutP7LcqG_XB0h1qsmcmuNdj5OxzuKGh6BauL_lihbXzXqjRn0t8w0gzguQtmP9dCZEKRJ5zHE5WNWY6pOksNZRVQvxucY00NvgONgAHDEREH_NoZc4HINP-HSByIS5cnTzuoOotYaNxXa9wpQK-ccOnEJfQ1U3PLPZ53Fgl26WaNw"/>
+        </div>
+        <div class="relative z-10">
+          <div class="font-[JetBrains_Mono] text-[12px] text-refined-coral/70 mb-2">03/08</div>
+          <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Campaign Visual</h3>
+          <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">MISS</p>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="md:col-span-8 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+        <div class="absolute inset-0 opacity-10 group-hover:opacity-30 transition-opacity duration-500">
+          <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Social media designs for Al Fresco's Group and LarbThai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC661AD3p5_kPDpKOifscwuacWnJw06JTw58VPdwezvjMa8cjuJhnvxJVAJsb2Bb9HqHkwkY5sNOL2i0CIRELQm0_Yeav5PsM5WFyrdY2D1vTZL1QNxrQFl-UYCSqOeqUkXrqoGcYsOmwFFPjliWhLintkk9R49OBjIqa59qVb0RfZyMP24gb8nPMyPy8cTLaTRD3wpVYAwqHJ9Wrz_FxErdldGI6h5vkcQSp8svXCckP56PY85S5Iz"/>
+        </div>
+        <div class="relative z-10 flex justify-between items-end">
+          <div>
+            <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">04/08 &amp; 05/08</div>
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Social Media</h3>
+            <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">The Al Fresco's Group &amp; LarbThai</p>
+          </div>
+          <div class="bg-electric-blue/10 p-2 rounded-full hidden md:block">
+            <span class="material-symbols-outlined text-electric-blue">arrow_forward</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+        <div class="relative z-10">
+          <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">06/08</div>
+          <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Branding</h3>
+          <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">Texas Topline Motors</p>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-refined-coral transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+        <div class="relative z-10">
+          <div class="font-[JetBrains_Mono] text-[12px] text-refined-coral/70 mb-2">07/08</div>
+          <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Logo</h3>
+          <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">Various</p>
+        </div>
+      </div>
+
+      <!-- Project 7 -->
+      <div class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+        <div class="relative z-10">
+          <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">08/08</div>
+          <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Packaging</h3>
+          <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">Bunny Cocktail</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA / Contact Section -->
+  <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto py-[128px] text-center" id="contact">
+    <div class="glass-panel border border-white/10 rounded-xl p-12 md:p-24 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-electric-blue/5 to-transparent z-0"></div>
+      <div class="relative z-10 flex flex-col items-center gap-8">
+        <h2 class="font-[Hanken_Grotesk] text-[48px] leading-[52px] md:text-[72px] md:leading-[80px] font-[800]">
+          <span class="text-on-surface">Have a </span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-soft-mint">Cool</span><br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-refined-coral to-tertiary-container">Project?</span>
+        </h2>
+        <a class="bg-electric-blue text-charcoal-surface font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-8 py-4 rounded-[0.125rem] hover:bg-white transition-colors duration-300 inline-block neon-glow" href="mailto:pthvy20@gmail.com">
+          Contact Me
+        </a>
+        <p class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral mt-4">
+          pthvy20@gmail.com • +84 708 575 775
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-charcoal-surface w-full py-[128px] border-t border-white/5">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-[32px] px-[20px] md:px-[32px] max-w-[1280px] mx-auto">
+    <div class="flex flex-col gap-4 opacity-80 hover:opacity-100 transition-opacity">
+      <span class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface">Haley Pham</span>
+      <p class="font-[Inter] text-[16px] leading-[24px] text-muted-text max-w-xs">Creative Graphic Designer based in Communication Design.</p>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral mb-2">Navigation</h4>
+      <a class="font-[Inter] text-[16px] text-electric-blue font-bold hover:text-electric-blue transition-colors duration-200" href="#home">Home</a>
+      <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#work">Work</a>
+      <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#gallery">Gallery</a>
+      <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#contact">Contact</a>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral mb-2">Services</h4>
+      <p class="font-[Inter] text-[16px] text-muted-text">Marketing</p>
+      <p class="font-[Inter] text-[16px] text-muted-text">Branding</p>
+      <p class="font-[Inter] text-[16px] text-muted-text">Logo</p>
+      <p class="font-[Inter] text-[16px] text-muted-text">Website</p>
+      <p class="font-[Inter] text-[16px] text-muted-text">Media</p>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral mb-2">Contact</h4>
+      <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="mailto:pthvy20@gmail.com">pthvy20@gmail.com</a>
+      <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="tel:+84708575775">+84 708 575 775</a>
+    </div>
+    <div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-white/5 flex justify-between items-center opacity-80 hover:opacity-100 transition-opacity">
+      <span class="font-[Inter] text-[16px] text-muted-text">2026 | Haley Pham</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.getElementById('menu-toggle')
+  const menu = document.getElementById('mobile-menu')
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden')
+    menu.classList.toggle('flex')
+  })
+  // Close mobile menu on link click
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden')
+      menu.classList.remove('flex')
+    })
+  })
+</script>
+
+</body>
 </html>
