@@ -1,1 +1,7 @@
 @import 'tailwindcss';
+
+@media (max-width: 767px) {
+  .bio-text {
+    font-size: 17px;
+  }
+}
