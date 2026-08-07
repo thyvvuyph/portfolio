@@ -44,6 +44,11 @@ npm run dev
 
 Visit `http://localhost:5173` to view the site.
 
+```bash
+# Run development server in background
+npm run dev > /dev/null 2>&1 &
+```
+
 ### Build for Production
 
 ```bash
