@@ -9,6 +9,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         beingBees: resolve(__dirname, 'being-bees.html'),
         graduation2026: resolve(__dirname, 'graduation-2026.html'),
+        missCampaign: resolve(__dirname, 'miss-campaign.html'),
       }
     }
   }
