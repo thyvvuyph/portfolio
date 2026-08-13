@@ -72,21 +72,15 @@
     </div>
 
     <!-- Videos -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
-      <div class="rounded-2xl overflow-hidden">
-        <video class="w-full" controls playsinline poster="/portfolio/orant-xmas-poster.webp">
-          <source src="/portfolio/orant-xmas-led.mp4" type="video/mp4"/>
-        </video>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
+      <div class="rounded-2xl overflow-hidden video-container" onclick="toggleVideo(this, '/orant-xmas-led.mp4')">
+        <img src="/portfolio/orant-xmas-poster.webp" alt="Xmas LED" class="w-full object-cover cursor-pointer"/>
       </div>
-      <div class="rounded-2xl overflow-hidden">
-        <video class="w-full" controls playsinline poster="/portfolio/orant-eagles-poster.jpg">
-          <source src="/portfolio/orant-eagles.mp4" type="video/mp4"/>
-        </video>
+      <div class="rounded-2xl overflow-hidden video-container" onclick="toggleVideo(this, '/orant-eagles.mp4')">
+        <img src="/portfolio/orant-eagles-poster.jpg" alt="Philadelphia Eagles" class="w-full object-cover cursor-pointer"/>
       </div>
-      <div class="rounded-2xl overflow-hidden">
-        <video class="w-full" controls playsinline poster="/portfolio/orant-celtics-poster.webp">
-          <source src="/portfolio/orant-celtics.mp4" type="video/mp4"/>
-        </video>
+      <div class="rounded-2xl overflow-hidden video-container" onclick="toggleVideo(this, '/orant-celtics.mp4')">
+        <img src="/portfolio/orant-celtics-poster.webp" alt="Boston Celtics" class="w-full object-cover cursor-pointer"/>
       </div>
     </div>
 
@@ -101,18 +95,54 @@
   </main>
 
   <script>
-    const videos = document.querySelectorAll('video');
-    videos.forEach(video => {
-      video.addEventListener('play', () => {
-        videos.forEach(other => {
-          if (other !== video) {
-            other.pause();
-            other.currentTime = 0;
-            other.load();
-          }
-        });
+    var activeVideo = null;
+    var activeContainer = null;
+    var activeThumb = null;
+
+    function toggleVideo(container, src) {
+      // If clicking the same container with active video, do nothing
+      if (activeContainer === container) return;
+
+      // Reset previous video back to thumbnail
+      if (activeContainer && activeThumb) {
+        activeContainer.innerHTML = '';
+        activeContainer.appendChild(activeThumb);
+        activeContainer.onclick = function() { toggleVideo(activeContainer, activeContainer.dataset.src); };
+      }
+
+      // Save thumbnail and video src
+      var thumb = container.querySelector('img');
+      container.dataset.src = src;
+      activeThumb = thumb.cloneNode(true);
+      activeContainer = container;
+
+      // Replace with video
+      var video = document.createElement('video');
+      video.className = 'w-full rounded-2xl';
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.muted = true;
+      var source = document.createElement('source');
+      source.src = src;
+      source.type = 'video/mp4';
+      video.appendChild(source);
+      container.innerHTML = '';
+      container.appendChild(video);
+      container.onclick = null;
+      video.play().then(function() { video.muted = false; }).catch(function(){});
+      activeVideo = video;
+
+      // When video ends, go back to thumbnail
+      video.addEventListener('ended', function() {
+        container.innerHTML = '';
+        container.appendChild(activeThumb);
+        container.onclick = function() { toggleVideo(container, src); };
+        activeContainer = null;
+        activeThumb = null;
+        activeVideo = null;
       });
-    });
+    }
   </script>
 
 </body>
