@@ -133,9 +133,9 @@
     <span class="text-[24px] leading-[32px] font-[600] font-[Hanken_Grotesk] tracking-tighter text-on-surface hover:text-primary transition-all duration-300">Haley Pham</span>
   </a>
   <nav class="hidden md:flex gap-6">
-    <a class="text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-primary transition-all duration-300" href="#home">Home</a>
-    <a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
-    <a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#gallery">Gallery</a>
+    <a id="nav-home" class="text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-primary transition-all duration-300" href="#home">Home</a>
+    <a id="nav-work" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
+    <a id="nav-gallery" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#gallery">Gallery</a>
   </nav>
   <button id="menu-toggle" class="md:hidden text-on-surface-variant hover:text-on-surface transition-colors">
     <span class="material-symbols-outlined text-[24px]">menu</span>
@@ -226,9 +226,7 @@
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Website design for Being Bees Honey" src="/bb-bear.png"/>
           </div>
           <div class="relative z-10">
-            <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">01/08</div>
-            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Website Design</h3>
-            <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">Being Bees Honey</p>
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Being Bees Honey</h3>
           </div>
         </a>
         <!-- Project 2 -->
@@ -237,9 +235,7 @@
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Event Key Visual for Graduation 2026" src="/hht-event.jpg"/>
           </div>
           <div class="relative z-10">
-            <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">02/08</div>
-            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Event Key Visual</h3>
-            <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">Graduation 2026</p>
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Graduation 2026</h3>
           </div>
         </a>
       </div>
@@ -252,56 +248,84 @@
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Campaign Visual for MISS" src="/miss-campaign.jpg"/>
           </div>
           <div class="relative z-10">
-            <div class="font-[JetBrains_Mono] text-[12px] text-refined-coral/70 mb-2">03/08</div>
-            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Campaign Visual</h3>
-            <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">MISS</p>
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">MISS</h3>
           </div>
         </a>
         <!-- Project 4 -->
+        <a href="./jacksons-steakhouse.html" class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+          <div class="absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+            <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Jacksons Steakhouse" src="/jacksons-card.jpg"/>
+          </div>
+          <div class="relative z-10">
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Jacksons Steakhouse</h3>
+          </div>
+        </a>
+        <!-- Project 5 -->
+        <a href="./larbthai.html" class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+          <div class="absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+            <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Social media designs for LarbThai" src="/larbthai-card.jpg"/>
+          </div>
+          <div class="relative z-10">
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">LarbThai</h3>
+          </div>
+        </a>
+      </div>
+
+      <!-- Row 3 - Orant Media -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+        <a href="./orant-neon.html" class="md:col-span-12 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+          <div class="absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+            <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Orant Neon" src="/orant-card.jpg"/>
+          </div>
+          <div class="relative z-10">
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Orant Neon</h3>
+          </div>
+        </a>
+      </div>
+
+      <!-- Row 4 -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+        <!-- Project 6 -->
         <a href="./al-frescos.html" class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
           <div class="absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Social media designs for Al Fresco's Group" src="/afg-social.jpg"/>
           </div>
           <div class="relative z-10">
-            <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">04/08</div>
-            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Social Media</h3>
-            <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">The Al Fresco's Group</p>
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">The Al Fresco's Group</h3>
           </div>
         </a>
-        <!-- Project 5 -->
-        <div class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
-          <div class="relative z-10">
-            <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">05/08</div>
-            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Social Media</h3>
-            <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">LarbThai</p>
+        <!-- Project 7 -->
+        <a href="./logo-various.html" class="md:col-span-8 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-refined-coral transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+          <div class="absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+            <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Logo designs for various clients" src="/logo-various.jpg"/>
           </div>
-        </div>
+          <div class="relative z-10">
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Logos</h3>
+          </div>
+        </a>
       </div>
 
-      <!-- Row 3 -->
+      <!-- Row 4 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-        <!-- Project 6 -->
-        <div class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
-          <div class="relative z-10">
-            <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">06/08</div>
-            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Branding</h3>
-            <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">Texas Topline Motors</p>
-          </div>
-        </div>
-        <!-- Project 7 -->
-        <div class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-refined-coral transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
-          <div class="relative z-10">
-            <div class="font-[JetBrains_Mono] text-[12px] text-refined-coral/70 mb-2">07/08</div>
-            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Logo</h3>
-            <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">Various</p>
-          </div>
-        </div>
         <!-- Project 8 -->
+        <a href="./texas-topline-motors.html" class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+          <div class="absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+            <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Branding for Texas Topline Motors" src="/ttm-card.jpg"/>
+          </div>
+          <div class="relative z-10">
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Texas Topline Motors</h3>
+          </div>
+        </a>
+        <!-- Project 9 -->
         <div class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
           <div class="relative z-10">
-            <div class="font-[JetBrains_Mono] text-[12px] text-electric-blue/70 mb-2">08/08</div>
-            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Packaging</h3>
-            <p class="font-[Inter] text-[16px] leading-[24px] text-on-surface-variant">Bunny Cocktail</p>
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">Bunny Cocktail</h3>
+          </div>
+        </div>
+        <!-- Project 10 -->
+        <div class="md:col-span-4 bg-deep-slate border border-white/10 rounded-[0.125rem] p-8 hover:border-electric-blue transition-colors duration-300 group relative overflow-hidden flex flex-col justify-end min-h-[320px]">
+          <div class="relative z-10">
+            <h3 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[600] text-on-surface mb-1">VeriSwype</h3>
           </div>
         </div>
       </div>
@@ -316,8 +340,7 @@
       <div class="relative z-10 flex flex-col items-center gap-8">
         <h2 class="font-[Hanken_Grotesk] text-[32px] leading-[40px] md:text-[48px] md:leading-[56px] font-[800]">
           <span class="text-on-surface">Have a </span>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-soft-mint">Cool </span>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-refined-coral to-tertiary-container">Project?</span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-refined-coral">Cool Project?</span>
         </h2>
         <a class="bg-electric-blue text-charcoal-surface font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-8 py-4 rounded-[0.125rem] hover:bg-white transition-colors duration-300 inline-block neon-glow" href="mailto:pthvy20@gmail.com">
           Contact Me
@@ -342,7 +365,7 @@
     </div>
     <div class="flex flex-col gap-4">
       <h4 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral mb-2">Navigation</h4>
-      <a class="font-[Inter] text-[16px] text-electric-blue font-bold hover:text-electric-blue transition-colors duration-200" href="#home">Home</a>
+      <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#home">Home</a>
       <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#work">Work</a>
       <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#gallery">Gallery</a>
       <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#contact">Contact</a>
@@ -350,8 +373,7 @@
     <div class="flex flex-col gap-4">
       <h4 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral mb-2">Services</h4>
       <p class="font-[Inter] text-[16px] text-muted-text">Marketing</p>
-      <p class="font-[Inter] text-[16px] text-muted-text">Branding</p>
-      <p class="font-[Inter] text-[16px] text-muted-text">Logo</p>
+      <p class="font-[Inter] text-[16px] text-muted-text">Branding/Logo</p>
       <p class="font-[Inter] text-[16px] text-muted-text">Website</p>
       <p class="font-[Inter] text-[16px] text-muted-text">Media</p>
     </div>
@@ -379,6 +401,42 @@
       menu.classList.remove('flex')
     })
   })
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section[id]')
+  const navLinks = document.querySelectorAll('nav a[id^="nav-"]')
+  const mobileLinks = menu.querySelectorAll('a')
+
+  function setActiveNav() {
+    let current = 'home'
+    sections.forEach(section => {
+      const top = section.offsetTop - 100
+      if (window.scrollY >= top) {
+        current = section.getAttribute('id')
+      }
+    })
+
+    navLinks.forEach(link => {
+      const section = link.getAttribute('href').replace('#', '')
+      if (section === current) {
+        link.className = 'text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+      } else {
+        link.className = 'text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+      }
+    })
+
+    mobileLinks.forEach(link => {
+      const section = link.getAttribute('href').replace('#', '')
+      if (section === current) {
+        link.className = 'text-electric-blue font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+      } else {
+        link.className = 'text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+      }
+    })
+  }
+
+  window.addEventListener('scroll', setActiveNav)
+  setActiveNav()
 </script>
 
 </body>
