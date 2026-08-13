@@ -95,5 +95,20 @@
 
   </main>
 
+  <script>
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+      video.addEventListener('play', () => {
+        videos.forEach(other => {
+          if (other !== video) {
+            other.pause();
+            other.currentTime = 0;
+            other.load();
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
