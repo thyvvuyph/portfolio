@@ -104,9 +104,9 @@
   </main>
 
   <script>
-    var activeVideo = null;
     var activeContainer = null;
     var activeThumb = null;
+    var activeSrc = null;
 
     function toggleVideo(container, src) {
       // If clicking the same container with active video, do nothing
@@ -114,16 +114,19 @@
 
       // Reset previous video back to thumbnail
       if (activeContainer && activeThumb) {
-        activeContainer.innerHTML = '';
-        activeContainer.appendChild(activeThumb);
-        activeContainer.onclick = function() { toggleVideo(activeContainer, activeContainer.dataset.src); };
+        var prevContainer = activeContainer;
+        var prevThumb = activeThumb;
+        var prevSrc = activeSrc;
+        prevContainer.innerHTML = '';
+        prevContainer.appendChild(prevThumb);
+        prevContainer.onclick = function() { toggleVideo(prevContainer, prevSrc); };
       }
 
       // Save thumbnail and video src
       var thumb = container.querySelector('img');
-      container.dataset.src = src;
       activeThumb = thumb.cloneNode(true);
       activeContainer = container;
+      activeSrc = src;
 
       // Replace with video
       var video = document.createElement('video');
@@ -140,16 +143,16 @@
       container.appendChild(video);
       container.onclick = null;
       video.play().then(function() { video.muted = false; }).catch(function(){});
-      activeVideo = video;
 
       // When video ends, go back to thumbnail
       video.addEventListener('ended', function() {
+        var endThumb = activeThumb;
         container.innerHTML = '';
-        container.appendChild(activeThumb);
+        container.appendChild(endThumb);
         container.onclick = function() { toggleVideo(container, src); };
         activeContainer = null;
         activeThumb = null;
-        activeVideo = null;
+        activeSrc = null;
       });
     }
   </script>
