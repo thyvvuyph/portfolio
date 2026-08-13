@@ -403,9 +403,9 @@
     navLinks.forEach(link => {
       const section = link.getAttribute('href').replace('#', '')
       if (section === current) {
-        link.className = 'text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-primary transition-all duration-300'
+        link.className = 'text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
       } else {
-        link.className = 'text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+        link.className = 'text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
       }
     })
 
