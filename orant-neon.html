@@ -105,11 +105,15 @@
       video.controls = true;
       video.autoplay = true;
       video.playsInline = true;
+      video.muted = true;
       var source = document.createElement('source');
-      source.src = '/orant-xmas-led.mp4';
+      source.src = '/portfolio/orant-xmas-led.mp4';
       source.type = 'video/mp4';
       video.appendChild(source);
       el.replaceWith(video);
+      video.play().then(function() {
+        video.muted = false;
+      });
     }
   </script>
 
