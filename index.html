@@ -133,9 +133,9 @@
     <span class="text-[24px] leading-[32px] font-[600] font-[Hanken_Grotesk] tracking-tighter text-on-surface hover:text-primary transition-all duration-300">Haley Pham</span>
   </a>
   <nav class="hidden md:flex gap-6">
-    <a class="text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-primary transition-all duration-300" href="#home">Home</a>
-    <a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
-    <a class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#gallery">Gallery</a>
+    <a id="nav-home" class="text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-primary transition-all duration-300" href="#home">Home</a>
+    <a id="nav-work" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
+    <a id="nav-gallery" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#gallery">Gallery</a>
   </nav>
   <button id="menu-toggle" class="md:hidden text-on-surface-variant hover:text-on-surface transition-colors">
     <span class="material-symbols-outlined text-[24px]">menu</span>
@@ -385,6 +385,42 @@
       menu.classList.remove('flex')
     })
   })
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section[id]')
+  const navLinks = document.querySelectorAll('nav a[id^="nav-"]')
+  const mobileLinks = menu.querySelectorAll('a')
+
+  function setActiveNav() {
+    let current = 'home'
+    sections.forEach(section => {
+      const top = section.offsetTop - 100
+      if (window.scrollY >= top) {
+        current = section.getAttribute('id')
+      }
+    })
+
+    navLinks.forEach(link => {
+      const section = link.getAttribute('href').replace('#', '')
+      if (section === current) {
+        link.className = 'text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-primary transition-all duration-300'
+      } else {
+        link.className = 'text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+      }
+    })
+
+    mobileLinks.forEach(link => {
+      const section = link.getAttribute('href').replace('#', '')
+      if (section === current) {
+        link.className = 'text-electric-blue font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+      } else {
+        link.className = 'text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+      }
+    })
+  }
+
+  window.addEventListener('scroll', setActiveNav)
+  setActiveNav()
 </script>
 
 </body>
