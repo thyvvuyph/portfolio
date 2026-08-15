@@ -16,6 +16,11 @@ export default defineConfig({
         logoVarious: resolve(__dirname, 'logo-various.html'),
         jacksonsSteakhouse: resolve(__dirname, 'jacksons-steakhouse.html'),
         orantNeon: resolve(__dirname, 'orant-neon.html'),
+        bunnyCocktail: resolve(__dirname, 'bunny-cocktail.html'),
+        veriswype: resolve(__dirname, 'veriswype.html'),
+        gallery: resolve(__dirname, 'gallery.html'),
+        blogTetInSyd: resolve(__dirname, 'blog-tet-in-syd.html'),
+        blogMelbNightWalking: resolve(__dirname, 'blog-melb-night-walking.html'),
       }
     }
   }

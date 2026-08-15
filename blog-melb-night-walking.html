@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}})();
+  </script>
+  <title>Melb Night Walking — Haley Pham</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;800&family=Inter:wght@400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #020617; }
+    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 0.75rem; }
+    ::-webkit-scrollbar-thumb:hover { background: #60A5FA; }
+    html { scroll-behavior: smooth; }
+    .masonry { columns: 2; column-gap: 12px; }
+    @media (min-width: 640px) { .masonry { columns: 2; column-gap: 16px; } }
+    @media (min-width: 1024px) { .masonry { columns: 3; column-gap: 16px; } }
+    .masonry-item { break-inside: avoid; margin-bottom: 12px; }
+    @media (min-width: 640px) { .masonry-item { margin-bottom: 16px; } }
+    .masonry-item img { width: 100%; display: block; border-radius: 0.5rem; transition: transform 0.5s ease; }
+    .masonry-item:hover img { transform: scale(1.02); }
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(2,6,23,0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px; }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 0.5rem; }
+    .lightbox-close { position: absolute; top: 20px; right: 20px; color: #dae2fd; cursor: pointer; transition: color 0.3s; }
+    .lightbox-close:hover { color: #60A5FA; }
+      /* Light theme overrides */
+    html.light body { background: #f8fafc; color: #1e293b; }
+    html.light header { background: rgba(248,250,252,0.9); border-color: rgba(0,0,0,0.25); }
+    html.light .bg-\[\#020617\]\/80 { background: rgba(248,250,252,0.9); }
+    html.light .bg-\[\#020617\] { background: #f8fafc; }
+    html.light .text-\[\#dae2fd\] { color: #1e293b; }
+    html.light .text-\[\#c2c6d6\] { color: #475569; }
+    html.light .text-\[\#60A5FA\] { color: #2563eb; }
+    html.light .text-\[\#94A3B8\] { color: #64748b; }
+    html.light .border-white\/10 { border-color: rgba(0,0,0,0.3); }
+    html.light .bg-deep-slate\/50 { background: rgba(255,255,255,0.9); }
+    html.light h1, html.light h2, html.light h3 { color: #0f172a; }
+    html.light img { border: 1px solid rgba(0,0,0,0.06); }
+    html.light .rounded-2xl { border-color: rgba(0,0,0,0.1); }
+    html.light .rounded-full { border-color: rgba(0,0,0,0.15); }
+    html.light a[class*="text-\[\#60A5FA\]"] { color: #2563eb; }
+    html.light .hover\:text-white:hover { color: #1e293b; }
+    html.light .masonry-item img { border: 1px solid rgba(0,0,0,0.08); }
+  </style>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "charcoal-surface": "#020617",
+            "deep-slate": "#1E293B",
+            "electric-blue": "#60A5FA",
+            "refined-coral": "#FB7185",
+            "on-surface": "#dae2fd",
+            "on-surface-variant": "#c2c6d6",
+            "muted-text": "#94A3B8",
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#020617] text-[#dae2fd] antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/10 flex items-center justify-between h-16 px-[20px] md:px-[32px]">
+    <a href="./" class="flex items-center gap-2 text-[#60A5FA] hover:text-white transition-colors duration-300">
+      <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]">Back</span>
+    </a>
+    <button id="theme-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300" aria-label="Toggle theme">
+      <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
+    </button>
+  </header>
+
+  <main class="pt-24 pb-24 px-[20px] md:px-[32px] max-w-[1440px] mx-auto">
+
+    <!-- Hero -->
+    <div class="mb-12 max-w-2xl mx-auto">
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-[#60A5FA]">Blog</span>
+      <p class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-[#94A3B8] mt-2">Jan 15, 2023</p>
+      <h1 class="font-[Hanken_Grotesk] text-[48px] md:text-[72px] font-[800] leading-tight tracking-[-0.04em] mt-4 mb-6">Melb Night Walking</h1>
+      <div class="font-[Inter] text-[16px] leading-[28px] text-[#c2c6d6] space-y-5">
+        <p>For the past five years, I&#8217;ve studied and worked in the Central Business District (CBD). When I was having problems sleeping or am just plain restless, I took a walk and catched up with my friends around. Melbourne&#8217;s great cultural diversity, variety of galleries and museums, and strong creative industries make it a thriving hub for art and design. Finding numerous art galleries and cultural events during my bachelor&#8217;s degree helped me become more creative and inspired. Melbourne also has a long tradition of street art, with roads like Hosier Lane.</p>
+        <p>Living in Melbourne provides options that are unmatched by any other for individuals who are looking for remarkable encounters. Spend an evening in Melbourne where you will create memories by going out for a wonderful evening. Put on your sneakers and go for a stroll along one of the best paths in Melbourne.</p>
+        <p>Those who labor nonstop in Melbourne are the only ones who will experience hunger. As a result of a widely culture that supports dining at any time of the day or night, excellent cuisine is readily available after midnight. At whatever hour of the day or night, it would like to think that walking around the city is completely safe for you.</p>
+      </div>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="masonry">
+      <div class="masonry-item"><img src="/blog-melb-01.jpg" alt="Melbourne Night Walking" loading="lazy" onclick="openLightbox(this)"/></div>
+      <div class="masonry-item"><img src="/blog-melb-02.jpg" alt="Melbourne Night Walking" loading="lazy" onclick="openLightbox(this)"/></div>
+      <div class="masonry-item"><img src="/blog-melb-03.jpg" alt="Melbourne Night Walking" loading="lazy" onclick="openLightbox(this)"/></div>
+      <div class="masonry-item"><img src="/blog-melb-04.jpg" alt="Melbourne Night Walking" loading="lazy" onclick="openLightbox(this)"/></div>
+      <div class="masonry-item"><img src="/blog-melb-05.jpg" alt="Melbourne Night Walking" loading="lazy" onclick="openLightbox(this)"/></div>
+      <div class="masonry-item"><img src="/blog-melb-06.jpg" alt="Melbourne Night Walking" loading="lazy" onclick="openLightbox(this)"/></div>
+      <div class="masonry-item"><img src="/blog-melb-07.jpg" alt="Melbourne Night Walking" loading="lazy" onclick="openLightbox(this)"/></div>
+      <div class="masonry-item"><img src="/blog-melb-08.jpg" alt="Melbourne Night Walking" loading="lazy" onclick="openLightbox(this)"/></div>
+      <div class="masonry-item"><img src="/blog-melb-09.jpg" alt="Melbourne Night Walking" loading="lazy" onclick="openLightbox(this)"/></div>
+      <div class="masonry-item"><img src="/blog-melb-10.jpg" alt="Melbourne Night Walking" loading="lazy" onclick="openLightbox(this)"/></div>
+    </div>
+
+    <!-- Back -->
+    <div class="border-t border-white/10 pt-12 mt-16 flex justify-between items-center">
+      <a href="./" class="flex items-center gap-2 text-[#60A5FA] font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-white transition-colors duration-300">
+        <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+        Back to Portfolio
+      </a>
+      <a href="./blog-tet-in-syd.html" class="flex items-center gap-2 text-[#60A5FA] font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-white transition-colors duration-300">
+        <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+        Previous Post
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <span class="lightbox-close material-symbols-outlined text-[32px]" onclick="closeLightbox(event)">close</span>
+    <img id="lightbox-img" src="" alt="Full size photo"/>
+  </div>
+
+  <script>
+    function openLightbox(img) { const lb = document.getElementById('lightbox'); document.getElementById('lightbox-img').src = img.src; lb.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeLightbox(event) { if (event.target === document.getElementById('lightbox') || event.target.classList.contains('lightbox-close')) { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; } }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; } });
+  </script>
+
+<script>
+  (function() {
+    const html = document.documentElement;
+    function updateIcon() {
+      const icon = document.getElementById('theme-icon');
+      if (icon) icon.textContent = html.classList.contains('light') ? 'light_mode' : 'dark_mode';
+    }
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      if (html.classList.contains('light')) {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        localStorage.setItem('theme', 'light');
+      }
+      updateIcon();
+    });
+    updateIcon();
+  })();
+</script>
+</body>
+</html>
