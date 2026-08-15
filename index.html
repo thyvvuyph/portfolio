@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <script>
-    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('header-logo');if(l&&t==='light')l.src='./logo-light.png';});})();
+    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('header-logo');var p=document.getElementById('profile-photo');if(l&&t==='light')l.src='./logo-light.png';if(p&&t==='light')p.src='./haley-photo-light.png';});})();
   </script>
   <title>Haley Pham | Communication Design Portfolio</title>
   <!-- Google Fonts -->
@@ -242,7 +242,7 @@
       </div>
       <div class="lg:col-span-4 relative hidden lg:block">
         <div class="relative w-full aspect-square rounded-full flex items-center justify-center overflow-hidden">
-          <img class="object-cover w-full h-full" alt="Haley Pham" src="/portfolio/haley-photo.jpg"/>
+          <img id="profile-photo" class="object-cover w-full h-full" alt="Haley Pham" src="/portfolio/haley-photo.jpg"/>
         </div>
       </div>
     </div>
@@ -542,6 +542,8 @@
       if (iconMobile) iconMobile.textContent = isLight ? 'light_mode' : 'dark_mode';
       if (labelMobile) labelMobile.textContent = isLight ? 'Dark Mode' : 'Light Mode';
       if (logo) logo.src = isLight ? './logo-light.png' : './logo.png';
+      var profile = document.getElementById('profile-photo');
+      if (profile) profile.src = isLight ? './haley-photo-light.png' : './haley-photo.jpg';
     }
 
     function toggle() {
