@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <script>
-    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('header-logo');if(l&&t==='light')l.src='./logo-light.jpg';});})();
+    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('header-logo');if(l&&t==='light')l.src='./logo-light.png';});})();
   </script>
   <title>Haley Pham | Communication Design Portfolio</title>
   <!-- Google Fonts -->
@@ -542,7 +542,7 @@
       if (icon) icon.textContent = isLight ? 'light_mode' : 'dark_mode';
       if (iconMobile) iconMobile.textContent = isLight ? 'light_mode' : 'dark_mode';
       if (labelMobile) labelMobile.textContent = isLight ? 'Dark Mode' : 'Light Mode';
-      if (logo) logo.src = isLight ? './logo-light.jpg' : './logo.png';
+      if (logo) logo.src = isLight ? './logo-light.png' : './logo.png';
     }
 
     function toggle() {
