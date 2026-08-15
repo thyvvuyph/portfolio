@@ -127,11 +127,11 @@
     .coral-glow { box-shadow: 0 0 20px rgba(251,113,133,0.2); }
 
     /* Light theme overrides */
-    html.light body { background: #f1f5f9; color: #0f172a; }
-    html.light header { background: rgba(241,245,249,0.95); border-color: rgba(0,0,0,0.2); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-    html.light .bg-charcoal-surface { background: #f1f5f9; }
-    html.light .bg-charcoal-surface\/80 { background: rgba(241,245,249,0.95); }
-    html.light .bg-charcoal-surface\/95 { background: rgba(241,245,249,0.98); }
+    html.light body { background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 50%, #e0e7ff 100%); color: #0f172a; }
+    html.light header { background: rgba(255,255,255,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-color: rgba(255,255,255,0.5); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    html.light .bg-charcoal-surface { background: transparent; }
+    html.light .bg-charcoal-surface\/80 { background: rgba(255,255,255,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    html.light .bg-charcoal-surface\/95 { background: rgba(255,255,255,0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     html.light .text-on-surface { color: #0f172a; }
     html.light .text-on-surface-variant { color: #334155; }
     html.light .text-muted-text { color: #475569; }
@@ -140,11 +140,11 @@
     html.light .border-electric-blue { border-color: #1d4ed8; }
     html.light .bg-electric-blue { background: #1d4ed8; }
     html.light .text-refined-coral { color: #be123c; }
-    html.light .border-white\/10 { border-color: rgba(0,0,0,0.2); }
-    html.light .border-white\/5 { border-color: rgba(0,0,0,0.12); }
-    html.light .bg-deep-slate { background: #ffffff; border: 1px solid rgba(0,0,0,0.15); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    html.light .bg-deep-slate\/50 { background: #ffffff; }
-    html.light .glass-panel { background: #ffffff; border-color: rgba(0,0,0,0.2); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    html.light .border-white\/10 { border-color: rgba(255,255,255,0.6); }
+    html.light .border-white\/5 { border-color: rgba(255,255,255,0.4); }
+    html.light .bg-deep-slate { background: rgba(255,255,255,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.6); box-shadow: 0 4px 24px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.8); }
+    html.light .bg-deep-slate\/50 { background: rgba(255,255,255,0.35); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    html.light .glass-panel { background: rgba(255,255,255,0.35); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-color: rgba(255,255,255,0.5); box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9); }
     html.light .from-electric-blue\/5 { --tw-gradient-from: rgba(29,78,216,0.1); }
     html.light .from-electric-blue { --tw-gradient-from: #1d4ed8; }
     html.light .to-refined-coral { --tw-gradient-to: #be123c; }
