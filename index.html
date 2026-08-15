@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}})();
+  </script>
   <title>Haley Pham | Communication Design Portfolio</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -122,6 +125,34 @@
     }
     .neon-glow { box-shadow: 0 0 20px rgba(96,165,250,0.2); }
     .coral-glow { box-shadow: 0 0 20px rgba(251,113,133,0.2); }
+
+    /* Light theme overrides */
+    html.light body { background: #f8fafc; color: #1e293b; }
+    html.light header { background: rgba(248,250,252,0.8); border-color: rgba(0,0,0,0.1); }
+    html.light .bg-charcoal-surface { background: #f8fafc; }
+    html.light .bg-charcoal-surface\/80 { background: rgba(248,250,252,0.8); }
+    html.light .bg-charcoal-surface\/95 { background: rgba(248,250,252,0.95); }
+    html.light .text-on-surface { color: #1e293b; }
+    html.light .text-on-surface-variant { color: #475569; }
+    html.light .text-muted-text { color: #64748b; }
+    html.light .text-primary { color: #2563eb; }
+    html.light .text-electric-blue { color: #2563eb; }
+    html.light .border-electric-blue { border-color: #2563eb; }
+    html.light .bg-electric-blue { background: #2563eb; }
+    html.light .text-refined-coral { color: #e11d48; }
+    html.light .border-white\/10 { border-color: rgba(0,0,0,0.1); }
+    html.light .border-white\/5 { border-color: rgba(0,0,0,0.05); }
+    html.light .bg-deep-slate { background: #ffffff; }
+    html.light .bg-deep-slate\/50 { background: rgba(255,255,255,0.8); }
+    html.light .glass-panel { background: rgba(255,255,255,0.7); border-color: rgba(0,0,0,0.1); }
+    html.light .from-electric-blue\/5 { --tw-gradient-from: rgba(37,99,235,0.05); }
+    html.light .from-electric-blue { --tw-gradient-from: #2563eb; }
+    html.light .to-refined-coral { --tw-gradient-to: #e11d48; }
+    html.light .hover\:border-electric-blue:hover { border-color: #2563eb; }
+    html.light .hover\:text-primary:hover { color: #2563eb; }
+    html.light ::-webkit-scrollbar-track { background: #f8fafc; }
+    html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+    html.light ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
   </style>
 </head>
 <body class="bg-charcoal-surface text-on-surface font-body-md antialiased selection:bg-electric-blue selection:text-charcoal-surface">
@@ -132,11 +163,14 @@
     <img src="/portfolio/logo.png" alt="Haley Pham logo" class="w-[28px] h-[28px] object-contain"/>
     <span class="text-[24px] leading-[32px] font-[600] font-[Hanken_Grotesk] tracking-tighter text-on-surface hover:text-primary transition-all duration-300">Haley Pham</span>
   </a>
-  <nav class="hidden md:flex gap-6">
+  <nav class="hidden md:flex gap-6 items-center">
     <a id="nav-home" class="text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-primary transition-all duration-300" href="#home">Home</a>
     <a id="nav-work" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
     <a id="nav-blog" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#blog">Blog</a>
     <a id="nav-gallery" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="./gallery.html">Gallery</a>
+    <button id="theme-toggle" class="ml-2 text-on-surface-variant hover:text-primary transition-colors duration-300" aria-label="Toggle theme">
+      <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
+    </button>
   </nav>
   <button id="menu-toggle" class="md:hidden text-on-surface-variant hover:text-on-surface transition-colors">
     <span class="material-symbols-outlined text-[24px]">menu</span>
@@ -149,6 +183,10 @@
   <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
   <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#blog">Blog</a>
   <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="./gallery.html">Gallery</a>
+  <button id="theme-toggle-mobile" class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em] flex items-center gap-2 mt-2" aria-label="Toggle theme">
+    <span class="material-symbols-outlined text-[20px]" id="theme-icon-mobile">dark_mode</span>
+    <span id="theme-label-mobile">Light Mode</span>
+  </button>
 </div>
 
 <main class="pt-24 pb-[36px] md:pb-[128px]">
@@ -480,6 +518,46 @@
 
   window.addEventListener('scroll', setActiveNav)
   setActiveNav()
+</script>
+
+<script>
+  // Theme toggle
+  (function() {
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      html.classList.remove('dark');
+      html.classList.add('light');
+    }
+    
+    function updateIcons() {
+      const isLight = html.classList.contains('light');
+      const icon = document.getElementById('theme-icon');
+      const iconMobile = document.getElementById('theme-icon-mobile');
+      const labelMobile = document.getElementById('theme-label-mobile');
+      if (icon) icon.textContent = isLight ? 'light_mode' : 'dark_mode';
+      if (iconMobile) iconMobile.textContent = isLight ? 'light_mode' : 'dark_mode';
+      if (labelMobile) labelMobile.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+    }
+
+    function toggle() {
+      const isLight = html.classList.contains('light');
+      if (isLight) {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        localStorage.setItem('theme', 'light');
+      }
+      updateIcons();
+    }
+
+    document.getElementById('theme-toggle').addEventListener('click', toggle);
+    document.getElementById('theme-toggle-mobile').addEventListener('click', toggle);
+    updateIcons();
+  })();
 </script>
 
 </body>
