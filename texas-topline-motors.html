@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script>
+    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}})();
+  </script>
   <title>Texas Topline Motors — Haley Pham</title>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,6 +24,17 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.1);
     }
+      /* Light theme overrides */
+    html.light body { background: #f8fafc; color: #1e293b; }
+    html.light header { background: rgba(248,250,252,0.8); border-color: rgba(0,0,0,0.1); }
+    html.light .bg-\[\#020617\]\/80 { background: rgba(248,250,252,0.8); }
+    html.light .text-\[\#dae2fd\] { color: #1e293b; }
+    html.light .text-\[\#c2c6d6\] { color: #475569; }
+    html.light .text-\[\#60A5FA\] { color: #2563eb; }
+    html.light .text-\[\#94A3B8\] { color: #64748b; }
+    html.light .border-white\/10 { border-color: rgba(0,0,0,0.1); }
+    html.light .bg-\[\#020617\] { background: #f8fafc; }
+    html.light .bg-deep-slate\/50 { background: rgba(255,255,255,0.8); }
   </style>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script>
@@ -47,11 +61,14 @@
 <body class="bg-[#020617] text-[#dae2fd] antialiased">
 
   <!-- Header -->
-  <header class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/10 flex items-center h-16 px-[20px] md:px-[32px]">
+  <header class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/10 flex items-center justify-between h-16 px-[20px] md:px-[32px]">
     <a href="./" class="flex items-center gap-2 text-[#60A5FA] hover:text-white transition-colors duration-300">
       <span class="material-symbols-outlined text-[20px]">arrow_back</span>
       <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]">Back</span>
     </a>
+    <button id="theme-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300" aria-label="Toggle theme">
+      <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
+    </button>
   </header>
 
   <main class="pt-24 pb-24 px-[20px] md:px-[32px] max-w-[1280px] mx-auto">
@@ -114,5 +131,27 @@
 
   </main>
 
+<script>
+  (function() {
+    const html = document.documentElement;
+    function updateIcon() {
+      const icon = document.getElementById('theme-icon');
+      if (icon) icon.textContent = html.classList.contains('light') ? 'light_mode' : 'dark_mode';
+    }
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+      if (html.classList.contains('light')) {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        localStorage.setItem('theme', 'light');
+      }
+      updateIcon();
+    });
+    updateIcon();
+  })();
+</script>
 </body>
 </html>
