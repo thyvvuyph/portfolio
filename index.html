@@ -123,27 +123,13 @@
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.1);
     }
-    .neon-glow { box-shadow: 0 0 20px rgba(96,165,250,0.2); }
-    .neon-glow {
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
+    .neon-glow { 
+      box-shadow: 0 0 20px rgba(96,165,250,0.2);
+      transition: background-color 0.5s ease, box-shadow 0.5s ease;
     }
-    .neon-glow::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 0%;
-      height: 100%;
-      background: #1e3a8a;
-      transition: width 0.4s ease;
-      z-index: -1;
-    }
-    .neon-glow:hover::before {
-      width: 100%;
-      left: 0;
-      right: auto;
+    .neon-glow:hover {
+      background-color: #be123c !important;
+      box-shadow: 0 0 20px rgba(190,18,60,0.3);
     }
     .coral-glow { box-shadow: 0 0 20px rgba(251,113,133,0.2); }
 
