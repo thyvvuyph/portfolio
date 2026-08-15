@@ -125,9 +125,11 @@
     }
     .neon-glow { 
       box-shadow: 0 0 20px rgba(96,165,250,0.2);
+    }
+    html.light .neon-glow {
       transition: background-color 0.5s ease, box-shadow 0.5s ease;
     }
-    .neon-glow:hover {
+    html.light .neon-glow:hover {
       background-color: #be123c !important;
       box-shadow: 0 0 20px rgba(190,18,60,0.3);
     }
@@ -159,7 +161,7 @@
     html.light .to-refined-coral { --tw-gradient-to: #be123c; }
     html.light .hover\:border-electric-blue:hover { border-color: #1d4ed8; box-shadow: 0 0 0 1px #1d4ed8; }
     html.light .hover\:text-primary:hover { color: #1d4ed8; }
-    html.light .hover\:bg-white:hover { background: #be123c; color: #ffffff; }
+    html.light .hover\:bg-white:hover { background: transparent; }
     html.light .neon-glow { box-shadow: 0 4px 16px rgba(29,78,216,0.3); }
     html.light .rounded-full { border-color: rgba(0,0,0,0.25); }
     html.light a[class*="rounded-[0.125rem]"] { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
@@ -227,7 +229,7 @@
           Hi, I'm Haley Pham. I graduated Bachelor of Communication Design at RMIT University. My aspiration is to live creatively and build up my experience as a graphic designer. I would love to use and practice my skills in developing and creating graphics and illustrations for websites.
         </p>
         <div class="flex flex-wrap gap-4 pt-4">
-          <a class="bg-electric-blue text-charcoal-surface font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-[0.125rem] transition-colors duration-300 flex items-center gap-2 neon-glow" href="#contact">
+          <a class="bg-electric-blue text-charcoal-surface font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-[0.125rem] hover:bg-white transition-colors duration-300 flex items-center gap-2 neon-glow" href="#contact">
             <span>Contact Me</span>
             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
           </a>
@@ -421,7 +423,7 @@
           <span class="text-on-surface">Have a </span>
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-refined-coral">Cool Project?</span>
         </h2>
-        <a class="bg-electric-blue text-charcoal-surface font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-8 py-4 rounded-[0.125rem] transition-colors duration-300 inline-block neon-glow" href="mailto:pthvy20@gmail.com">
+        <a class="bg-electric-blue text-charcoal-surface font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-8 py-4 rounded-[0.125rem] hover:bg-white transition-colors duration-300 inline-block neon-glow" href="mailto:pthvy20@gmail.com">
           Contact Me
         </a>
         <p class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral mt-4">
