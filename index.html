@@ -135,6 +135,7 @@
   <nav class="hidden md:flex gap-6">
     <a id="nav-home" class="text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-primary transition-all duration-300" href="#home">Home</a>
     <a id="nav-work" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
+    <a id="nav-blog" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#blog">Blog</a>
     <a id="nav-gallery" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="./gallery.html">Gallery</a>
   </nav>
   <button id="menu-toggle" class="md:hidden text-on-surface-variant hover:text-on-surface transition-colors">
@@ -146,6 +147,7 @@
 <div id="mobile-menu" class="hidden fixed top-16 left-0 w-full z-40 bg-charcoal-surface/95 backdrop-blur-md border-b border-white/10 flex-col px-[20px] py-6 gap-4">
   <a class="text-electric-blue font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#home">Home</a>
   <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
+  <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#blog">Blog</a>
   <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="./gallery.html">Gallery</a>
 </div>
 
@@ -339,6 +341,38 @@
     </div>
   </section>
 
+  <!-- Blog Section -->
+  <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto py-[48px] md:py-[96px]" id="blog">
+    <div class="flex items-center gap-4 mb-12">
+      <h2 class="font-[Hanken_Grotesk] text-[32px] leading-[40px] md:text-[48px] md:leading-[56px] font-[800]">
+        <span class="text-on-surface">Blog</span>
+      </h2>
+      <div class="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Blog Post 1 -->
+      <a href="./blog-tet-in-syd.html" class="group relative overflow-hidden rounded-xl border border-white/10 hover:border-electric-blue transition-colors duration-300">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="/portfolio/blog-tet-in-syd-card.jpg" alt="Tet in Sydney" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+        </div>
+        <div class="p-6 bg-deep-slate/50">
+          <h3 class="font-[Hanken_Grotesk] text-[20px] md:text-[24px] font-[600] text-on-surface mb-2">Tet in Syd</h3>
+          <p class="font-[Inter] text-[14px] text-muted-text">Celebrating Lunar New Year in Sydney — a photo diary of traditions and new beginnings.</p>
+        </div>
+      </a>
+      <!-- Blog Post 2 -->
+      <a href="./blog-melb-night-walking.html" class="group relative overflow-hidden rounded-xl border border-white/10 hover:border-electric-blue transition-colors duration-300">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="/portfolio/blog-melb-night-card.jpg" alt="Melbourne Night Walking" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+        </div>
+        <div class="p-6 bg-deep-slate/50">
+          <h3 class="font-[Hanken_Grotesk] text-[20px] md:text-[24px] font-[600] text-on-surface mb-2">Melb Night Walking</h3>
+          <p class="font-[Inter] text-[14px] text-muted-text">Wandering through Melbourne's streets after dark — neon lights, quiet lanes, and city shadows.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- CTA / Contact Section -->
   <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto py-[32px] text-center" id="contact">
     <div class="glass-panel border border-white/10 rounded-xl p-12 md:p-24 relative overflow-hidden">
@@ -373,6 +407,7 @@
       <h4 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral mb-2">Navigation</h4>
       <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#home">Home</a>
       <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#work">Work</a>
+      <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#blog">Blog</a>
       <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="./gallery.html">Gallery</a>
       <a class="font-[Inter] text-[16px] text-muted-text hover:text-electric-blue transition-colors duration-200" href="#contact">Contact</a>
     </div>
