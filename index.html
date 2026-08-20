@@ -176,6 +176,7 @@
     html.light #hero-bg { opacity: 0.4; border: none; }
     html.light .opacity-60 { opacity: 1; }
     html.light .group-hover\:opacity-80 { opacity: 1; }
+    html.light .profile-video-wrapper { display: none; }
     html.light ::-webkit-scrollbar-track { background: #f8fafc; }
     html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
     html.light ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
@@ -600,7 +601,7 @@
 </script>
 
 <script>
-  // Profile video — render to canvas with black background removal
+  // Profile video — render to canvas with black background removal (dark theme only)
   (function() {
     const video = document.getElementById('profile-video');
     const canvas = document.getElementById('profile-canvas');
@@ -611,8 +612,12 @@
     canvas.height = 480;
     let animId = null;
 
+    function isDark() {
+      return !document.documentElement.classList.contains('light');
+    }
+
     function render() {
-      if (video.paused || video.ended) {
+      if (!isDark() || video.paused || video.ended) {
         animId = requestAnimationFrame(render);
         return;
       }
@@ -634,15 +639,31 @@
       animId = requestAnimationFrame(render);
     }
 
+    function start() {
+      if (isDark()) {
+        video.play();
+        if (!animId) render();
+      } else {
+        video.pause();
+        ctx.clearRect(0, 0, 480, 480);
+      }
+    }
+
     video.addEventListener('playing', function() {
       if (!animId) render();
     });
 
-    video.addEventListener('loadeddata', function() {
-      video.play();
-    });
+    video.addEventListener('loadeddata', start);
 
-    if (video.readyState >= 2) video.play();
+    // Handle theme changes
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(m) {
+        if (m.attributeName === 'class') start();
+      });
+    });
+    observer.observe(document.documentElement, { attributes: true });
+
+    if (video.readyState >= 2) start();
   })();
 </script>
 
