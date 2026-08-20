@@ -176,7 +176,7 @@
     html.light #hero-bg { opacity: 0.4; border: none; }
     html.light .opacity-60 { opacity: 1; }
     html.light .group-hover\:opacity-80 { opacity: 1; }
-    html.light .profile-video-wrapper { display: none; }
+    html.light #profile-video { mix-blend-mode: multiply; }
     html.light ::-webkit-scrollbar-track { background: #f8fafc; }
     html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
     html.light ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
@@ -599,29 +599,12 @@
 </script>
 
 <script>
-  // Profile video — pause in light theme, play in dark theme
+  // Profile video — always autoplay and loop
   (function() {
     const video = document.getElementById('profile-video');
     if (!video) return;
-
-    function updatePlayback() {
-      if (document.documentElement.classList.contains('light')) {
-        video.pause();
-      } else {
-        video.play();
-      }
-    }
-
-    video.addEventListener('loadeddata', updatePlayback);
-
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(m) {
-        if (m.attributeName === 'class') updatePlayback();
-      });
-    });
-    observer.observe(document.documentElement, { attributes: true });
-
-    if (video.readyState >= 2) updatePlayback();
+    video.addEventListener('loadeddata', function() { video.play(); });
+    if (video.readyState >= 2) video.play();
   })();
 </script>
 
