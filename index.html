@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <script>
-    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('header-logo');var p=document.getElementById('profile-photo');if(l&&t==='light')l.src='./logo-light.png';if(p&&t==='light')p.src='./haley-photo-light.png';});})();
+    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('header-logo');var bg=document.getElementById('hero-bg');if(l&&t==='light')l.src='./logo-light.png';if(bg&&t==='light')bg.src='./bg-light.png';});})();
   </script>
   <title>Haley Pham | Communication Design Portfolio</title>
   <!-- Google Fonts -->
@@ -173,8 +173,10 @@
     html.light .rounded-xl { border-color: rgba(0,0,0,0.25); }
     html.light .rounded-2xl { border-color: rgba(0,0,0,0.2); }
     html.light img { border: 1px solid rgba(0,0,0,0.1); }
+    html.light #hero-bg { opacity: 0.4; border: none; }
     html.light .opacity-60 { opacity: 1; }
     html.light .group-hover\:opacity-80 { opacity: 1; }
+    html.light .profile-video-wrapper { display: none; }
     html.light ::-webkit-scrollbar-track { background: #f8fafc; }
     html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
     html.light ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
@@ -219,7 +221,7 @@
   <!-- Hero Section -->
   <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto min-h-[80vh] flex flex-col justify-center py-16 pb-2 md:pb-16 relative" id="home">
     <div class="absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
-      <img src="/bg.png" alt="" class="opacity-25" style="-webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%); mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%);"/>
+      <img id="hero-bg" src="/bg.png" alt="" class="opacity-25" style="-webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%); mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%);"/>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       <div class="lg:col-span-7 flex flex-col gap-6">
@@ -240,9 +242,13 @@
           </a>
         </div>
       </div>
-      <div class="lg:col-span-5 relative hidden lg:block">
-        <div class="relative w-full aspect-square rounded-full flex items-center justify-center overflow-hidden">
-          <img id="profile-photo" class="object-cover w-full h-full" alt="Haley Pham" src="/haley-photo.jpg"/>
+      <!-- Profile Video (dark theme only) -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end profile-video-wrapper">
+        <div class="w-[280px] h-[280px] md:w-[380px] md:h-[380px] relative">
+          <video id="profile-video" class="w-full h-full object-contain" style="mix-blend-mode: lighten;" muted autoplay loop playsinline preload="auto">
+            <source src="/BG.webm" type="video/webm"/>
+            <source src="/BG.mp4" type="video/mp4"/>
+          </video>
         </div>
       </div>
     </div>
@@ -538,12 +544,12 @@
       const iconMobile = document.getElementById('theme-icon-mobile');
       const labelMobile = document.getElementById('theme-label-mobile');
       const logo = document.getElementById('header-logo');
+      const heroBg = document.getElementById('hero-bg');
       if (icon) icon.textContent = isLight ? 'light_mode' : 'dark_mode';
       if (iconMobile) iconMobile.textContent = isLight ? 'light_mode' : 'dark_mode';
       if (labelMobile) labelMobile.textContent = isLight ? 'Dark Mode' : 'Light Mode';
       if (logo) logo.src = isLight ? './logo-light.png' : './logo.png';
-      var profile = document.getElementById('profile-photo');
-      if (profile) profile.src = isLight ? './haley-photo-light.png' : './haley-photo.jpg';
+      if (heroBg) heroBg.src = isLight ? './bg-light.png' : './bg.png';
     }
 
     function toggle() {
@@ -563,6 +569,56 @@
     document.getElementById('theme-toggle').addEventListener('click', toggle);
     document.getElementById('theme-toggle-mobile').addEventListener('click', toggle);
     updateIcons();
+  })();
+</script>
+
+<script>
+  // Scroll position restore — saves position before navigating to work/blog pages,
+  // restores it when coming back.
+  (function() {
+    // Save scroll position when clicking any project or blog link
+    const projectLinks = document.querySelectorAll('a[href$=".html"]:not([href*="gallery"])');
+    projectLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        sessionStorage.setItem('portfolioScrollY', window.scrollY);
+      });
+    });
+
+    // Restore scroll position if returning from a work page
+    const savedY = sessionStorage.getItem('portfolioScrollY');
+    if (savedY !== null) {
+      // Disable smooth scroll temporarily so it jumps instantly
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, parseInt(savedY, 10));
+      sessionStorage.removeItem('portfolioScrollY');
+      // Re-enable smooth scroll after restoring
+      setTimeout(function() {
+        document.documentElement.style.scrollBehavior = '';
+      }, 100);
+    }
+  })();
+</script>
+
+<script>
+  // Profile video — dark theme only
+  (function() {
+    const video = document.getElementById('profile-video');
+    if (!video) return;
+
+    function update() {
+      if (document.documentElement.classList.contains('light')) {
+        video.pause();
+      } else {
+        video.play();
+      }
+    }
+
+    video.addEventListener('loadeddata', update);
+    const observer = new MutationObserver(function(m) {
+      m.forEach(function(mut) { if (mut.attributeName === 'class') update(); });
+    });
+    observer.observe(document.documentElement, { attributes: true });
+    if (video.readyState >= 2) update();
   })();
 </script>
 
