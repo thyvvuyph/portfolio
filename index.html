@@ -245,7 +245,7 @@
       <!-- Profile Video (dark theme only) -->
       <div class="lg:col-span-5 flex justify-center lg:justify-end profile-video-wrapper">
         <div class="w-[280px] h-[280px] md:w-[380px] md:h-[380px] relative">
-          <video id="profile-video" class="w-full h-full object-contain" muted autoplay playsinline preload="auto">
+          <video id="profile-video" class="w-full h-full object-contain" muted autoplay loop playsinline preload="auto">
             <source src="/portfolio/BG-hevc.mp4" type='video/mp4; codecs="hvc1"'/>
             <source src="/portfolio/BG.webm" type="video/webm"/>
           </video>
@@ -600,72 +600,29 @@
 </script>
 
 <script>
-  // Profile video ping-pong loop (plays forward, then reverses, repeat)
+  // Profile video — pause in light theme, play in dark theme
   (function() {
     const video = document.getElementById('profile-video');
     if (!video) return;
 
-    let playingForward = true;
-    const reverseStep = 1 / 30; // step back ~1 frame at 30fps
-    let reverseRAF = null;
-
-    function startVideo() {
-      // Only play if dark theme is active
+    function updatePlayback() {
       if (document.documentElement.classList.contains('light')) {
         video.pause();
-        return;
-      }
-      playingForward = true;
-      video.playbackRate = 1;
-      video.play();
-    }
-
-    function reversePlayback() {
-      if (document.documentElement.classList.contains('light')) {
-        cancelAnimationFrame(reverseRAF);
-        return;
-      }
-      if (video.currentTime <= 0) {
-        // Reached the beginning, play forward again
-        playingForward = true;
+      } else {
         video.play();
-        return;
       }
-      video.currentTime = Math.max(0, video.currentTime - reverseStep);
-      reverseRAF = requestAnimationFrame(reversePlayback);
     }
 
-    video.addEventListener('ended', function() {
-      // Video ended (played forward), now reverse
-      playingForward = false;
-      video.pause();
-      reversePlayback();
-    });
+    video.addEventListener('loadeddata', updatePlayback);
 
-    // Start playing when video is ready
-    video.addEventListener('loadeddata', startVideo);
-
-    // Handle theme changes — pause in light, resume in dark
     const observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(m) {
-        if (m.attributeName === 'class') {
-          if (document.documentElement.classList.contains('light')) {
-            video.pause();
-            if (reverseRAF) cancelAnimationFrame(reverseRAF);
-          } else {
-            if (playingForward) {
-              video.play();
-            } else {
-              reversePlayback();
-            }
-          }
-        }
+        if (m.attributeName === 'class') updatePlayback();
       });
     });
     observer.observe(document.documentElement, { attributes: true });
 
-    // Initial start
-    if (video.readyState >= 2) startVideo();
+    if (video.readyState >= 2) updatePlayback();
   })();
 </script>
 
