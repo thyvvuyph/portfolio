@@ -176,7 +176,6 @@
     html.light #hero-bg { opacity: 0.4; border: none; }
     html.light .opacity-60 { opacity: 1; }
     html.light .group-hover\:opacity-80 { opacity: 1; }
-    html.light #profile-video { mix-blend-mode: multiply; }
     html.light ::-webkit-scrollbar-track { background: #f8fafc; }
     html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
     html.light ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
@@ -242,10 +241,11 @@
           </a>
         </div>
       </div>
-      <!-- Profile Video (dark theme only) -->
+      <!-- Profile Video -->
       <div class="lg:col-span-5 flex justify-center lg:justify-end profile-video-wrapper">
         <div class="w-[280px] h-[280px] md:w-[380px] md:h-[380px] relative">
-          <video id="profile-video" class="w-full h-full object-contain" style="mix-blend-mode: screen;" muted autoplay loop playsinline preload="auto">
+          <canvas id="profile-canvas" class="w-full h-full"></canvas>
+          <video id="profile-video" class="hidden" muted autoplay loop playsinline preload="auto">
             <source src="/portfolio/BG.webm" type="video/webm"/>
             <source src="/portfolio/BG.mp4" type="video/mp4"/>
           </video>
@@ -600,11 +600,48 @@
 </script>
 
 <script>
-  // Profile video — always autoplay and loop
+  // Profile video — render to canvas with black background removal
   (function() {
     const video = document.getElementById('profile-video');
-    if (!video) return;
-    video.addEventListener('loadeddata', function() { video.play(); });
+    const canvas = document.getElementById('profile-canvas');
+    if (!video || !canvas) return;
+
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    canvas.width = 480;
+    canvas.height = 480;
+    let animId = null;
+
+    function render() {
+      if (video.paused || video.ended) {
+        animId = requestAnimationFrame(render);
+        return;
+      }
+      ctx.drawImage(video, 0, 0, 480, 480);
+      const frame = ctx.getImageData(0, 0, 480, 480);
+      const data = frame.data;
+      // Remove dark pixels (make them transparent)
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i], g = data[i+1], b = data[i+2];
+        const brightness = (r + g + b) / 3;
+        if (brightness < 30) {
+          data[i+3] = 0; // fully transparent
+        } else if (brightness < 60) {
+          // fade out near-black pixels
+          data[i+3] = Math.round((brightness - 30) / 30 * 255);
+        }
+      }
+      ctx.putImageData(frame, 0, 0);
+      animId = requestAnimationFrame(render);
+    }
+
+    video.addEventListener('playing', function() {
+      if (!animId) render();
+    });
+
+    video.addEventListener('loadeddata', function() {
+      video.play();
+    });
+
     if (video.readyState >= 2) video.play();
   })();
 </script>
