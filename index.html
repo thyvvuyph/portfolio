@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <script>
-    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('header-logo');if(l&&t==='light')l.src='./logo-light.png';});})();
+    (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('header-logo');var bg=document.getElementById('hero-bg');if(l&&t==='light')l.src='./logo-light.png';if(bg&&t==='light')bg.src='./bg-light.png';});})();
   </script>
   <title>Haley Pham | Communication Design Portfolio</title>
   <!-- Google Fonts -->
@@ -219,7 +219,7 @@
   <!-- Hero Section -->
   <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto min-h-[80vh] flex flex-col justify-center py-16 pb-2 md:pb-16 relative" id="home">
     <div class="absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
-      <img src="/portfolio/bg.png" alt="" class="opacity-25" style="-webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%); mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%);"/>
+      <img id="hero-bg" src="/portfolio/bg.png" alt="" class="opacity-25" style="-webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%); mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%);"/>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       <div class="lg:col-span-12 flex flex-col gap-6">
@@ -534,10 +534,12 @@
       const iconMobile = document.getElementById('theme-icon-mobile');
       const labelMobile = document.getElementById('theme-label-mobile');
       const logo = document.getElementById('header-logo');
+      const heroBg = document.getElementById('hero-bg');
       if (icon) icon.textContent = isLight ? 'light_mode' : 'dark_mode';
       if (iconMobile) iconMobile.textContent = isLight ? 'light_mode' : 'dark_mode';
       if (labelMobile) labelMobile.textContent = isLight ? 'Dark Mode' : 'Light Mode';
       if (logo) logo.src = isLight ? './logo-light.png' : './logo.png';
+      if (heroBg) heroBg.src = isLight ? './bg-light.png' : './bg.png';
     }
 
     function toggle() {
