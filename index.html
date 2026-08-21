@@ -177,6 +177,8 @@
     html.light .opacity-60 { opacity: 1; }
     html.light .group-hover\:opacity-80 { opacity: 1; }
     html.light .profile-video-wrapper { display: none; }
+    html.light .view-projects-btn { background: #f1f5f9 !important; border-color: rgba(0,0,0,0.15) !important; color: #1e293b !important; }
+    html.light .view-projects-btn span[class*="absolute"] { display: none; }
     html.light ::-webkit-scrollbar-track { background: #f8fafc; }
     html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
     html.light ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
@@ -237,7 +239,9 @@
             <span>Contact Me</span>
             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
           </a>
-          <a class="border border-white/10 text-electric-blue font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-[0.125rem] hover:bg-white/5 transition-colors duration-300 flex items-center gap-2" href="#work">
+          <a class="view-projects-btn relative text-white/90 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-full hover:text-white transition-all duration-300 flex items-center gap-2 overflow-hidden" href="#work" style="background: rgba(20,20,35,0.9); border: 1px solid rgba(255,255,255,0.08);">
+            <span class="absolute inset-x-0 bottom-0 h-[2px]" style="background: linear-gradient(90deg, transparent, #6366f1, #a855f7, #6366f1, transparent);"></span>
+            <span class="absolute inset-x-0 bottom-0 h-[6px] blur-[4px] opacity-70" style="background: linear-gradient(90deg, transparent, #6366f1, #a855f7, #6366f1, transparent);"></span>
             <span>View Projects</span>
           </a>
         </div>
