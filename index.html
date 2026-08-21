@@ -188,14 +188,22 @@
       100% { transform: rotate(360deg); }
     }
     .view-projects-glow {
-      background: conic-gradient(from 0deg, transparent 0%, transparent 60%, #4f46e5 75%, #7c3aed 80%, #4f46e5 85%, transparent 100%);
+      background: conic-gradient(from 0deg, transparent 0%, transparent 55%, #4f46e5 72%, #7c3aed 80%, #4f46e5 88%, transparent 100%);
       animation: glow-rotate 4s linear infinite;
-      opacity: 0.4;
+      opacity: 0.7;
       transition: opacity 0.3s;
     }
     .view-projects-btn:hover .view-projects-glow {
       animation: glow-rotate 1.5s linear infinite;
       opacity: 1;
+    }
+    .view-projects-inner {
+      background: rgba(20,20,35,0.95);
+      transition: background 0.3s;
+    }
+    .view-projects-btn:hover .view-projects-inner {
+      background: conic-gradient(from 0deg, rgba(20,20,35,0.95) 0%, rgba(20,20,35,0.95) 55%, rgba(79,70,229,0.15) 72%, rgba(124,58,237,0.2) 80%, rgba(79,70,229,0.15) 88%, rgba(20,20,35,0.95) 100%);
+      animation: glow-rotate 1.5s linear infinite;
     }
     .view-projects-btn {
       border: 1px solid rgba(255,255,255,0.06);
@@ -259,7 +267,7 @@
           </a>
           <a class="view-projects-btn relative text-white/90 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-full hover:text-white transition-all duration-300 flex items-center gap-2" href="#work">
             <span class="absolute inset-0 rounded-full view-projects-glow"></span>
-            <span class="absolute inset-[1px] rounded-full" style="background: rgba(20,20,35,0.95);"></span>
+            <span class="absolute inset-[1px] rounded-full view-projects-inner"></span>
             <span class="relative z-10">View Projects</span>
           </a>
         </div>
