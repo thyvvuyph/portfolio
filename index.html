@@ -183,26 +183,22 @@
     html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
     html.light ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
 
-    @keyframes glow-sweep {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
+    @keyframes glow-rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     .view-projects-glow {
-      background: linear-gradient(90deg, transparent 0%, transparent 30%, #4f46e5 45%, #7c3aed 50%, #4f46e5 55%, transparent 70%, transparent 100%);
-      background-size: 200% 100%;
-      animation: glow-sweep 4s ease-in-out infinite;
-      opacity: 0.3;
+      background: conic-gradient(from 0deg, transparent 0%, transparent 60%, #4f46e5 75%, #7c3aed 80%, #4f46e5 85%, transparent 100%);
+      animation: glow-rotate 4s linear infinite;
+      opacity: 0.4;
       transition: opacity 0.3s;
     }
     .view-projects-btn:hover .view-projects-glow {
-      animation: glow-sweep 1.2s ease-in-out infinite;
+      animation: glow-rotate 1.5s linear infinite;
       opacity: 1;
     }
-    .view-projects-glow:nth-child(2) {
-      opacity: 0.15;
-    }
-    .view-projects-btn:hover .view-projects-glow:nth-child(2) {
-      opacity: 0.5;
+    .view-projects-btn {
+      border: 1px solid rgba(255,255,255,0.06);
     }
   </style>
 </head>
@@ -261,10 +257,10 @@
             <span>Contact Me</span>
             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
           </a>
-          <a class="view-projects-btn relative text-white/90 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-full hover:text-white transition-all duration-300 flex items-center gap-2 overflow-hidden" href="#work" style="background: rgba(20,20,35,0.9); border: 1px solid rgba(255,255,255,0.06);">
-            <span class="absolute inset-x-0 bottom-0 h-[1px] view-projects-glow"></span>
-            <span class="absolute inset-x-0 bottom-0 h-[4px] blur-[3px] opacity-40 view-projects-glow"></span>
-            <span>View Projects</span>
+          <a class="view-projects-btn relative text-white/90 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-full hover:text-white transition-all duration-300 flex items-center gap-2" href="#work">
+            <span class="absolute inset-0 rounded-full view-projects-glow"></span>
+            <span class="absolute inset-[1px] rounded-full" style="background: rgba(20,20,35,0.95);"></span>
+            <span class="relative z-10">View Projects</span>
           </a>
         </div>
       </div>
