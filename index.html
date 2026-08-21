@@ -177,8 +177,10 @@
     html.light .opacity-60 { opacity: 1; }
     html.light .group-hover\:opacity-80 { opacity: 1; }
     html.light .profile-video-wrapper { display: none; }
-    html.light .view-projects-btn { background: #f1f5f9 !important; border-color: rgba(0,0,0,0.15) !important; color: #1e293b !important; }
-    html.light .view-projects-btn span[class*="absolute"] { display: none; }
+    html.light .view-projects-btn { background: #f1f5f9 !important; color: #1e293b !important; }
+    html.light .view-projects-btn .view-projects-border { background: conic-gradient(from var(--glow-angle), transparent 0%, transparent 45%, #1d4ed8 55%, #ffffff 62%, #2563eb 70%, #be123c 78%, #1d4ed8 85%, transparent 100%); }
+    html.light .view-projects-btn .view-projects-inner { background: #f1f5f9 !important; }
+    html.light .view-projects-btn:hover .view-projects-inner { box-shadow: inset 0 0 35px 8px rgba(29,78,216,0.1) !important; }
     html.light ::-webkit-scrollbar-track { background: #f8fafc; }
     html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
     html.light ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
