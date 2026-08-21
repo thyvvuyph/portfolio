@@ -183,13 +183,17 @@
     html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
     html.light ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
 
+    @property --glow-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
     @keyframes border-sweep {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 200% 50%; }
+      0% { --glow-angle: 0deg; }
+      100% { --glow-angle: 360deg; }
     }
     .view-projects-border {
-      background: linear-gradient(90deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.08) 35%, #4f46e5 48%, #7c3aed 50%, #4f46e5 52%, rgba(255,255,255,0.08) 65%, rgba(255,255,255,0.08) 100%);
-      background-size: 200% 100%;
+      background: conic-gradient(from var(--glow-angle), transparent 0%, transparent 88%, #4f46e5 94%, #7c3aed 97%, #4f46e5 100%);
       animation: border-sweep 4s linear infinite;
       opacity: 0.6;
       transition: opacity 0.3s;
@@ -199,12 +203,10 @@
       opacity: 1;
     }
     .view-projects-inner {
-      transition: background 0.3s;
+      transition: all 0.3s;
     }
     .view-projects-btn:hover .view-projects-inner {
-      background: linear-gradient(90deg, rgba(20,20,35,0.95) 0%, rgba(20,20,35,0.95) 35%, rgba(79,70,229,0.12) 48%, rgba(124,58,237,0.18) 50%, rgba(79,70,229,0.12) 52%, rgba(20,20,35,0.95) 65%, rgba(20,20,35,0.95) 100%) !important;
-      background-size: 200% 100% !important;
-      animation: border-sweep 1.5s linear infinite;
+      box-shadow: inset 0 0 20px 2px rgba(99,102,241,0.1);
     }
   </style>
 </head>
