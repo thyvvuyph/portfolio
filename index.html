@@ -182,6 +182,16 @@
     html.light ::-webkit-scrollbar-track { background: #f8fafc; }
     html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
     html.light ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+
+    @keyframes glow-sweep {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .view-projects-glow {
+      background: linear-gradient(90deg, transparent 0%, transparent 30%, #4f46e5 45%, #7c3aed 50%, #4f46e5 55%, transparent 70%, transparent 100%);
+      background-size: 200% 100%;
+      animation: glow-sweep 3s ease-in-out infinite;
+    }
   </style>
 </head>
 <body class="bg-charcoal-surface text-on-surface font-body-md antialiased selection:bg-electric-blue selection:text-charcoal-surface">
@@ -239,9 +249,9 @@
             <span>Contact Me</span>
             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
           </a>
-          <a class="view-projects-btn relative text-white/90 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-full hover:text-white transition-all duration-300 flex items-center gap-2 overflow-hidden" href="#work" style="background: rgba(20,20,35,0.9); border: 1px solid rgba(255,255,255,0.08);">
-            <span class="absolute inset-x-0 bottom-0 h-[2px]" style="background: linear-gradient(90deg, transparent, #6366f1, #a855f7, #6366f1, transparent);"></span>
-            <span class="absolute inset-x-0 bottom-0 h-[6px] blur-[4px] opacity-70" style="background: linear-gradient(90deg, transparent, #6366f1, #a855f7, #6366f1, transparent);"></span>
+          <a class="view-projects-btn relative text-white/90 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] px-6 py-3 rounded-full hover:text-white transition-all duration-300 flex items-center gap-2 overflow-hidden" href="#work" style="background: rgba(20,20,35,0.9); border: 1px solid rgba(255,255,255,0.06);">
+            <span class="absolute inset-x-0 bottom-0 h-[1px] view-projects-glow"></span>
+            <span class="absolute inset-x-0 bottom-0 h-[4px] blur-[3px] opacity-40 view-projects-glow"></span>
             <span>View Projects</span>
           </a>
         </div>
