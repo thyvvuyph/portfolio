@@ -190,7 +190,19 @@
     .view-projects-glow {
       background: linear-gradient(90deg, transparent 0%, transparent 30%, #4f46e5 45%, #7c3aed 50%, #4f46e5 55%, transparent 70%, transparent 100%);
       background-size: 200% 100%;
-      animation: glow-sweep 3s ease-in-out infinite;
+      animation: glow-sweep 4s ease-in-out infinite;
+      opacity: 0.3;
+      transition: opacity 0.3s;
+    }
+    .view-projects-btn:hover .view-projects-glow {
+      animation: glow-sweep 1.2s ease-in-out infinite;
+      opacity: 1;
+    }
+    .view-projects-glow:nth-child(2) {
+      opacity: 0.15;
+    }
+    .view-projects-btn:hover .view-projects-glow:nth-child(2) {
+      opacity: 0.5;
     }
   </style>
 </head>
