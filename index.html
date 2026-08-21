@@ -245,7 +245,7 @@
       <!-- Profile Video (dark theme only) -->
       <div class="hidden md:flex lg:col-span-5 justify-center lg:justify-end profile-video-wrapper">
         <div class="md:w-[300px] md:h-[300px] relative">
-          <video id="profile-video" class="w-full h-full object-contain" style="mix-blend-mode: lighten;" muted autoplay loop playsinline preload="auto">
+          <video id="profile-video" class="w-full h-full object-contain" style="mix-blend-mode: lighten;" muted autoplay loop playsinline webkit-playsinline preload="auto">
             <source src="/portfolio/BG.webm" type="video/webm"/>
             <source src="/portfolio/BG.mp4" type="video/mp4"/>
           </video>
@@ -600,7 +600,7 @@
 </script>
 
 <script>
-  // Profile video — dark theme only
+  // Profile video — dark theme only, ensure autoplay on tablets
   (function() {
     const video = document.getElementById('profile-video');
     if (!video) return;
@@ -609,15 +609,37 @@
       if (document.documentElement.classList.contains('light')) {
         video.pause();
       } else {
-        video.play();
+        var p = video.play();
+        if (p) p.catch(function(){});
       }
     }
 
     video.addEventListener('loadeddata', update);
-    const observer = new MutationObserver(function(m) {
+    var themeObs = new MutationObserver(function(m) {
       m.forEach(function(mut) { if (mut.attributeName === 'class') update(); });
     });
-    observer.observe(document.documentElement, { attributes: true });
+    themeObs.observe(document.documentElement, { attributes: true });
+
+    // Intersection observer to trigger play when visible (helps on iPad/tablets)
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !document.documentElement.classList.contains('light')) {
+          var p = video.play();
+          if (p) p.catch(function(){});
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(video);
+
+    // Also try playing on first touch (iOS Safari fallback)
+    document.addEventListener('touchstart', function once() {
+      if (!document.documentElement.classList.contains('light')) {
+        var p = video.play();
+        if (p) p.catch(function(){});
+      }
+      document.removeEventListener('touchstart', once);
+    }, { once: true });
+
     if (video.readyState >= 2) update();
   })();
 </script>
