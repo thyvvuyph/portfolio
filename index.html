@@ -180,8 +180,9 @@
     html.light .view-projects-btn { background: #f1f5f9 !important; color: #1e293b !important; }
     html.light .view-projects-btn .view-projects-border { background: conic-gradient(from var(--glow-angle), transparent 0%, transparent 45%, #1e3a8a 52%, #1d4ed8 58%, #2563eb 64%, #be123c 70%, #be123c 76%, #1d4ed8 82%, #1e3a8a 88%, transparent 100%); opacity: 0.5; }
     html.light .view-projects-btn .view-projects-glow-outer { opacity: 0.3 !important; filter: blur(4px) !important; }
-    html.light .view-projects-btn .view-projects-inner { background: #f1f5f9 !important; border: 1px solid rgba(0,0,0,0.15) !important; box-shadow: inset 0 0 30px 8px rgba(0,0,0,0.06); }
-    html.light .view-projects-btn:hover .view-projects-inner { box-shadow: inset 0 0 50px 15px rgba(0,0,0,0.06) !important; }
+    html.light .view-projects-btn .view-projects-inner { background: #f1f5f9 !important; border: 1px solid rgba(0,0,0,0.15) !important; box-shadow: inset 0 0 30px 8px rgba(0,0,0,0.06); position: relative; overflow: hidden; }
+    html.light .view-projects-btn .view-projects-inner::after { content: ''; position: absolute; inset: -20px; background: conic-gradient(from var(--glow-angle), transparent 0%, transparent 45%, rgba(30,58,138,0.12) 52%, rgba(29,78,216,0.15) 58%, rgba(37,99,235,0.12) 64%, rgba(190,18,60,0.1) 70%, rgba(190,18,60,0.1) 76%, rgba(29,78,216,0.12) 82%, rgba(30,58,138,0.08) 88%, transparent 100%); animation: border-sweep 14s linear infinite; filter: blur(16px); opacity: 0; transition: opacity 0.3s; border-radius: 9999px; pointer-events: none; }
+    html.light .view-projects-btn:hover .view-projects-inner::after { opacity: 1; animation: border-sweep 3.5s linear infinite; }
     html.light .view-projects-btn:hover .view-projects-border { filter: blur(1.5px) !important; }
     html.light .view-projects-btn:hover .view-projects-glow-outer { filter: blur(14px) !important; opacity: 1 !important; }
     html.light ::-webkit-scrollbar-track { background: #f8fafc; }
