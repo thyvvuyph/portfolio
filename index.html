@@ -116,6 +116,49 @@
     }
   </script>
   <style>
+    /* Marquee Banners */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      width: max-content;
+    }
+    .marquee-left {
+      animation: scroll-left 25s linear infinite;
+    }
+    .marquee-right {
+      animation: scroll-right 25s linear infinite;
+    }
+    .marquee-item {
+      font-family: 'Space Mono', monospace;
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      padding: 0 24px;
+    }
+    .marquee-dot {
+      color: rgba(255,255,255,0.3);
+      font-size: 12px;
+    }
+    html.light .marquee-item {
+      color: rgba(0,0,0,0.5);
+    }
+    html.light .marquee-dot {
+      color: rgba(0,0,0,0.3);
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #020617; }
     ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 0.75rem; }
@@ -320,28 +363,72 @@
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto py-[48px] pt-[24px] md:py-[128px]">
-    <div class="flex flex-col gap-2 mb-12">
-      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral">WHAT I'M DOING</span>
-      <h2 class="font-[Hanken_Grotesk] text-[36px] leading-[44px] font-[400] tracking-[-0.02em] text-on-surface">Areas of Focus</h2>
+  <!-- Moving Banners Section -->
+  <section class="py-[48px] md:py-[96px] overflow-hidden">
+    <!-- Banner 1 - scrolling left -->
+    <div class="marquee-container mb-6">
+      <div class="marquee-track marquee-left">
+        <span class="marquee-item">MARKETING & ADS</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">VISUAL IDENTITY</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">USER INTERFACE</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">PUBLICATION</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">PACKAGING</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">ART & ILLUSTRATION</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">COMMERCIAL</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">MARKETING & ADS</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">VISUAL IDENTITY</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">USER INTERFACE</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">PUBLICATION</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">PACKAGING</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">ART & ILLUSTRATION</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">COMMERCIAL</span>
+        <span class="marquee-dot">•</span>
+      </div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-      <div class="bg-deep-slate border border-white/10 rounded-[0.125rem] p-6 flex flex-col items-center justify-center gap-4 hover:border-electric-blue hover:-translate-y-1 transition-all duration-300 group glass-panel">
-        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-electric-blue transition-colors">campaign</span>
-        <h3 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-center">MARKETING</h3>
-      </div>
-      <div class="bg-deep-slate border border-white/10 rounded-[0.125rem] p-6 flex flex-col items-center justify-center gap-4 hover:border-electric-blue hover:-translate-y-1 transition-all duration-300 group glass-panel">
-        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-electric-blue transition-colors">branding_watermark</span>
-        <h3 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-center">BRANDING</h3>
-      </div>
-      <div class="bg-deep-slate border border-white/10 rounded-[0.125rem] p-6 flex flex-col items-center justify-center gap-4 hover:border-electric-blue hover:-translate-y-1 transition-all duration-300 group glass-panel">
-        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-electric-blue transition-colors">web</span>
-        <h3 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-center">WEBSITE</h3>
-      </div>
-      <div class="bg-deep-slate border border-white/10 rounded-[0.125rem] p-6 flex flex-col items-center justify-center gap-4 hover:border-electric-blue hover:-translate-y-1 transition-all duration-300 group glass-panel">
-        <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-electric-blue transition-colors">perm_media</span>
-        <h3 class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-center">MEDIA</h3>
+    <!-- Banner 2 - scrolling right -->
+    <div class="marquee-container">
+      <div class="marquee-track marquee-right">
+        <span class="marquee-item">MINIMALISM</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">FLAT DESIGN</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">SWISS STYLE</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">BOLD & EXPRESSIVE</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">ART-DIRECTED</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">EDITORIAL INFLUENCE</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">CONTEMPORARY</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">MINIMALISM</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">FLAT DESIGN</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">SWISS STYLE</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">BOLD & EXPRESSIVE</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">ART-DIRECTED</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">EDITORIAL INFLUENCE</span>
+        <span class="marquee-dot">•</span>
+        <span class="marquee-item">CONTEMPORARY</span>
+        <span class="marquee-dot">•</span>
       </div>
     </div>
   </section>
