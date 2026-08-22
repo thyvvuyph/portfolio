@@ -180,9 +180,9 @@
     html.light .view-projects-btn { background: #f1f5f9 !important; color: #1e293b !important; }
     html.light .view-projects-btn .view-projects-border { background: conic-gradient(from var(--glow-angle), transparent 0%, transparent 45%, #1e3a8a 52%, #1d4ed8 58%, #2563eb 64%, #be123c 70%, #be123c 76%, #1d4ed8 82%, #1e3a8a 88%, transparent 100%); opacity: 0.5; }
     html.light .view-projects-btn .view-projects-glow-outer { opacity: 0.3 !important; filter: blur(4px) !important; }
-    html.light .view-projects-btn .view-projects-inner { background: #f1f5f9 !important; border: 1px solid rgba(0,0,0,0.15) !important; box-shadow: inset 0 0 30px 8px rgba(0,0,0,0.06); }
+    html.light .view-projects-btn .view-projects-inner { background: #f1f5f9 !important; border: none !important; box-shadow: inset 0 0 30px 8px rgba(0,0,0,0.06); }
     html.light .view-projects-btn .view-projects-glow-inner { filter: blur(12px); opacity: 0; transition: opacity 0.3s, filter 0.3s; }
-    html.light .view-projects-btn:hover .view-projects-glow-inner { filter: blur(16px); opacity: 0.2; -webkit-mask-image: radial-gradient(ellipse at center, transparent 30%, black 100%); mask-image: radial-gradient(ellipse at center, transparent 30%, black 100%); }
+    html.light .view-projects-btn:hover .view-projects-glow-inner { filter: blur(16px); opacity: 0.2; -webkit-mask-image: radial-gradient(ellipse at center, transparent 10%, black 70%); mask-image: radial-gradient(ellipse at center, transparent 10%, black 70%); }
     html.light .view-projects-btn:hover .view-projects-inner { box-shadow: inset 0 0 30px 8px rgba(0,0,0,0.06) !important; }
     html.light .view-projects-btn:hover .view-projects-border { filter: blur(1.5px) !important; }
     html.light .view-projects-btn:hover .view-projects-glow-outer { filter: blur(14px) !important; opacity: 1 !important; }
@@ -292,7 +292,7 @@
             <span class="view-projects-border absolute inset-[-1px] rounded-full"></span>
             <span class="view-projects-border view-projects-glow-outer absolute inset-[-2px] rounded-full"></span>
             <span class="absolute inset-[1px] rounded-full view-projects-inner" style="border: 0.5px solid rgba(255,255,255,0.12);"></span>
-            <span class="view-projects-border view-projects-glow-inner absolute inset-[3px] rounded-full" style="z-index: 5;"></span>
+            <span class="view-projects-border view-projects-glow-inner absolute inset-[1px] rounded-full" style="z-index: 5;"></span>
             <span class="relative z-10">View Projects</span>
           </a>
         </div>
