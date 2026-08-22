@@ -120,6 +120,17 @@
     .marquee-container {
       width: 100%;
       overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding: 20px 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 50%, rgba(255,255,255,0.02) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(255,255,255,0.04);
+    }
+    html.light .marquee-container {
+      border-top: 1px solid rgba(0,0,0,0.15);
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+      background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 50%, rgba(255,255,255,0.15) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(255,255,255,0.2);
     }
     .marquee-track {
       display: flex;
@@ -133,12 +144,21 @@
     .marquee-right {
       animation: scroll-right 25s linear infinite;
     }
+    .marquee-container:hover .marquee-left,
+    .marquee-container:hover .marquee-right {
+      animation-play-state: paused;
+    }
     .marquee-item {
       font-family: 'Space Mono', monospace;
       font-size: 18px;
       letter-spacing: 0.1em;
       color: rgba(255,255,255,0.5);
       padding: 0 24px;
+      transition: color 0.3s;
+      cursor: default;
+    }
+    .marquee-item:hover {
+      color: #3b82f6;
     }
     .marquee-dot {
       color: rgba(255,255,255,0.3);
@@ -146,6 +166,9 @@
     }
     html.light .marquee-item {
       color: rgba(0,0,0,0.5);
+    }
+    html.light .marquee-item:hover {
+      color: #1d4ed8;
     }
     html.light .marquee-dot {
       color: rgba(0,0,0,0.3);
