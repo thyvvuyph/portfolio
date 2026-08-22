@@ -231,6 +231,12 @@
     .view-projects-btn:hover .view-projects-inner {
       box-shadow: inset 0 0 50px 12px rgba(255,255,255,0.08);
     }
+    .view-projects-btn:hover .view-projects-glow-inner {
+      filter: blur(16px);
+      opacity: 0.35;
+      -webkit-mask-image: radial-gradient(ellipse at center, transparent 30%, black 75%);
+      mask-image: radial-gradient(ellipse at center, transparent 30%, black 75%);
+    }
   </style>
 </head>
 <body class="bg-charcoal-surface text-on-surface font-body-md antialiased selection:bg-electric-blue selection:text-charcoal-surface">
