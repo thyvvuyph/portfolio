@@ -205,9 +205,9 @@
     .coral-glow { box-shadow: 0 0 20px rgba(251,113,133,0.2); }
 
     /* Light theme overrides */
-    html.light body { background: #d7d7d0 !important; background-color: #d7d7d0 !important; color: #0f172a; }
+    html.light body { background-color: #d7d7d0 !important; color: #0f172a; }
     html.light header { background: rgba(255,255,255,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-color: rgba(0,0,0,0.25); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-    html.light .bg-charcoal-surface { background-color: transparent !important; background: transparent !important; }
+    html.light .bg-charcoal-surface { background-color: transparent !important; }
     html.light .text-charcoal-surface { color: #ffffff; }
     html.light .bg-charcoal-surface\/80 { background: rgba(255,255,255,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
     html.light .bg-charcoal-surface\/95 { background: rgba(255,255,255,0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
@@ -309,7 +309,7 @@
     }
   </style>
 </head>
-<body class="bg-charcoal-surface text-on-surface font-body-md antialiased selection:bg-electric-blue selection:text-charcoal-surface">
+<body class="text-on-surface font-body-md antialiased selection:bg-electric-blue selection:text-charcoal-surface" style="background-color: #020617;">
 
 <!-- Header -->
 <header class="fixed top-0 w-full z-50 bg-charcoal-surface/80 backdrop-blur-md border-b border-white/10 flex justify-between items-center h-16 px-[20px] md:px-[32px]">
