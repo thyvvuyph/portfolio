@@ -980,7 +980,8 @@
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove('revealed');
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
