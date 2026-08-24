@@ -383,6 +383,16 @@
       100% { top: 20%; left: 50%; transform: scale(1); }
     }
 
+    /* Hero content scroll-out animation */
+    .hero-content {
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero-content.scrolled-out {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+    }
+
     /* Nav hover arrow */
     .nav-link::after {
       content: '↓';
@@ -474,7 +484,7 @@
     <div class="absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
       <img id="hero-bg" src="/portfolio/bg.png" alt="" class="opacity-25" style="-webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%); mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%);"/>
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center hero-content">
       <div class="lg:col-span-7 flex flex-col gap-6">
         <h1 class="font-[Hanken_Grotesk] text-[48px] leading-[52px] md:text-[72px] md:leading-[80px] font-[400] tracking-[-0.04em]">
           <span class="text-on-surface">Haley</span><br/>
@@ -1000,10 +1010,11 @@
 </script>
 
 <script>
-  // Scroll-reveal animation for work cards and marquee banners
+  // Scroll-reveal animation for work cards, marquee banners, and hero
   (function() {
     var cards = document.querySelectorAll('.reveal-card');
     var banners = document.querySelectorAll('.marquee-container');
+    var heroContent = document.querySelector('.hero-content');
 
     if (cards.length) {
       var cardObserver = new IntersectionObserver(function(entries) {
@@ -1031,6 +1042,21 @@
       }, { threshold: 0.3 });
 
       banners.forEach(function(banner) { bannerObserver.observe(banner); });
+    }
+
+    // Hero content fades out when scrolling past it
+    if (heroContent) {
+      var heroObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            heroContent.classList.remove('scrolled-out');
+          } else {
+            heroContent.classList.add('scrolled-out');
+          }
+        });
+      }, { threshold: 0.3 });
+
+      heroObserver.observe(heroContent);
     }
   })();
 </script>
