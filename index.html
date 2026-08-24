@@ -492,12 +492,12 @@
 <main class="pt-24 pb-[36px] md:pb-[128px]">
 
   <!-- Hero Section -->
-  <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto min-h-[80vh] flex flex-col justify-center py-16 pb-2 md:pb-16 relative hero-content overflow-hidden" id="home">
+  <section class="px-[20px] md:px-[32px] max-w-[1280px] mx-auto min-h-[80vh] flex flex-col justify-center py-16 pb-2 md:pb-16 relative" id="home">
     <div class="absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
       <img id="hero-bg" src="/portfolio/bg.png" alt="" class="opacity-25" style="border: none !important; -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%); mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%);"/>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-      <div class="lg:col-span-7 flex flex-col gap-6">
+      <div class="lg:col-span-7 flex flex-col gap-6 hero-content">
         <h1 class="font-[Hanken_Grotesk] text-[48px] leading-[52px] md:text-[72px] md:leading-[80px] font-[400] tracking-[-0.04em]">
           <span class="text-on-surface">Haley</span><br/>
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-refined-coral">Pham</span>
@@ -1058,6 +1058,7 @@
 
     // Hero content fades out when scrolling past it
     if (heroContent) {
+      var heroSection = document.getElementById('home');
       var heroObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -1068,7 +1069,7 @@
         });
       }, { threshold: 0.3 });
 
-      heroObserver.observe(heroContent);
+      heroObserver.observe(heroSection);
     }
   })();
 </script>
