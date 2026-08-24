@@ -308,9 +308,77 @@
       -webkit-mask-image: radial-gradient(ellipse at center, transparent 30%, black 75%);
       mask-image: radial-gradient(ellipse at center, transparent 30%, black 75%);
     }
+
+    /* Moving circular shine - light theme only */
+    .circular-shine {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    html.light .circular-shine {
+      display: block;
+    }
+    .shine-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.5;
+    }
+    .shine-orb-1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 236, 179, 0.7) 0%, rgba(255, 220, 120, 0.3) 40%, transparent 70%);
+      animation: shine-move-1 12s ease-in-out infinite;
+    }
+    .shine-orb-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 248, 225, 0.8) 0%, rgba(255, 240, 180, 0.3) 40%, transparent 70%);
+      animation: shine-move-2 15s ease-in-out infinite;
+    }
+    .shine-orb-3 {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(255, 230, 150, 0.5) 0%, rgba(255, 215, 100, 0.2) 40%, transparent 70%);
+      animation: shine-move-3 18s ease-in-out infinite;
+    }
+    @keyframes shine-move-1 {
+      0%   { top: -10%; left: -5%; transform: scale(1); }
+      25%  { top: 5%; left: 30%; transform: scale(1.1); }
+      50%  { top: 20%; left: 55%; transform: scale(0.9); }
+      75%  { top: 5%; left: 25%; transform: scale(1.05); }
+      100% { top: -10%; left: -5%; transform: scale(1); }
+    }
+    @keyframes shine-move-2 {
+      0%   { top: 50%; right: -10%; transform: scale(1); }
+      25%  { top: 30%; right: 15%; transform: scale(1.15); }
+      50%  { top: 10%; right: 30%; transform: scale(0.95); }
+      75%  { top: 35%; right: 5%; transform: scale(1.1); }
+      100% { top: 50%; right: -10%; transform: scale(1); }
+    }
+    @keyframes shine-move-3 {
+      0%   { bottom: -5%; left: 40%; transform: scale(1); }
+      25%  { bottom: 15%; left: 20%; transform: scale(1.1); }
+      50%  { bottom: 30%; left: 60%; transform: scale(0.9); }
+      75%  { bottom: 10%; left: 50%; transform: scale(1.05); }
+      100% { bottom: -5%; left: 40%; transform: scale(1); }
+    }
   </style>
 </head>
 <body class="text-on-surface font-body-md antialiased selection:bg-electric-blue selection:text-charcoal-surface" style="background-color: #020617;">
+
+<!-- Moving Circular Shine (light theme only) -->
+<div class="circular-shine" aria-hidden="true">
+  <div class="shine-orb shine-orb-1"></div>
+  <div class="shine-orb shine-orb-2"></div>
+  <div class="shine-orb shine-orb-3"></div>
+</div>
 
 <!-- Header -->
 <header class="fixed top-0 w-full z-50 bg-charcoal-surface/80 backdrop-blur-md border-b border-white/10 flex justify-between items-center h-16 px-[20px] md:px-[32px]">
