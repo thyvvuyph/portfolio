@@ -382,6 +382,18 @@
       75%  { top: 35%; left: 65%; transform: scale(1.05); }
       100% { top: 20%; left: 50%; transform: scale(1); }
     }
+
+    /* Scroll-reveal card animation */
+    .reveal-card {
+      opacity: 0;
+      transform: translateY(60px) scale(0.97);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-card.revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   </style>
 </head>
 <body class="text-on-surface font-body-md antialiased selection:bg-electric-blue selection:text-charcoal-surface" style="background-color: #020617;">
@@ -605,14 +617,14 @@
       <!-- Row 1 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
         <!-- Project 1 -->
-        <div class="md:col-span-8">
+        <div class="md:col-span-8 reveal-card">
           <a href="./being-bees.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Website design for Being Bees Honey" src="/portfolio/bb-bear.png"/>
           </a>
           <h3 class="font-[Hanken_Grotesk] text-[20px] leading-[28px] font-[400] text-on-surface mt-3">Being Bees Honey</h3>
         </div>
         <!-- Project 2 -->
-        <div class="md:col-span-4">
+        <div class="md:col-span-4 reveal-card" style="transition-delay: 0.1s;">
           <a href="./graduation-2026.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Event Key Visual for Graduation 2026" src="/portfolio/hht-event.jpg"/>
           </a>
@@ -623,21 +635,21 @@
       <!-- Row 2 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
         <!-- Project 3 -->
-        <div class="md:col-span-4">
+        <div class="md:col-span-4 reveal-card">
           <a href="./miss-campaign.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Campaign Visual for MISS" src="/portfolio/miss-card.jpg"/>
           </a>
           <h3 class="font-[Hanken_Grotesk] text-[20px] leading-[28px] font-[400] text-on-surface mt-3">MISS</h3>
         </div>
         <!-- Project 4 -->
-        <div class="md:col-span-4">
+        <div class="md:col-span-4 reveal-card" style="transition-delay: 0.1s;">
           <a href="./jacksons-steakhouse.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Jacksons Steakhouse" src="/portfolio/jacksons-card.jpg"/>
           </a>
           <h3 class="font-[Hanken_Grotesk] text-[20px] leading-[28px] font-[400] text-on-surface mt-3">Jacksons Steakhouse</h3>
         </div>
         <!-- Project 5 -->
-        <div class="md:col-span-4">
+        <div class="md:col-span-4 reveal-card" style="transition-delay: 0.2s;">
           <a href="./larbthai.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Social media designs for LarbThai" src="/portfolio/larbthai-card.jpg"/>
           </a>
@@ -647,7 +659,7 @@
 
       <!-- Row 3 - Orant Media -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-        <div class="md:col-span-12">
+        <div class="md:col-span-12 reveal-card">
           <a href="./orant-neon.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Orant Neon" src="/portfolio/orant-card.jpg"/>
           </a>
@@ -658,14 +670,14 @@
       <!-- Row 4 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
         <!-- Project 6 -->
-        <div class="md:col-span-4">
+        <div class="md:col-span-4 reveal-card">
           <a href="./al-frescos.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Social media designs for Al Fresco's Group" src="/portfolio/afg-social.jpg"/>
           </a>
           <h3 class="font-[Hanken_Grotesk] text-[20px] leading-[28px] font-[400] text-on-surface mt-3">The Al Fresco's Group</h3>
         </div>
         <!-- Project 7 -->
-        <div class="md:col-span-8">
+        <div class="md:col-span-8 reveal-card" style="transition-delay: 0.1s;">
           <a href="./logo-various.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Logo designs for various clients" src="/portfolio/logo-various.jpg"/>
           </a>
@@ -676,21 +688,21 @@
       <!-- Row 5 -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
         <!-- Project 8 -->
-        <div class="md:col-span-4">
+        <div class="md:col-span-4 reveal-card">
           <a href="./texas-topline-motors.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Branding for Texas Topline Motors" src="/portfolio/ttm-card.jpg"/>
           </a>
           <h3 class="font-[Hanken_Grotesk] text-[20px] leading-[28px] font-[400] text-on-surface mt-3">Texas Topline Motors</h3>
         </div>
         <!-- Project 9 -->
-        <div class="md:col-span-4">
+        <div class="md:col-span-4 reveal-card" style="transition-delay: 0.1s;">
           <a href="./bunny-cocktail.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="Packaging for Bunny Cocktail" src="/portfolio/bunny-cocktail-card.jpg"/>
           </a>
           <h3 class="font-[Hanken_Grotesk] text-[20px] leading-[28px] font-[400] text-on-surface mt-3">Bunny Cocktail</h3>
         </div>
         <!-- Project 10 -->
-        <div class="md:col-span-4">
+        <div class="md:col-span-4 reveal-card" style="transition-delay: 0.2s;">
           <a href="./veriswype.html" class="block bg-deep-slate border border-white/10 rounded-[0.125rem] overflow-hidden hover:border-electric-blue transition-colors duration-300 group relative h-[320px]">
             <img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" alt="VeriSwype" src="/portfolio/veriswype-card.jpg"/>
           </a>
@@ -955,6 +967,25 @@
     }, { once: true });
 
     if (video.readyState >= 2) update();
+  })();
+</script>
+
+<script>
+  // Scroll-reveal animation for work cards
+  (function() {
+    var cards = document.querySelectorAll('.reveal-card');
+    if (!cards.length) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+    cards.forEach(function(card) { observer.observe(card); });
   })();
 </script>
 
