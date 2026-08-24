@@ -383,6 +383,26 @@
       100% { top: 20%; left: 50%; transform: scale(1); }
     }
 
+    /* Nav hover arrow */
+    .nav-link::after {
+      content: '↓';
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      color: #60A5FA;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .nav-link:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+    html.light .nav-link::after {
+      color: #1d4ed8;
+    }
+
     /* Scroll-reveal card animation */
     .reveal-card {
       opacity: 0;
@@ -421,11 +441,11 @@
     <img id="header-logo" src="/portfolio/logo.png" alt="Haley Pham logo" class="w-[28px] h-[28px] object-contain"/>
     <span class="text-[24px] leading-[32px] font-[400] font-[Hanken_Grotesk] tracking-tighter text-on-surface hover:text-primary transition-all duration-300">Haley Pham</span>
   </a>
-  <nav class="hidden md:flex gap-6 items-center">
-    <a id="nav-home" class="text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-normal hover:text-primary transition-all duration-300" href="#home">Home</a>
-    <a id="nav-work" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal" href="#work">Work</a>
-    <a id="nav-blog" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal" href="#blog">Blog</a>
-    <a id="nav-gallery" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal" href="./gallery.html">Gallery</a>
+  <nav class="hidden md:flex gap-10 items-center">
+    <a id="nav-home" class="nav-link active text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-normal hover:text-primary transition-all duration-300 relative" href="#home">Home</a>
+    <a id="nav-work" class="nav-link text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal relative" href="#work">Work</a>
+    <a id="nav-blog" class="nav-link text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal relative" href="#blog">Blog</a>
+    <a id="nav-gallery" class="nav-link text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal relative" href="./gallery.html">Gallery</a>
     <button id="theme-toggle" class="ml-2 text-on-surface-variant hover:text-primary transition-colors duration-300" aria-label="Toggle theme">
       <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
     </button>
@@ -843,9 +863,9 @@
     navLinks.forEach(link => {
       const section = link.getAttribute('href').replace('#', '')
       if (section === current) {
-        link.className = 'text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-normal'
+        link.className = 'nav-link active text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-normal relative'
       } else {
-        link.className = 'text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-normal'
+        link.className = 'nav-link text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-normal relative'
       }
     })
 
