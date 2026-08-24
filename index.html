@@ -394,6 +394,14 @@
       transform: translateY(40px) scale(0.95);
     }
 
+    /* Nav divider */
+    .nav-divider {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    html.light .nav-divider {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
     /* Nav hover arrows - two inward pointing triangles */
     .nav-link::before,
     .nav-link::after {
@@ -469,7 +477,7 @@
     <a id="nav-blog" class="nav-link text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal relative" href="#blog">Blog</a>
     <a id="nav-gallery" class="nav-link text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal relative" href="./gallery.html">Gallery</a>
     <div class="flex items-center gap-3 ml-2">
-      <span class="w-px h-5 bg-white/20"></span>
+      <span class="nav-divider w-px h-5"></span>
       <button id="theme-toggle" class="text-on-surface-variant hover:text-primary transition-colors duration-300 flex items-center" aria-label="Toggle theme">
         <span class="material-symbols-outlined text-[20px] leading-none" id="theme-icon">dark_mode</span>
       </button>
