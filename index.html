@@ -422,10 +422,10 @@
     <span class="text-[24px] leading-[32px] font-[400] font-[Hanken_Grotesk] tracking-tighter text-on-surface hover:text-primary transition-all duration-300">Haley Pham</span>
   </a>
   <nav class="hidden md:flex gap-6 items-center">
-    <a id="nav-home" class="text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-primary transition-all duration-300" href="#home">Home</a>
-    <a id="nav-work" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
-    <a id="nav-blog" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#blog">Blog</a>
-    <a id="nav-gallery" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="./gallery.html">Gallery</a>
+    <a id="nav-home" class="text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-normal hover:text-primary transition-all duration-300" href="#home">Home</a>
+    <a id="nav-work" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal" href="#work">Work</a>
+    <a id="nav-blog" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal" href="#blog">Blog</a>
+    <a id="nav-gallery" class="text-on-surface-variant hover:text-primary transition-all duration-300 font-[JetBrains_Mono] text-[14px] tracking-normal" href="./gallery.html">Gallery</a>
     <button id="theme-toggle" class="ml-2 text-on-surface-variant hover:text-primary transition-colors duration-300" aria-label="Toggle theme">
       <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
     </button>
@@ -437,11 +437,11 @@
 
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden fixed top-16 left-0 w-full z-40 bg-charcoal-surface/95 backdrop-blur-md border-b border-white/10 flex-col px-[20px] py-6 gap-4">
-  <a class="text-electric-blue font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#home">Home</a>
-  <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#work">Work</a>
-  <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="#blog">Blog</a>
-  <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" href="./gallery.html">Gallery</a>
-  <button id="theme-toggle-mobile" class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em] flex items-center gap-2 mt-2" aria-label="Toggle theme">
+  <a class="text-electric-blue font-[JetBrains_Mono] text-[14px] tracking-normal" href="#home">Home</a>
+  <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-normal" href="#work">Work</a>
+  <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-normal" href="#blog">Blog</a>
+  <a class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-normal" href="./gallery.html">Gallery</a>
+  <button id="theme-toggle-mobile" class="text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-normal flex items-center gap-2 mt-2" aria-label="Toggle theme">
     <span class="material-symbols-outlined text-[20px]" id="theme-icon-mobile">dark_mode</span>
     <span id="theme-label-mobile">Light Mode</span>
   </button>
@@ -843,18 +843,18 @@
     navLinks.forEach(link => {
       const section = link.getAttribute('href').replace('#', '')
       if (section === current) {
-        link.className = 'text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+        link.className = 'text-electric-blue border-b-2 border-electric-blue pb-1 font-[JetBrains_Mono] text-[14px] tracking-normal'
       } else {
-        link.className = 'text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+        link.className = 'text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-normal'
       }
     })
 
     mobileLinks.forEach(link => {
       const section = link.getAttribute('href').replace('#', '')
       if (section === current) {
-        link.className = 'text-electric-blue font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+        link.className = 'text-electric-blue font-[JetBrains_Mono] text-[14px] tracking-normal'
       } else {
-        link.className = 'text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-[0.1em]'
+        link.className = 'text-on-surface-variant hover:text-primary font-[JetBrains_Mono] text-[14px] tracking-normal'
       }
     })
   }
