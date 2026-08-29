@@ -249,9 +249,9 @@
     html.light .group-hover\:opacity-80 { opacity: 1; }
     html.light .profile-video-wrapper { display: none !important; }
     /* Moon video sizing: smaller below 1450px, full size at 1450px+ */
-    .profile-video-size { width: 220px; height: 220px; }
+    .profile-video-size { width: 220px; height: 220px; transform: translateX(-40px); }
     @media (min-width: 1450px) {
-      .profile-video-size { width: 300px; height: 300px; }
+      .profile-video-size { width: 300px; height: 300px; transform: translateX(0); }
     }
     html.light .view-projects-btn { background: #f1f5f9 !important; color: #1e293b !important; }
     html.light .view-projects-btn .view-projects-border { background: conic-gradient(from var(--glow-angle), transparent 0%, transparent 45%, #1e3a8a 52%, #1d4ed8 58%, #2563eb 64%, #be123c 70%, #be123c 76%, #1d4ed8 82%, #1e3a8a 88%, transparent 100%); opacity: 0.5; }
