@@ -532,7 +532,7 @@
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-refined-coral">Pham</span>
         </h1>
         <p class="font-[Inter] text-[18px] leading-[28px] text-on-surface-variant max-w-2xl bio-text" data-i18n="bio">
-          Hi, I'm Haley Pham. I graduated Bachelor of Communication Design at RMIT University. My aspiration is to live creatively and build up my experience as a graphic designer. I would love to use and practice my skills in developing and creating graphics and illustrations for websites.
+          Hi, I'm Haley — a Communication Designer from RMIT, driven by curiosity, visual storytelling, and a love for making ideas look good.<br/><br/>I work across branding, graphic design, digital, and visual communication, always looking for fresh ways to turn concepts into visuals that feel distinctive and meaningful. I'm drawn to experimentation, new perspectives, and pushing ideas beyond the expected — because the best work often starts somewhere unexpected.
         </p>
         <div class="flex flex-wrap gap-4 pt-4">
           <a class="bg-electric-blue text-charcoal-surface font-[JetBrains_Mono] text-[14px] tracking-[0.03em] px-6 py-3 rounded-full hover:bg-white transition-colors duration-300 flex items-center gap-2 neon-glow" href="#contact">
@@ -1108,7 +1108,7 @@
   (function() {
     var translations = {
       vi: {
-        'bio': 'Xin chào, mình là Haley Phạm. Mình tốt nghiệp cử nhân ngành Thiết kế Truyền thông tại Đại học RMIT. Mình mong muốn sống sáng tạo và tích lũy kinh nghiệm với vai trò là một nhà thiết kế đồ họa. Mình rất thích sử dụng và rèn luyện kỹ năng trong việc phát triển đồ họa và minh họa cho website.',
+        'bio': 'Mình là Haley — Communication Designer tốt nghiệp RMIT, yêu thích kể chuyện bằng hình ảnh và biến những ý tưởng thành những thứ có cá tính riêng.<br/><br/>Mình khám phá nhiều lĩnh vực từ branding, graphic design đến digital và visual communication, luôn thử nghiệm với hình ảnh, typography, màu sắc và cách kể chuyện. Tò mò, thử nghiệm và không ngại đi khác hướng — vì những ý tưởng hay thường bắt đầu từ những nơi không ngờ tới.',
         'contact-btn': 'LIÊN HỆ',
         'view-projects': 'XEM DỰ ÁN',
         'selected-project': 'DỰ ÁN NỔI BẬT',
@@ -1126,7 +1126,7 @@
         'footer-contact': 'Liên Hệ'
       },
       en: {
-        'bio': "Hi, I'm Haley Pham. I graduated Bachelor of Communication Design at RMIT University. My aspiration is to live creatively and build up my experience as a graphic designer. I would love to use and practice my skills in developing and creating graphics and illustrations for websites.",
+        'bio': "Hi, I'm Haley — a Communication Designer from RMIT, driven by curiosity, visual storytelling, and a love for making ideas look good.<br/><br/>I work across branding, graphic design, digital, and visual communication, always looking for fresh ways to turn concepts into visuals that feel distinctive and meaningful. I'm drawn to experimentation, new perspectives, and pushing ideas beyond the expected — because the best work often starts somewhere unexpected.",
         'contact-btn': 'CONTACT ME',
         'view-projects': 'VIEW PROJECTS',
         'selected-project': 'SELECTED PROJECT',
@@ -1152,7 +1152,12 @@
       els.forEach(function(el) {
         var key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-          el.textContent = translations[lang][key];
+          var val = translations[lang][key];
+          if (val.indexOf('<') !== -1) {
+            el.innerHTML = val;
+          } else {
+            el.textContent = val;
+          }
         }
       });
       // Update toggle labels
