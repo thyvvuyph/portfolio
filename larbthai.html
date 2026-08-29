@@ -72,11 +72,16 @@
   <header class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/10 flex items-center justify-between h-16 px-[20px] md:px-[32px]">
     <a href="./" class="flex items-center gap-2 text-[#60A5FA] hover:text-white transition-colors duration-300">
       <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]">Back</span>
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" data-i18n="back">Back</span>
     </a>
-    <button id="theme-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300" aria-label="Toggle theme">
-      <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
-    </button>
+    <div class="flex items-center gap-4">
+      <button id="lang-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300 font-[JetBrains_Mono] text-[13px] tracking-normal flex items-center" aria-label="Toggle language">
+        <span id="lang-label">EN</span>
+      </button>
+      <button id="theme-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300" aria-label="Toggle theme">
+        <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
+      </button>
+    </div>
   </header>
 
   <main class="pt-24 pb-24 px-[20px] md:px-[32px] max-w-[1280px] mx-auto">
@@ -86,7 +91,7 @@
       <div class="md:col-span-7">
         <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-[#60A5FA]">05/08</span>
         <h1 class="font-[Hanken_Grotesk] text-[48px] md:text-[72px] font-[400] leading-tight tracking-[-0.04em] mt-4 mb-6">LarbThai</h1>
-        <p class="font-[Inter] text-[18px] leading-[28px] text-[#c2c6d6] max-w-2xl">
+        <p class="font-[Inter] text-[18px] leading-[28px] text-[#c2c6d6] max-w-2xl" data-i18n="desc">
           Social media content design for LarbThai — a Thai restaurant. The work includes promotional LED posters, flyers, and combo meal visuals designed to attract diners with vibrant, appetising compositions.
         </p>
       </div>
@@ -97,9 +102,9 @@
 
     <!-- Tags -->
     <div class="flex flex-wrap gap-3 mb-10">
-      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full">Social Media</span>
-      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full">Graphic Design</span>
-      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full">F&B</span>
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full" data-i18n="tag1">Social Media</span>
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full" data-i18n="tag2">Graphic Design</span>
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full" data-i18n="tag3">F&B</span>
     </div>
 
     <!-- Images grid -->
@@ -122,12 +127,49 @@
     <div class="border-t border-white/10 pt-12 flex justify-between items-center">
       <a href="./" class="flex items-center gap-2 text-[#60A5FA] font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-white transition-colors duration-300">
         <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-        BACK TO PORTFOLIO
+        <span data-i18n="back-portfolio">BACK TO PORTFOLIO</span>
       </a>
       <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-[#94A3B8]">05 / 08</span>
     </div>
 
   </main>
+
+<script>
+  // Language toggle (EN/VI)
+  (function() {
+    var translations = {
+      vi: {
+        'back': 'Quay lại',
+        'desc': 'Thiết kế nội dung mạng xã hội cho LarbThai — một nhà hàng Thái. Công việc bao gồm poster LED quảng cáo, tờ rơi và hình ảnh combo được thiết kế để thu hút thực khách với bố cục sống động, hấp dẫn.',
+        'tag1': 'Mạng Xã Hội',
+        'tag2': 'Thiết Kế Đồ Họa',
+        'tag3': 'F&B',
+        'back-portfolio': 'VỀ TRANG PORTFOLIO'
+      }
+    };
+    var currentLang = localStorage.getItem('lang') || 'en';
+    var originals = {};
+    function applyLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (originals[key] === undefined) originals[key] = el.textContent;
+        if (lang === 'vi' && translations.vi[key]) {
+          el.textContent = translations.vi[key];
+        } else {
+          el.textContent = originals[key];
+        }
+      });
+      var label = document.getElementById('lang-label');
+      if (label) label.textContent = lang === 'en' ? 'EN' : 'VI';
+    }
+    document.getElementById('lang-toggle').addEventListener('click', function() {
+      currentLang = currentLang === 'en' ? 'vi' : 'en';
+      localStorage.setItem('lang', currentLang);
+      applyLang(currentLang);
+    });
+    applyLang(currentLang);
+  })();
+</script>
 
 <script>
   (function() {
