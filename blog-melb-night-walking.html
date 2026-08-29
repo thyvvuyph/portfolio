@@ -76,24 +76,27 @@
   <header class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/10 flex items-center justify-between h-16 px-[20px] md:px-[32px]">
     <a href="./" class="flex items-center gap-2 text-[#60A5FA] hover:text-white transition-colors duration-300">
       <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]">Back</span>
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" data-i18n="back">Back</span>
     </a>
-    <button id="theme-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300" aria-label="Toggle theme">
-      <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
-    </button>
+    <div class="flex items-center gap-4">
+      <button id="lang-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300 font-[JetBrains_Mono] text-[13px] tracking-normal flex items-center" aria-label="Toggle language"><span id="lang-label">EN</span></button>
+      <button id="theme-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300" aria-label="Toggle theme">
+        <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
+      </button>
+    </div>
   </header>
 
   <main class="pt-24 pb-24 px-[20px] md:px-[32px] max-w-[1440px] mx-auto">
 
     <!-- Hero -->
     <div class="mb-12 max-w-2xl mx-auto">
-      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-[#60A5FA]">Blog</span>
-      <p class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-[#94A3B8] mt-2">Jan 15, 2023</p>
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-[#60A5FA]" data-i18n="blog-label">Blog</span>
+      <p class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-[#94A3B8] mt-2" data-i18n="date">Jan 15, 2023</p>
       <h1 class="font-[Hanken_Grotesk] text-[48px] md:text-[72px] font-[400] leading-tight tracking-[-0.04em] mt-4 mb-6">Melb Night Walking</h1>
       <div class="font-[Inter] text-[16px] leading-[28px] text-[#c2c6d6] space-y-5">
-        <p>For the past five years, I&#8217;ve studied and worked in the Central Business District (CBD). When I was having problems sleeping or am just plain restless, I took a walk and catched up with my friends around. Melbourne&#8217;s great cultural diversity, variety of galleries and museums, and strong creative industries make it a thriving hub for art and design. Finding numerous art galleries and cultural events during my bachelor&#8217;s degree helped me become more creative and inspired. Melbourne also has a long tradition of street art, with roads like Hosier Lane.</p>
-        <p>Living in Melbourne provides options that are unmatched by any other for individuals who are looking for remarkable encounters. Spend an evening in Melbourne where you will create memories by going out for a wonderful evening. Put on your sneakers and go for a stroll along one of the best paths in Melbourne.</p>
-        <p>Those who labor nonstop in Melbourne are the only ones who will experience hunger. As a result of a widely culture that supports dining at any time of the day or night, excellent cuisine is readily available after midnight. At whatever hour of the day or night, it would like to think that walking around the city is completely safe for you.</p>
+        <p data-i18n="p1">For the past five years, I&#8217;ve studied and worked in the Central Business District (CBD). When I was having problems sleeping or am just plain restless, I took a walk and catched up with my friends around. Melbourne&#8217;s great cultural diversity, variety of galleries and museums, and strong creative industries make it a thriving hub for art and design. Finding numerous art galleries and cultural events during my bachelor&#8217;s degree helped me become more creative and inspired. Melbourne also has a long tradition of street art, with roads like Hosier Lane.</p>
+        <p data-i18n="p2">Living in Melbourne provides options that are unmatched by any other for individuals who are looking for remarkable encounters. Spend an evening in Melbourne where you will create memories by going out for a wonderful evening. Put on your sneakers and go for a stroll along one of the best paths in Melbourne.</p>
+        <p data-i18n="p3">Those who labor nonstop in Melbourne are the only ones who will experience hunger. As a result of a widely culture that supports dining at any time of the day or night, excellent cuisine is readily available after midnight. At whatever hour of the day or night, it would like to think that walking around the city is completely safe for you.</p>
       </div>
     </div>
 
@@ -115,11 +118,11 @@
     <div class="border-t border-white/10 pt-12 mt-16 flex justify-between items-center">
       <a href="./" class="flex items-center gap-2 text-[#60A5FA] font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-white transition-colors duration-300">
         <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-        BACK TO PORTFOLIO
+        <span data-i18n="back-portfolio">BACK TO PORTFOLIO</span>
       </a>
       <a href="./blog-tet-in-syd.html" class="flex items-center gap-2 text-[#60A5FA] font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-white transition-colors duration-300">
         <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-        Previous Post
+        <span data-i18n="prev-post">Previous Post</span>
       </a>
     </div>
 
@@ -136,6 +139,45 @@
     function closeLightbox(event) { if (event.target === document.getElementById('lightbox') || event.target.classList.contains('lightbox-close')) { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; } }
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; } });
   </script>
+
+<script>
+  // Language toggle (EN/VI)
+  (function() {
+    var translations = {
+      vi: {
+        'back': 'Quay lại',
+        'blog-label': 'Nhật Ký',
+        'date': '15 Tháng 1, 2023',
+        'p1': 'Trong năm năm qua, tôi đã học tập và làm việc tại Khu Thương Mại Trung Tâm (CBD). Những khi khó ngủ hay chỉ đơn giản là bồn chồn khó chịu, tôi lại đi dạo và gặp gỡ bạn bè quanh đó. Sự đa dạng văn hóa phong phú của Melbourne, cùng vô số phòng trưng bày và bảo tàng, và những ngành công nghiệp sáng tạo mạnh mẽ đã biến nơi đây thành một trung tâm nghệ thuật và thiết kế sôi động. Việc khám phá vô số phòng tranh và sự kiện văn hóa trong thời gian học đại học đã giúp tôi trở nên sáng tạo và tràn đầy cảm hứng hơn. Melbourne cũng có một truyền thống nghệ thuật đường phố lâu đời, với những con đường như Hosier Lane.',
+        'p2': 'Đối với những ai đang tìm kiếm những trải nghiệm đáng nhớ, cuộc sống ở Melbourne mang đến những lựa chọn không nơi nào sánh bằng. Hãy dành một buổi tối ở Melbourne, nơi bạn sẽ tạo nên những kỷ niệm bằng cách ra ngoài tận hưởng một buổi tối tuyệt vời. Hãy xỏ đôi giày thể thao vào và tản bộ dọc theo một trong những con đường đẹp nhất Melbourne.',
+        'p3': 'Chỉ những ai làm việc không ngừng nghỉ ở Melbourne mới phải chịu cảnh đói bụng. Nhờ một nền văn hóa rộng rãi ủng hộ việc ăn uống vào bất kỳ thời điểm nào trong ngày hay đêm, những món ăn tuyệt hảo luôn sẵn có ngay cả sau nửa đêm. Vào bất kỳ giờ nào trong ngày hay đêm, tôi tin rằng việc dạo bộ quanh thành phố hoàn toàn an toàn với bạn.',
+        'back-portfolio': 'VỀ TRANG PORTFOLIO',
+        'prev-post': 'Bài Trước'
+      }
+    };
+    var currentLang = localStorage.getItem('lang') || 'en';
+    var originals = {};
+    function applyLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (originals[key] === undefined) originals[key] = el.textContent;
+        if (lang === 'vi' && translations.vi[key]) {
+          el.textContent = translations.vi[key];
+        } else {
+          el.textContent = originals[key];
+        }
+      });
+      var label = document.getElementById('lang-label');
+      if (label) label.textContent = lang === 'en' ? 'EN' : 'VI';
+    }
+    document.getElementById('lang-toggle').addEventListener('click', function() {
+      currentLang = currentLang === 'en' ? 'vi' : 'en';
+      localStorage.setItem('lang', currentLang);
+      applyLang(currentLang);
+    });
+    applyLang(currentLang);
+  })();
+</script>
 
 <script>
   (function() {

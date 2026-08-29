@@ -72,11 +72,16 @@
   <header class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/10 flex items-center justify-between h-16 px-[20px] md:px-[32px]">
     <a href="./" class="flex items-center gap-2 text-[#FB7185] hover:text-white transition-colors duration-300">
       <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]">Back</span>
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" data-i18n="back">Back</span>
     </a>
-    <button id="theme-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300" aria-label="Toggle theme">
-      <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
-    </button>
+    <div class="flex items-center gap-4">
+      <button id="lang-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300 font-[JetBrains_Mono] text-[13px] tracking-normal flex items-center" aria-label="Toggle language">
+        <span id="lang-label">EN</span>
+      </button>
+      <button id="theme-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300" aria-label="Toggle theme">
+        <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
+      </button>
+    </div>
   </header>
 
   <main class="pt-24 pb-24 px-[20px] md:px-[32px] max-w-[1280px] mx-auto">
@@ -86,17 +91,17 @@
       <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-[#FB7185]">03/08</span>
       <h1 class="font-[Hanken_Grotesk] text-[48px] md:text-[72px] font-[400] leading-tight tracking-[-0.04em] mt-4 mb-6">MISS</h1>
       <p class="font-[Inter] text-[18px] leading-[28px] text-[#c2c6d6] max-w-2xl">
-        MISS is a romantic psychological music video exploring grief, memory, and illusion. After losing his lover in a car accident, a man becomes trapped between reality and hallucinations of her presence.
+        <span data-i18n="desc">MISS is a romantic psychological music video exploring grief, memory, and illusion. After losing his lover in a car accident, a man becomes trapped between reality and hallucinations of her presence.</span>
         <br/><br/>
-        Inspired by classic Hong Kong cinema, the visual direction combines cool greens with warm reds and browns to create a cinematic mood that feels intimate, nostalgic, and melancholic.
+        <span data-i18n="desc2">Inspired by classic Hong Kong cinema, the visual direction combines cool greens with warm reds and browns to create a cinematic mood that feels intimate, nostalgic, and melancholic.</span>
       </p>
     </div>
 
     <!-- Tags -->
     <div class="flex flex-wrap gap-3 mb-10">
-      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full">Campaign</span>
-      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full">Visual Design</span>
-      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full">Graphic Design</span>
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full" data-i18n="tag1">Campaign</span>
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full" data-i18n="tag2">Visual Design</span>
+      <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full" data-i18n="tag3">Graphic Design</span>
     </div>
 
     <!-- Hero image full width -->
@@ -123,12 +128,50 @@
     <div class="border-t border-white/10 pt-12 flex justify-between items-center">
       <a href="./" class="flex items-center gap-2 text-[#FB7185] font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-white transition-colors duration-300">
         <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-        BACK TO PORTFOLIO
+        <span data-i18n="back-portfolio">BACK TO PORTFOLIO</span>
       </a>
       <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-[#94A3B8]">03 / 08</span>
     </div>
 
   </main>
+
+<script>
+  // Language toggle (EN/VI)
+  (function() {
+    var translations = {
+      vi: {
+        'back': 'Quay lại',
+        'desc': 'MISS là một music video tâm lý lãng mạn khám phá nỗi đau mất mát, ký ức và ảo ảnh. Sau khi mất người yêu trong một tai nạn xe hơi, chàng trai bị mắc kẹt giữa thực tại và những ảo giác về sự hiện diện của cô.',
+        'desc2': 'Lấy cảm hứng từ điện ảnh Hồng Kông kinh điển, định hướng hình ảnh kết hợp sắc xanh lạnh với các tông đỏ và nâu ấm, tạo nên bầu không khí điện ảnh thân mật, hoài niệm và u sầu.',
+        'tag1': 'Chiến Dịch',
+        'tag2': 'Thiết Kế Hình Ảnh',
+        'tag3': 'Thiết Kế Đồ Họa',
+        'back-portfolio': 'VỀ TRANG PORTFOLIO'
+      }
+    };
+    var currentLang = localStorage.getItem('lang') || 'en';
+    var originals = {};
+    function applyLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (originals[key] === undefined) originals[key] = el.textContent;
+        if (lang === 'vi' && translations.vi[key]) {
+          el.textContent = translations.vi[key];
+        } else {
+          el.textContent = originals[key];
+        }
+      });
+      var label = document.getElementById('lang-label');
+      if (label) label.textContent = lang === 'en' ? 'EN' : 'VI';
+    }
+    document.getElementById('lang-toggle').addEventListener('click', function() {
+      currentLang = currentLang === 'en' ? 'vi' : 'en';
+      localStorage.setItem('lang', currentLang);
+      applyLang(currentLang);
+    });
+    applyLang(currentLang);
+  })();
+</script>
 
 <script>
   (function() {

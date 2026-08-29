@@ -76,29 +76,32 @@
   <header class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/10 flex items-center justify-between h-16 px-[20px] md:px-[32px]">
     <a href="./" class="flex items-center gap-2 text-[#60A5FA] hover:text-white transition-colors duration-300">
       <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]">Back</span>
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em]" data-i18n="back">Back</span>
     </a>
-    <button id="theme-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300" aria-label="Toggle theme">
-      <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
-    </button>
+    <div class="flex items-center gap-4">
+      <button id="lang-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300 font-[JetBrains_Mono] text-[13px] tracking-normal flex items-center" aria-label="Toggle language"><span id="lang-label">EN</span></button>
+      <button id="theme-toggle" class="text-[#c2c6d6] hover:text-[#60A5FA] transition-colors duration-300" aria-label="Toggle theme">
+        <span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span>
+      </button>
+    </div>
   </header>
 
   <main class="pt-24 pb-24 px-[20px] md:px-[32px] max-w-[1440px] mx-auto">
 
     <!-- Hero -->
     <div class="mb-12 max-w-2xl mx-auto">
-      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-[#60A5FA]">Blog</span>
-      <p class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-[#94A3B8] mt-2">Feb 25, 2024</p>
+      <span class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-[#60A5FA]" data-i18n="blog-label">Blog</span>
+      <p class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-[#94A3B8] mt-2" data-i18n="date">Feb 25, 2024</p>
       <h1 class="font-[Hanken_Grotesk] text-[48px] md:text-[72px] font-[400] leading-tight tracking-[-0.04em] mt-4 mb-6">Tet in Syd</h1>
-      <p class="font-[Inter] text-[16px] leading-[28px] text-[#c2c6d6] italic mb-6">
+      <p class="font-[Inter] text-[16px] leading-[28px] text-[#c2c6d6] italic mb-6" data-i18n="subtitle">
         Black and White Photography simplifies the image, allowing you to concentrate on the story, subject, and emotions without the influence of color.
       </p>
       <div class="font-[Inter] text-[16px] leading-[28px] text-[#c2c6d6] space-y-5">
-        <p>Since I studied abroad for a while, I didn&#8217;t get to spend many Tet holidays with my family. However, in 2024, we spent a few delightful days in Sydney. My mum and I finally made it to Sydney to see my brother and sister-in-law. The term &#8220;Tet&#8221; is more widely used as &#8220;Lunar New Year&#8221; in Vietnamese, even if it simply means a celebration. Why? Because, among Vietnamese, it is often thought of as the most important event of the year.</p>
-        <p>For this Tet, we kept things easy by having meals at home every night, just hanging around and exploring together. By rail and bus, we were able to see many fascinating regional NSW sites as well.</p>
-        <p class="italic text-[#94A3B8] text-[18px] font-[Hanken_Grotesk] font-[400]">Whatever It Is, The Way You Tell Your Story Online Can Make All The Difference.</p>
-        <p>When I go out to learn more about a new location or myself, my natural curiosity serves as the compass. Making plans has influence. In this situation, training your mind to be more curious while traveling is a good place to start. Therefore, I should remind myself that I am prepared to learn more and engage myself deeper in the destination as I prepare for my next trip so that my photographs may truly capture the essence of my adventure.</p>
-        <p class="italic text-[#94A3B8]">Taking it easy and observing your immediate surroundings can be all that&#8217;s needed from time to time.</p>
+        <p data-i18n="p1">Since I studied abroad for a while, I didn&#8217;t get to spend many Tet holidays with my family. However, in 2024, we spent a few delightful days in Sydney. My mum and I finally made it to Sydney to see my brother and sister-in-law. The term &#8220;Tet&#8221; is more widely used as &#8220;Lunar New Year&#8221; in Vietnamese, even if it simply means a celebration. Why? Because, among Vietnamese, it is often thought of as the most important event of the year.</p>
+        <p data-i18n="p2">For this Tet, we kept things easy by having meals at home every night, just hanging around and exploring together. By rail and bus, we were able to see many fascinating regional NSW sites as well.</p>
+        <p class="italic text-[#94A3B8] text-[18px] font-[Hanken_Grotesk] font-[400]" data-i18n="p3">Whatever It Is, The Way You Tell Your Story Online Can Make All The Difference.</p>
+        <p data-i18n="p4">When I go out to learn more about a new location or myself, my natural curiosity serves as the compass. Making plans has influence. In this situation, training your mind to be more curious while traveling is a good place to start. Therefore, I should remind myself that I am prepared to learn more and engage myself deeper in the destination as I prepare for my next trip so that my photographs may truly capture the essence of my adventure.</p>
+        <p class="italic text-[#94A3B8]" data-i18n="p5">Taking it easy and observing your immediate surroundings can be all that&#8217;s needed from time to time.</p>
       </div>
     </div>
 
@@ -123,10 +126,10 @@
     <div class="border-t border-white/10 pt-12 mt-16 flex justify-between items-center">
       <a href="./" class="flex items-center gap-2 text-[#60A5FA] font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-white transition-colors duration-300">
         <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-        BACK TO PORTFOLIO
+        <span data-i18n="back-portfolio">BACK TO PORTFOLIO</span>
       </a>
       <a href="./blog-melb-night-walking.html" class="flex items-center gap-2 text-[#60A5FA] font-[JetBrains_Mono] text-[14px] tracking-[0.1em] hover:text-white transition-colors duration-300">
-        Next Post
+        <span data-i18n="next-post">Next Post</span>
         <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
       </a>
     </div>
@@ -144,6 +147,48 @@
     function closeLightbox(event) { if (event.target === document.getElementById('lightbox') || event.target.classList.contains('lightbox-close')) { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; } }
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; } });
   </script>
+
+<script>
+  // Language toggle (EN/VI)
+  (function() {
+    var translations = {
+      vi: {
+        'back': 'Quay lại',
+        'blog-label': 'Nhật Ký',
+        'date': '25 Tháng 2, 2024',
+        'subtitle': 'Nhiếp ảnh Đen Trắng làm đơn giản hóa bức ảnh, cho phép bạn tập trung vào câu chuyện, chủ thể và cảm xúc mà không bị ảnh hưởng bởi màu sắc.',
+        'p1': 'Vì đã đi du học một thời gian, tôi không có nhiều dịp đón Tết bên gia đình. Tuy nhiên, vào năm 2024, chúng tôi đã có vài ngày thật vui vẻ ở Sydney. Cuối cùng mẹ và tôi cũng đến được Sydney để thăm anh trai và chị dâu. Từ “Tết” thường được người Việt gọi rộng rãi hơn là “Năm Mới Âm Lịch”, dù đơn giản nó chỉ mang nghĩa là một dịp lễ hội. Tại sao? Bởi vì với người Việt, đây thường được xem là sự kiện quan trọng nhất trong năm.',
+        'p2': 'Trong dịp Tết này, chúng tôi giữ mọi thứ thật đơn giản bằng cách ăn tối tại nhà mỗi đêm, chỉ quây quần và cùng nhau khám phá. Bằng tàu hỏa và xe buýt, chúng tôi cũng đã được ngắm nhìn nhiều địa danh thú vị ở vùng ngoại ô bang NSW.',
+        'p3': 'Dù là gì đi nữa, cách bạn kể câu chuyện của mình trên mạng có thể tạo nên tất cả sự khác biệt.',
+        'p4': 'Khi tôi ra ngoài để tìm hiểu thêm về một nơi chốn mới hay về chính bản thân mình, sự tò mò tự nhiên chính là chiếc la bàn dẫn lối. Việc lên kế hoạch có sức ảnh hưởng của nó. Trong trường hợp này, rèn luyện tâm trí trở nên tò mò hơn khi đi du lịch là một khởi đầu tốt. Vì vậy, tôi nên tự nhắc nhở mình rằng tôi đã sẵn sàng học hỏi nhiều hơn và hòa mình sâu hơn vào điểm đến khi chuẩn bị cho chuyến đi tiếp theo, để những bức ảnh của tôi có thể thực sự nắm bắt được tinh thần của cuộc phiêu lưu.',
+        'p5': 'Đôi khi, chỉ cần thong thả và quan sát những điều xung quanh mình là đủ.',
+        'back-portfolio': 'VỀ TRANG PORTFOLIO',
+        'next-post': 'Bài Tiếp Theo'
+      }
+    };
+    var currentLang = localStorage.getItem('lang') || 'en';
+    var originals = {};
+    function applyLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (originals[key] === undefined) originals[key] = el.textContent;
+        if (lang === 'vi' && translations.vi[key]) {
+          el.textContent = translations.vi[key];
+        } else {
+          el.textContent = originals[key];
+        }
+      });
+      var label = document.getElementById('lang-label');
+      if (label) label.textContent = lang === 'en' ? 'EN' : 'VI';
+    }
+    document.getElementById('lang-toggle').addEventListener('click', function() {
+      currentLang = currentLang === 'en' ? 'vi' : 'en';
+      localStorage.setItem('lang', currentLang);
+      applyLang(currentLang);
+    });
+    applyLang(currentLang);
+  })();
+</script>
 
 <script>
   (function() {
