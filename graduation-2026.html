@@ -138,11 +138,20 @@
       </div>
     </div>
 
-    <!-- 3 images centered, each on own line -->
-    <div class="flex flex-col items-center gap-6 mb-16">
-      <img src="/hht-nho.png" alt="Graduation 2026 Nhớ" class="max-w-2xl w-full object-contain"/>
-      <img src="/hht-red.png" alt="Graduation 2026 Red" class="max-w-2xl w-full object-contain"/>
-      <img src="/hht-tim.png" alt="Graduation 2026 Tím" class="max-w-2xl w-full object-contain"/>
+    <!-- 3 banners (left) + design language text (right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-center">
+      <!-- Banners -->
+      <div class="flex flex-col items-start gap-6">
+        <img src="/hht-nho.png" alt="Graduation 2026 Nhớ" class="w-full object-contain"/>
+        <img src="/hht-red.png" alt="Graduation 2026 Red" class="w-full object-contain"/>
+        <img src="/hht-tim.png" alt="Graduation 2026 Tím" class="w-full object-contain"/>
+      </div>
+      <!-- Design language paragraphs -->
+      <div class="font-[Inter] text-[16px] leading-[28px] text-[#c2c6d6] space-y-5" data-i18n="desc2">
+        <p>The design language was built around a bold and expressive visual system, using strong typography, layered graphic elements, and a vibrant red and gold palette to create a sense of energy and prestige. The composition was designed to feel dynamic and memorable, reflecting the excitement of students stepping into a new chapter.</p>
+        <p>Beyond the main key visual, the concept was extended across event touchpoints such as backstage ID cards and printed materials. Each element was designed to work as part of the same visual system while remaining functional in an event environment, creating a consistent experience from backstage to the main ceremony.</p>
+        <p>The final direction brings together celebration, youthful energy, and ceremonial elegance — creating a visual identity that reflects both the significance of the occasion and the spirit of the graduating class.</p>
+      </div>
     </div>
 
     <!-- Back to portfolio -->
@@ -174,11 +183,17 @@
     function applyLang(lang) {
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
-        if (originals[key] === undefined) originals[key] = el.textContent;
+        if (originals[key] === undefined) originals[key] = el.innerHTML;
+        var val;
         if (lang === 'vi' && translations.vi[key]) {
-          el.textContent = translations.vi[key];
+          val = translations.vi[key];
         } else {
-          el.textContent = originals[key];
+          val = originals[key];
+        }
+        if (val.indexOf('<') !== -1) {
+          el.innerHTML = val;
+        } else {
+          el.textContent = val;
         }
       });
       var label = document.getElementById('lang-label');
