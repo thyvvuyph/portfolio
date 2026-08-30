@@ -137,10 +137,12 @@
     </div>
 
     <!-- Mail header (left) + design direction text & logo (right) -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 lg:items-stretch">
       <!-- Mail header -->
-      <div class="rounded-2xl overflow-hidden">
-        <img src="/portfolio/bb-head-mail.jpg" alt="Being Bees Honey mail header" class="w-full object-cover"/>
+      <div class="relative min-h-0">
+        <div class="rounded-2xl overflow-hidden lg:absolute lg:inset-0">
+          <img src="/portfolio/bb-head-mail.jpg" alt="Being Bees Honey mail header" class="w-full h-full object-cover"/>
+        </div>
       </div>
       <!-- Design direction paragraphs + logo -->
       <div class="flex flex-col gap-6">
