@@ -102,6 +102,13 @@
       <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full" data-i18n="tag3">Graphic Design</span>
     </div>
 
+    <!-- Visual language paragraphs (full width, before images) -->
+    <div class="font-[Inter] text-[16px] leading-[28px] text-[#c2c6d6] space-y-5 mb-8" data-i18n="desc2">
+      <p>Inspired by the atmosphere of classic Hong Kong cinema, the visual language draws from nostalgic cinematic compositions, intimate framing, and a sense of quiet melancholy. The contrast between cool greens and warm reds and browns was used to create an emotional divide between isolation and memory — with cooler tones suggesting the distance of reality, while warmer tones evoke the lingering presence of his lover and moments from the past.</p>
+      <p>Imagery, composition, and typography were carefully arranged to create a dreamlike quality, allowing the visuals to feel slightly disconnected from reality. Rather than presenting the story literally, the campaign visuals aim to capture the emotional experience of remembering someone who is no longer there.</p>
+      <p>The final direction creates a visual world that feels romantic, nostalgic, and melancholic, reflecting the blurred boundary between what is remembered, what is imagined, and what is real.</p>
+    </div>
+
     <!-- Hero image full width -->
     <div class="rounded-2xl overflow-hidden mb-6 border border-white/10">
       <img src="/miss-campaign.jpg" alt="MISS campaign visual" class="w-full object-cover"/>
@@ -151,11 +158,17 @@
     function applyLang(lang) {
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
-        if (originals[key] === undefined) originals[key] = el.textContent;
+        if (originals[key] === undefined) originals[key] = el.innerHTML;
+        var val;
         if (lang === 'vi' && translations.vi[key]) {
-          el.textContent = translations.vi[key];
+          val = translations.vi[key];
         } else {
-          el.textContent = originals[key];
+          val = originals[key];
+        }
+        if (val.indexOf('<') !== -1) {
+          el.innerHTML = val;
+        } else {
+          el.textContent = val;
         }
       });
       var label = document.getElementById('lang-label');
