@@ -101,14 +101,22 @@
       <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] border border-white/10 text-[#c2c6d6] px-4 py-2 rounded-full" data-i18n="tag3">F&B</span>
     </div>
 
-    <!-- Menu images -->
-    <div class="flex flex-col md:flex-row gap-4 mb-4 md:items-center">
-      <div class="rounded-2xl overflow-hidden md:w-[35%]">
+    <!-- First menu image (left) + visual direction text (right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-4 items-center">
+      <div class="rounded-2xl overflow-hidden">
         <img src="/jacksons-lunch-menu.jpg" alt="Jacksons Steakhouse lunch menu mockup" class="w-full object-contain"/>
       </div>
-      <div class="rounded-2xl overflow-hidden md:w-[65%]">
-        <img src="/jacksons-menu-dessert.jpg" alt="Jacksons Steakhouse menu and dessert mockup" class="w-full object-contain"/>
+      <div class="font-[Inter] text-[16px] leading-[28px] text-[#c2c6d6] space-y-5" data-i18n="desc2">
+        <p>The visual direction focused on creating a strong balance between elegance and functionality. Typography, composition, spacing, and imagery were carefully considered to establish a clear hierarchy, allowing customers to easily navigate the menu while still creating a sense of occasion.</p>
+        <p>A restrained visual language was used to keep the focus on the food, with carefully considered details adding depth and character to the overall layout. The menu was designed to feel tactile and considered, reflecting the quality and craftsmanship associated with a premium steakhouse.</p>
+        <p>The concept was then adapted across different menu categories, including lunch, dessert, and drinks, maintaining a consistent visual rhythm while allowing each section to have its own character.</p>
+        <p>The final direction combines classic sophistication with contemporary simplicity, creating a menu that feels premium, approachable, and designed to complement the overall dining experience.</p>
       </div>
+    </div>
+
+    <!-- Second menu image on its own line -->
+    <div class="rounded-2xl overflow-hidden mb-4">
+      <img src="/jacksons-menu-dessert.jpg" alt="Jacksons Steakhouse menu and dessert mockup" class="w-full object-contain"/>
     </div>
 
     <!-- 4 menu pages -->
@@ -155,11 +163,17 @@
     function applyLang(lang) {
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
-        if (originals[key] === undefined) originals[key] = el.textContent;
+        if (originals[key] === undefined) originals[key] = el.innerHTML;
+        var val;
         if (lang === 'vi' && translations.vi[key]) {
-          el.textContent = translations.vi[key];
+          val = translations.vi[key];
         } else {
-          el.textContent = originals[key];
+          val = originals[key];
+        }
+        if (val.indexOf('<') !== -1) {
+          el.innerHTML = val;
+        } else {
+          el.textContent = val;
         }
       });
       var label = document.getElementById('lang-label');
