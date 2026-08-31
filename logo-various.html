@@ -104,6 +104,12 @@
     <!-- Neo -->
     <div class="mb-12">
       <h2 class="font-[Hanken_Grotesk] text-[24px] leading-[32px] font-[400] text-[#dae2fd] mb-4">Neo</h2>
+      <div class="font-[Inter] text-[16px] leading-[28px] text-[#c2c6d6] space-y-5 mb-6" data-i18n="neo-desc">
+        <p>Neo is an AI assistant concept designed to make everyday interactions with AI feel more approachable and engaging. The logo combines the forms of a cat and a flame, using two familiar symbols to express the personality and role of the assistant.</p>
+        <p>The cat represents curiosity, intelligence, and companionship, giving Neo a friendly character and making the technology feel less distant or robotic. Its playful and recognisable form helps create an approachable personality that users can easily connect with.</p>
+        <p>The flame represents the spark behind ideas — suggesting intelligence, creativity, energy, and the ability to turn a thought into something more. This connects with the role of an AI assistant as a tool for exploring ideas, solving problems, and supporting creative thinking.</p>
+        <p>Rather than representing AI through conventional technology symbols, the logo uses these two elements to create a more smart, curious, personable and memorable identity. The identity aims to position Neo as more than just a piece of technology — a smart, approachable assistant that users can naturally interact with.</p>
+      </div>
       <div class="rounded-2xl overflow-hidden">
         <img src="/portfolio/neo-logo.jpg" alt="Neo logo design" class="w-full object-cover"/>
       </div>
@@ -176,11 +182,17 @@
     function applyLang(lang) {
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
-        if (originals[key] === undefined) originals[key] = el.textContent;
+        if (originals[key] === undefined) originals[key] = el.innerHTML;
+        var val;
         if (lang === 'vi' && translations.vi[key]) {
-          el.textContent = translations.vi[key];
+          val = translations.vi[key];
         } else {
-          el.textContent = originals[key];
+          val = originals[key];
+        }
+        if (val.indexOf('<') !== -1) {
+          el.innerHTML = val;
+        } else {
+          el.textContent = val;
         }
       });
       var label = document.getElementById('lang-label');
