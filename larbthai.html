@@ -161,11 +161,17 @@
     function applyLang(lang) {
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
-        if (originals[key] === undefined) originals[key] = el.textContent;
+        if (originals[key] === undefined) originals[key] = el.innerHTML;
+        var val;
         if (lang === 'vi' && translations.vi[key]) {
-          el.textContent = translations.vi[key];
+          val = translations.vi[key];
         } else {
-          el.textContent = originals[key];
+          val = originals[key];
+        }
+        if (val.indexOf('<') !== -1) {
+          el.innerHTML = val;
+        } else {
+          el.textContent = val;
         }
       });
       var label = document.getElementById('lang-label');
