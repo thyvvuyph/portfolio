@@ -128,9 +128,16 @@
       </div>
     </div>
 
-    <!-- Jaspas fb full width -->
-    <div class="rounded-2xl overflow-hidden mb-16">
-      <img id="jaspas-fb-img" src="/portfolio/afg-jaspas-fb.png" alt="Jaspas Facebook" class="w-full object-cover"/>
+    <!-- Jaspas fb (left) + process text (right) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-center">
+      <div class="rounded-2xl overflow-hidden">
+        <img id="jaspas-fb-img" src="/portfolio/afg-jaspas-fb.png" alt="Jaspas Facebook" class="w-full object-cover"/>
+      </div>
+      <div class="font-[Inter] text-[16px] leading-[28px] text-[#c2c6d6] space-y-5" data-i18n="process">
+        <p>A key part of the process was adapting the visual approach to suit different audiences and dining experiences. From the casual and generous character of Al Fresco’s to the more relaxed sophistication of Jaspas and the refined atmosphere of Jacksons Steakhouse, each brand required its own balance of imagery, composition, and visual tone.</p>
+        <p>The content was designed with social media in mind, where visuals need to communicate quickly and create an immediate appetite appeal. Promotional offers, seasonal campaigns, and food-focused content were structured around clear visual hierarchy, allowing the key message and product to remain the focus.</p>
+        <p>Across the different brands, the work aimed to create content that feels distinctive to each restaurant while remaining cohesive as part of the wider group, demonstrating how a flexible visual approach can adapt to different brand personalities, campaigns, and audiences.</p>
+      </div>
     </div>
 
     <!-- Back to portfolio -->
@@ -162,11 +169,17 @@
     function applyLang(lang) {
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
-        if (originals[key] === undefined) originals[key] = el.textContent;
+        if (originals[key] === undefined) originals[key] = el.innerHTML;
+        var val;
         if (lang === 'vi' && translations.vi[key]) {
-          el.textContent = translations.vi[key];
+          val = translations.vi[key];
         } else {
-          el.textContent = originals[key];
+          val = originals[key];
+        }
+        if (val.indexOf('<') !== -1) {
+          el.innerHTML = val;
+        } else {
+          el.textContent = val;
         }
       });
       var label = document.getElementById('lang-label');
