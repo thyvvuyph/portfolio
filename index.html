@@ -205,6 +205,92 @@
     }
     .coral-glow { box-shadow: 0 0 20px rgba(251,113,133,0.2); }
 
+    /* Animated contact CTA (email pill with fill-sweep + arrow) */
+    .contact-cta {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      width: 100%;
+      max-width: 760px;
+      padding: 20px 20px 20px 32px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 9999px;
+      overflow: hidden;
+      isolation: isolate;
+      text-decoration: none;
+      transition: border-color 0.5s ease;
+    }
+    /* Fill layer that sweeps in on hover */
+    .contact-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: #020617;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .contact-cta:hover::before { transform: scaleX(1); }
+    .contact-cta:hover { border-color: transparent; }
+
+    .contact-cta__label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #94A3B8;
+      margin-bottom: 6px;
+      transition: color 0.4s ease;
+    }
+    .contact-cta__email {
+      display: block;
+      font-family: 'Hanken Grotesk', 'Gugi', sans-serif;
+      font-weight: 400;
+      font-size: clamp(22px, 5vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #dae2fd;
+      transition: color 0.4s ease;
+      word-break: break-word;
+    }
+    .contact-cta:hover .contact-cta__email { color: #60A5FA; }
+    .contact-cta:hover .contact-cta__label { color: #60A5FA; }
+
+    .contact-cta__icon {
+      flex: 0 0 auto;
+      width: 64px;
+      height: 64px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #dae2fd;
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+    }
+    .contact-cta__icon .material-symbols-outlined { font-size: 28px; transition: transform 0.4s ease; }
+    .contact-cta:hover .contact-cta__icon {
+      background: #60A5FA;
+      border-color: #60A5FA;
+      color: #020617;
+    }
+    .contact-cta:hover .contact-cta__icon .material-symbols-outlined { transform: translate(2px, -2px); }
+
+    /* Light theme */
+    html.light .contact-cta { border-color: rgba(0,0,0,0.25); }
+    html.light .contact-cta::before { background: #0f172a; }
+    html.light .contact-cta__label { color: #475569; }
+    html.light .contact-cta__email { color: #0f172a; }
+    html.light .contact-cta:hover .contact-cta__email,
+    html.light .contact-cta:hover .contact-cta__label { color: #60A5FA; }
+    html.light .contact-cta__icon { border-color: rgba(0,0,0,0.3); color: #0f172a; }
+    html.light .contact-cta:hover .contact-cta__icon { background: #60A5FA; border-color: #60A5FA; color: #0f172a; }
+
+
     /* Light theme overrides */
     html.light body { background-color: #fcf5e3 !important; color: #0f172a; }
     html.light header { background: rgba(255,255,255,0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-color: rgba(0,0,0,0.25); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
@@ -837,13 +923,17 @@
           <span class="text-on-surface" data-i18n="cta-have">Have a </span>
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-refined-coral" data-i18n="cta-cool">Cool Project?</span>
         </h2>
-        <a class="bg-electric-blue text-charcoal-surface font-[JetBrains_Mono] text-[14px] tracking-[0.03em] px-8 py-4 rounded-full hover:bg-white transition-colors duration-300 inline-block neon-glow" href="mailto:pthvy20@gmail.com">
-          <span data-i18n="contact-btn">CONTACT ME</span>
+        <a class="contact-cta" href="mailto:pthvy20@gmail.com" aria-label="Email pthvy20@gmail.com">
+          <span class="contact-cta__text">
+            <span class="contact-cta__label" data-i18n="contact-label">Start a conversation</span>
+            <span class="contact-cta__email">pthvy20@gmail.com</span>
+          </span>
+          <span class="contact-cta__icon">
+            <span class="material-symbols-outlined">arrow_outward</span>
+          </span>
         </a>
         <p class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral mt-4">
-          <span class="block md:inline">pthvy20@gmail.com</span>
-          <span class="block md:hidden">+84 708 575 775</span>
-          <span class="hidden md:inline">• +84 708 575 775</span>
+          <span data-i18n="contact-phone">+84 708 575 775</span>
         </p>
       </div>
     </div>
@@ -1111,6 +1201,8 @@
       vi: {
         'bio': 'Mình là Haley — Communication Designer tốt nghiệp RMIT, yêu thích kể chuyện bằng hình ảnh và biến những ý tưởng thành những thứ có cá tính riêng.<br/><br/>Mình khám phá nhiều lĩnh vực từ branding, graphic design đến digital và visual communication, luôn thử nghiệm với hình ảnh, typography, màu sắc và cách kể chuyện. Tò mò, thử nghiệm và không ngại đi khác hướng — vì những ý tưởng hay thường bắt đầu từ những nơi không ngờ tới.',
         'contact-btn': 'LIÊN HỆ',
+        'contact-label': 'Bắt đầu trò chuyện',
+        'contact-phone': '+84 708 575 775',
         'view-projects': 'XEM DỰ ÁN',
         'selected-project': 'DỰ ÁN NỔI BẬT',
         'recent-work': 'Công Việc Gần Đây',
@@ -1129,6 +1221,8 @@
       en: {
         'bio': "Hi, I'm Haley — a Communication Designer from RMIT, driven by curiosity, visual storytelling, and a love for making ideas look good.<br/><br/>I work across branding, graphic design, digital, and visual communication, always looking for fresh ways to turn concepts into visuals that feel distinctive and meaningful. I'm drawn to experimentation, new perspectives, and pushing ideas beyond the expected — because the best work often starts somewhere&nbsp;unexpected.",
         'contact-btn': 'CONTACT ME',
+        'contact-label': 'Start a conversation',
+        'contact-phone': '+84 708 575 775',
         'view-projects': 'VIEW PROJECTS',
         'selected-project': 'SELECTED PROJECT',
         'recent-work': 'Recent Work',
