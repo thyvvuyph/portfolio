@@ -202,10 +202,12 @@
     };
     var currentLang = localStorage.getItem('lang') || 'en';
     var originals = {};
+    var keepEnglish = { 'back':1, 'back-portfolio':1, 'next-post':1, 'prev-post':1, 'blog-label':1, 'tag1':1, 'tag2':1, 'tag3':1 };
     function applyLang(lang) {
       document.documentElement.classList.toggle('vi', lang === 'vi');
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
+        if (keepEnglish[key]) return;
         if (originals[key] === undefined) originals[key] = el.innerHTML;
         var val;
         if (lang === 'vi' && translations.vi[key]) {

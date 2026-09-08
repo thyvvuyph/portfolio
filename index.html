@@ -1227,11 +1227,19 @@
 
     var currentLang = localStorage.getItem('lang') || 'en';
 
+    // Keys that must always stay in English (headings, titles, buttons, footer section titles)
+    var keepEnglish = {
+      'cta-have': 1, 'cta-cool': 1, 'recent-work': 1, 'selected-project': 1,
+      'blog-title': 1, 'contact-btn': 1, 'view-projects': 1, 'contact-label': 1,
+      'footer-contact': 1, 'footer-nav': 1, 'footer-services': 1
+    };
+
     function applyLang(lang) {
       document.documentElement.classList.toggle('vi', lang === 'vi');
       var els = document.querySelectorAll('[data-i18n]');
       els.forEach(function(el) {
         var key = el.getAttribute('data-i18n');
+        if (keepEnglish[key]) return; // always English
         if (translations[lang] && translations[lang][key]) {
           var val = translations[lang][key];
           if (val.indexOf('<') !== -1) {
