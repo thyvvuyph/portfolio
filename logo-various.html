@@ -14,10 +14,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Electrolize&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Electrolize&family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <style>
     .font-[Hanken_Grotesk] { font-family: 'Gugi', sans-serif !important; font-weight: 400 !important; }
+    html.vi body, html.vi .font-[Inter] { font-family: 'Chakra Petch', sans-serif !important; }
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #020617; }
@@ -202,6 +203,7 @@
     var currentLang = localStorage.getItem('lang') || 'en';
     var originals = {};
     function applyLang(lang) {
+      document.documentElement.classList.toggle('vi', lang === 'vi');
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var key = el.getAttribute('data-i18n');
         if (originals[key] === undefined) originals[key] = el.innerHTML;
