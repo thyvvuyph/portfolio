@@ -29,6 +29,14 @@
     html.vi .font-\[Inter\] {
       font-family: 'Chakra Petch', sans-serif !important;
     }
+    /* Chakra Petch has a smaller x-height than Inter. Normalise x-height to Inter's aspect
+       ratio (~0.545) so VI text reads at the same visual size WITHOUT changing each
+       element's own font-size (preserves the 14/16/18px hierarchy). */
+    html.vi body,
+    html.vi .font-body-md,
+    html.vi .font-\[Inter\] {
+      font-size-adjust: 0.545;
+    }
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
@@ -887,7 +895,7 @@
         <div class="p-6 bg-deep-slate/50">
           <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-muted-text">Feb 25, 2024</span>
           <h3 class="font-[Hanken_Grotesk] text-[20px] md:text-[24px] font-[400] text-on-surface mb-2 mt-1">Tet in Syd</h3>
-          <p class="font-[Inter] text-[14px] text-muted-text">Celebrating Lunar New Year in Sydney — a photo diary of traditions and new beginnings.</p>
+          <p class="font-[Inter] text-[14px] text-muted-text" data-i18n="blog-tet-desc">Celebrating Lunar New Year in Sydney — a photo diary of traditions and new beginnings.</p>
         </div>
       </a>
       <!-- Blog Post 2 -->
@@ -898,7 +906,7 @@
         <div class="p-6 bg-deep-slate/50">
           <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-muted-text">Jan 15, 2023</span>
           <h3 class="font-[Hanken_Grotesk] text-[20px] md:text-[24px] font-[400] text-on-surface mb-2 mt-1">Melb Night Walking</h3>
-          <p class="font-[Inter] text-[14px] text-muted-text">Wandering through Melbourne's streets after dark — neon lights, quiet lanes, and city shadows.</p>
+          <p class="font-[Inter] text-[14px] text-muted-text" data-i18n="blog-melb-desc">Wandering through Melbourne's streets after dark — neon lights, quiet lanes, and city shadows.</p>
         </div>
       </a>
     </div>
@@ -1193,6 +1201,8 @@
         'selected-project': 'DỰ ÁN NỔI BẬT',
         'recent-work': 'Công Việc Gần Đây',
         'blog-title': 'Nhật Ký',
+        'blog-tet-desc': 'Đón Tết Nguyên Đán ở Sydney — nhật ký hình ảnh về những phong tục truyền thống và khởi đầu mới.',
+        'blog-melb-desc': 'Lang thang trên những con phố Melbourne khi màn đêm buông xuống — ánh đèn neon, những con hẻm tĩnh lặng và bóng hình thành phố.',
         'cta-have': 'Hãy khiến nó ',
         'cta-cool': 'không thể bỏ lỡ.',
         'footer-desc': 'Nhà Thiết Kế Đồ Họa Sáng Tạo',
@@ -1212,6 +1222,8 @@
         'selected-project': 'SELECTED PROJECT',
         'recent-work': 'Recent Work',
         'blog-title': 'Blog',
+        'blog-tet-desc': 'Celebrating Lunar New Year in Sydney — a photo diary of traditions and new beginnings.',
+        'blog-melb-desc': "Wandering through Melbourne's streets after dark — neon lights, quiet lanes, and city shadows.",
         'cta-have': 'Let’s make it ',
         'cta-cool': 'impossible to miss.',
         'footer-desc': 'Creative Graphic Designer',
@@ -1227,11 +1239,12 @@
 
     var currentLang = localStorage.getItem('lang') || 'en';
 
-    // Keys that must always stay in English (headings, titles, buttons, footer section titles)
+    // Keys that must always stay in English (headings, titles, buttons, footer stays fully English)
     var keepEnglish = {
       'cta-have': 1, 'cta-cool': 1, 'recent-work': 1, 'selected-project': 1,
       'blog-title': 1, 'contact-btn': 1, 'view-projects': 1, 'contact-label': 1,
-      'footer-contact': 1, 'footer-nav': 1, 'footer-services': 1
+      'footer-desc': 1, 'footer-contact': 1, 'footer-nav': 1, 'footer-services': 1,
+      'svc-marketing': 1, 'svc-branding': 1, 'svc-website': 1, 'svc-media': 1
     };
 
     function applyLang(lang) {
