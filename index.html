@@ -29,9 +29,13 @@
     html.vi .font-\[Inter\] {
       font-family: 'Chakra Petch', sans-serif !important;
     }
-    /* Chakra Petch has a smaller x-height than Inter — nudge body text up so it reads at the same visual size */
+    /* Chakra Petch has a smaller x-height than Inter. Normalise x-height to Inter's aspect
+       ratio (~0.545) so VI text reads at the same visual size WITHOUT changing each
+       element's own font-size (preserves the 14/16/18px hierarchy). */
+    html.vi body,
+    html.vi .font-body-md,
     html.vi .font-\[Inter\] {
-      font-size: 1.08em;
+      font-size-adjust: 0.545;
     }
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
