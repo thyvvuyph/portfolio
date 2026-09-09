@@ -23,11 +23,12 @@
       font-family: 'Gugi', sans-serif !important;
       font-weight: 400 !important;
     }
-    /* Vietnamese mode: body text uses a Vietnamese-capable font (headings stay Gugi).
-       No size manipulation here — sizes must stay identical to EN. */
-    html.vi body,
-    html.vi .font-body-md,
-    html.vi .font-\[Inter\] {
+    /* Vietnamese mode: apply the Vietnamese-capable font ONLY to the elements that
+       actually display Vietnamese text. Everything else (headings, logo, buttons, tags,
+       footer — all stay English) keeps its original font and size, so EN and VI match. */
+    html.vi [data-i18n="bio"],
+    html.vi [data-i18n="blog-tet-desc"],
+    html.vi [data-i18n="blog-melb-desc"] {
       font-family: 'Chakra Petch', sans-serif !important;
     }
     .material-symbols-outlined {
