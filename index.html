@@ -1235,11 +1235,12 @@
 
     var currentLang = localStorage.getItem('lang') || 'en';
 
-    // Keys that must always stay in English (headings, titles, buttons, footer section titles)
+    // Keys that must always stay in English (headings, titles, buttons, footer stays fully English)
     var keepEnglish = {
       'cta-have': 1, 'cta-cool': 1, 'recent-work': 1, 'selected-project': 1,
       'blog-title': 1, 'contact-btn': 1, 'view-projects': 1, 'contact-label': 1,
-      'footer-contact': 1, 'footer-nav': 1, 'footer-services': 1
+      'footer-desc': 1, 'footer-contact': 1, 'footer-nav': 1, 'footer-services': 1,
+      'svc-marketing': 1, 'svc-branding': 1, 'svc-website': 1, 'svc-media': 1
     };
 
     function applyLang(lang) {
