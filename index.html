@@ -7,16 +7,31 @@
     (function(){var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('header-logo');var bg=document.getElementById('hero-bg');if(l&&t==='light')l.src='./logo-light.png';if(bg&&t==='light')bg.src='./bg-light.png';});})();
   </script>
   <title>Haley Pham | Communication Design Portfolio</title>
+  <!-- Favicon -->
+  <link rel="icon" href="./favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png"/>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Electrolize&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Electrolize&family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <!-- Material Symbols -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <style>
     .font-\[Hanken_Grotesk\] {
       font-family: 'Gugi', sans-serif !important;
       font-weight: 400 !important;
+    }
+    /* Vietnamese mode: body text only uses a Vietnamese-capable font (headings stay Gugi) */
+    html.vi body,
+    html.vi .font-body-md,
+    html.vi .font-\[Inter\] {
+      font-family: 'Chakra Petch', sans-serif !important;
+    }
+    /* Chakra Petch has a smaller x-height than Inter — nudge body text up so it reads at the same visual size */
+    html.vi .font-\[Inter\] {
+      font-size: 1.08em;
     }
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -204,6 +219,71 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
     .coral-glow { box-shadow: 0 0 20px rgba(251,113,133,0.2); }
+
+    /* Contact CTA (email + arrow, no box; left-aligned) */
+    .contact-cta {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      text-align: left;
+      text-decoration: none;
+    }
+    .contact-cta__text { display: block; text-align: left; }
+
+    .contact-cta__label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #94A3B8;
+      margin-bottom: 6px;
+      transition: color 0.4s ease;
+    }
+    .contact-cta__email {
+      display: block;
+      font-family: 'Hanken Grotesk', 'Gugi', sans-serif;
+      font-weight: 400;
+      font-size: clamp(22px, 5vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #dae2fd;
+      transition: color 0.4s ease;
+      word-break: break-word;
+    }
+    .contact-cta:hover .contact-cta__email { color: #60A5FA; }
+    .contact-cta:hover .contact-cta__label { color: #60A5FA; }
+
+    .contact-cta__icon {
+      flex: 0 0 auto;
+      width: 64px;
+      height: 64px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #dae2fd;
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+    }
+    .contact-cta__icon .material-symbols-outlined { font-size: 28px; transition: transform 0.4s ease; }
+    .contact-cta:hover .contact-cta__icon {
+      background: #60A5FA;
+      border-color: #60A5FA;
+      color: #020617;
+    }
+    .contact-cta:hover .contact-cta__icon .material-symbols-outlined { transform: translate(2px, -2px); }
+
+    /* Light theme */
+    html.light .contact-cta__label { color: #475569; }
+    html.light .contact-cta__email { color: #0f172a; }
+    html.light .contact-cta:hover .contact-cta__email,
+    html.light .contact-cta:hover .contact-cta__label { color: #1d4ed8; }
+    html.light .contact-cta__icon { border-color: rgba(0,0,0,0.3); color: #0f172a; }
+    html.light .contact-cta:hover .contact-cta__icon { background: #1d4ed8; border-color: #1d4ed8; color: #ffffff; }
+
+
 
     /* Light theme overrides */
     html.light body { background-color: #fcf5e3 !important; color: #0f172a; }
@@ -811,7 +891,7 @@
         <div class="p-6 bg-deep-slate/50">
           <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-muted-text">Feb 25, 2024</span>
           <h3 class="font-[Hanken_Grotesk] text-[20px] md:text-[24px] font-[400] text-on-surface mb-2 mt-1">Tet in Syd</h3>
-          <p class="font-[Inter] text-[14px] text-muted-text">Celebrating Lunar New Year in Sydney — a photo diary of traditions and new beginnings.</p>
+          <p class="font-[Inter] text-[14px] text-muted-text" data-i18n="blog-tet-desc">Celebrating Lunar New Year in Sydney — a photo diary of traditions and new beginnings.</p>
         </div>
       </a>
       <!-- Blog Post 2 -->
@@ -822,7 +902,7 @@
         <div class="p-6 bg-deep-slate/50">
           <span class="font-[JetBrains_Mono] text-[12px] tracking-[0.1em] text-muted-text">Jan 15, 2023</span>
           <h3 class="font-[Hanken_Grotesk] text-[20px] md:text-[24px] font-[400] text-on-surface mb-2 mt-1">Melb Night Walking</h3>
-          <p class="font-[Inter] text-[14px] text-muted-text">Wandering through Melbourne's streets after dark — neon lights, quiet lanes, and city shadows.</p>
+          <p class="font-[Inter] text-[14px] text-muted-text" data-i18n="blog-melb-desc">Wandering through Melbourne's streets after dark — neon lights, quiet lanes, and city shadows.</p>
         </div>
       </a>
     </div>
@@ -834,17 +914,18 @@
       <div class="absolute inset-0 bg-gradient-to-b from-electric-blue/5 to-transparent z-0"></div>
       <div class="relative z-10 flex flex-col items-center gap-8">
         <h2 class="font-[Hanken_Grotesk] text-[32px] leading-[40px] md:text-[48px] md:leading-[56px] font-[400]">
-          <span class="text-on-surface" data-i18n="cta-have">Have a </span>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-refined-coral" data-i18n="cta-cool">Cool Project?</span>
+          <span class="text-on-surface" data-i18n="cta-have">Let’s make it </span>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-refined-coral" data-i18n="cta-cool">impossible to miss.</span>
         </h2>
-        <a class="bg-electric-blue text-charcoal-surface font-[JetBrains_Mono] text-[14px] tracking-[0.03em] px-8 py-4 rounded-full hover:bg-white transition-colors duration-300 inline-block neon-glow" href="mailto:pthvy20@gmail.com">
-          <span data-i18n="contact-btn">CONTACT ME</span>
+        <a class="contact-cta" href="mailto:pthvy20@gmail.com" aria-label="Email pthvy20@gmail.com">
+          <span class="contact-cta__text">
+            <span class="contact-cta__label" data-i18n="contact-label">Start a conversation</span>
+            <span class="contact-cta__email">pthvy20@gmail.com</span>
+          </span>
+          <span class="contact-cta__icon">
+            <span class="material-symbols-outlined">arrow_outward</span>
+          </span>
         </a>
-        <p class="font-[JetBrains_Mono] text-[14px] tracking-[0.1em] text-refined-coral mt-4">
-          <span class="block md:inline">pthvy20@gmail.com</span>
-          <span class="block md:hidden">+84 708 575 775</span>
-          <span class="hidden md:inline">• +84 708 575 775</span>
-        </p>
       </div>
     </div>
   </section>
@@ -1111,12 +1192,15 @@
       vi: {
         'bio': 'Mình là Haley — Communication Designer tốt nghiệp RMIT, yêu thích kể chuyện bằng hình ảnh và biến những ý tưởng thành những thứ có cá tính riêng.<br/><br/>Mình khám phá nhiều lĩnh vực từ branding, graphic design đến digital và visual communication, luôn thử nghiệm với hình ảnh, typography, màu sắc và cách kể chuyện. Tò mò, thử nghiệm và không ngại đi khác hướng — vì những ý tưởng hay thường bắt đầu từ những nơi không ngờ tới.',
         'contact-btn': 'LIÊN HỆ',
+        'contact-label': 'Bắt đầu trò chuyện',
         'view-projects': 'XEM DỰ ÁN',
         'selected-project': 'DỰ ÁN NỔI BẬT',
         'recent-work': 'Công Việc Gần Đây',
         'blog-title': 'Nhật Ký',
-        'cta-have': 'Bạn có ',
-        'cta-cool': 'Dự Án Hay?',
+        'blog-tet-desc': 'Đón Tết Nguyên Đán ở Sydney — nhật ký hình ảnh về những phong tục truyền thống và khởi đầu mới.',
+        'blog-melb-desc': 'Lang thang trên những con phố Melbourne khi màn đêm buông xuống — ánh đèn neon, những con hẻm tĩnh lặng và bóng hình thành phố.',
+        'cta-have': 'Hãy khiến nó ',
+        'cta-cool': 'không thể bỏ lỡ.',
         'footer-desc': 'Nhà Thiết Kế Đồ Họa Sáng Tạo',
         'footer-nav': 'Điều Hướng',
         'footer-services': 'Dịch Vụ',
@@ -1129,12 +1213,15 @@
       en: {
         'bio': "Hi, I'm Haley — a Communication Designer from RMIT, driven by curiosity, visual storytelling, and a love for making ideas look good.<br/><br/>I work across branding, graphic design, digital, and visual communication, always looking for fresh ways to turn concepts into visuals that feel distinctive and meaningful. I'm drawn to experimentation, new perspectives, and pushing ideas beyond the expected — because the best work often starts somewhere&nbsp;unexpected.",
         'contact-btn': 'CONTACT ME',
+        'contact-label': 'Start a conversation',
         'view-projects': 'VIEW PROJECTS',
         'selected-project': 'SELECTED PROJECT',
         'recent-work': 'Recent Work',
         'blog-title': 'Blog',
-        'cta-have': 'Have a ',
-        'cta-cool': 'Cool Project?',
+        'blog-tet-desc': 'Celebrating Lunar New Year in Sydney — a photo diary of traditions and new beginnings.',
+        'blog-melb-desc': "Wandering through Melbourne's streets after dark — neon lights, quiet lanes, and city shadows.",
+        'cta-have': 'Let’s make it ',
+        'cta-cool': 'impossible to miss.',
         'footer-desc': 'Creative Graphic Designer',
         'footer-nav': 'Navigation',
         'footer-services': 'Services',
@@ -1148,10 +1235,19 @@
 
     var currentLang = localStorage.getItem('lang') || 'en';
 
+    // Keys that must always stay in English (headings, titles, buttons, footer section titles)
+    var keepEnglish = {
+      'cta-have': 1, 'cta-cool': 1, 'recent-work': 1, 'selected-project': 1,
+      'blog-title': 1, 'contact-btn': 1, 'view-projects': 1, 'contact-label': 1,
+      'footer-contact': 1, 'footer-nav': 1, 'footer-services': 1
+    };
+
     function applyLang(lang) {
+      document.documentElement.classList.toggle('vi', lang === 'vi');
       var els = document.querySelectorAll('[data-i18n]');
       els.forEach(function(el) {
         var key = el.getAttribute('data-i18n');
+        if (keepEnglish[key]) return; // always English
         if (translations[lang] && translations[lang][key]) {
           var val = translations[lang][key];
           if (val.indexOf('<') !== -1) {
@@ -1178,6 +1274,7 @@
     document.getElementById('lang-toggle-mobile').addEventListener('click', toggle);
 
     // Apply saved language on load
+    document.documentElement.classList.toggle('vi', currentLang === 'vi');
     if (currentLang !== 'en') {
       applyLang(currentLang);
     }
