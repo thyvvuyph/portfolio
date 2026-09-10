@@ -154,40 +154,48 @@
     function closeLightbox(event) { if (event.target === document.getElementById('lightbox') || event.target.classList.contains('lightbox-close')) { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; } }
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; } });
 
-    // Order-preserving masonry: place each item into the shortest column
+    // Balanced masonry: assign items to the shortest column using measured heights.
+    // Assignment is processed tallest-first to flatten the bottom edge, but each
+    // column keeps items in their original DOM order for natural reading flow.
     (function() {
       var grid = document.querySelector('.masonry');
       if (!grid) return;
       var items = Array.prototype.slice.call(grid.querySelectorAll('.masonry-item'));
-      function colCount() {
-        var w = window.innerWidth;
-        if (w >= 1024) return 3;
-        return 2;
+      items.forEach(function(item, i) { item.dataset.order = i; });
+      function colCount() { return window.innerWidth >= 1024 ? 3 : 2; }
+
+      function measure(item) {
+        var img = item.querySelector('img');
+        if (img && img.naturalWidth) return img.naturalHeight / img.naturalWidth;
+        return item.offsetHeight || 1;
       }
-      var current = 0;
+
       function layout() {
         var n = colCount();
-        if (n === current) return;
-        current = n;
         grid.innerHTML = '';
         var cols = [];
         for (var i = 0; i < n; i++) {
           var c = document.createElement('div');
           c.className = 'masonry-col';
           grid.appendChild(c);
-          cols.push(c);
+          cols.push({ el: c, h: 0, items: [] });
         }
-        // distribute in original order into the currently shortest column
-        items.forEach(function(item) {
-          var shortest = cols[0];
-          for (var j = 1; j < cols.length; j++) {
-            if (cols[j].offsetHeight < shortest.offsetHeight) shortest = cols[j];
-          }
-          shortest.appendChild(item);
+        // process tallest-first so short images fill the gaps at the bottom
+        var byTall = items.slice().sort(function(a, b) { return measure(b) - measure(a); });
+        byTall.forEach(function(item) {
+          var s = 0;
+          for (var j = 1; j < cols.length; j++) { if (cols[j].h < cols[s].h) s = j; }
+          cols[s].h += measure(item);
+          cols[s].items.push(item);
+        });
+        // within each column, restore original DOM order
+        cols.forEach(function(col) {
+          col.items.sort(function(a, b) { return (+a.dataset.order) - (+b.dataset.order); });
+          col.items.forEach(function(item) { col.el.appendChild(item); });
         });
       }
-      // Re-run after each image loads (heights change as images decode)
-      function relayout() { current = 0; layout(); }
+
+      function relayout() { layout(); }
       items.forEach(function(item) {
         var img = item.querySelector('img');
         if (img && !img.complete) img.addEventListener('load', relayout);
@@ -195,7 +203,7 @@
       layout();
       window.addEventListener('load', relayout);
       var t;
-      window.addEventListener('resize', function() { clearTimeout(t); t = setTimeout(function(){ current = 0; layout(); }, 150); });
+      window.addEventListener('resize', function() { clearTimeout(t); t = setTimeout(layout, 150); });
     })();
   </script>
 
